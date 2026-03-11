@@ -546,6 +546,7 @@
     <!-- ══════ TAB 1: WHAT IS AI ══════ -->
     <div class="tab-panel active" id="what-is-ai">
 
+
       <p class="sec-kicker">Foundations</p>
       <h2 class="sec-title">What is AI and how does it <em>work?</em></h2>
 
@@ -653,10 +654,12 @@
         <div class="cell"><div class="cell-label">Term</div><h3>Inference</h3><p>The process of using a trained model to generate a response. Every time you send a message to Copilot or ChatGPT, the model runs an inference step.</p></div>
         <div class="cell"><div class="cell-label">Term</div><h3>Prompt</h3><p>The input you provide to an AI model — a question, instruction, or context. The quality and specificity of the prompt is the single biggest factor in the quality of the output.</p></div>
       </div>
+    
     </div>
 
     <!-- ══════ TAB 2: CRITICAL EVALUATION ══════ -->
     <div class="tab-panel" id="critical-eval">
+
 
       <div class="callout callout-rose mb-3">
         <strong>Why this matters for staff</strong>
@@ -714,65 +717,33 @@
         <span class="scenario-label">Classroom Prompt</span>
         <p>Ask students to use an AI tool to research a topic they already know well — a subject they've studied, a local event, a sport they follow. Ask them to find one thing the AI got wrong, one thing it oversimplified, and one thing it got right. The exercise builds critical evaluation habits far more effectively than a lecture about hallucinations.</p>
       </div>
-    </div>
-
-
-      <!-- MCQ: Hallucinations -->
+      <!-- MCQ -->
       <div class="mcq-block mt-4">
         <div class="mcq-header">
           <div class="mcq-icon">?</div>
           <span class="mcq-header-title">Check Your Understanding</span>
-          <span class="mcq-header-sub">Hallucinations &amp; Critical Evaluation — 3 questions</span>
+          <span class="mcq-header-sub">Hallucinations &amp; Critical Evaluation</span>
         </div>
-
         <div class="mcq-q">
-          <div class="mcq-question">1. A colleague uses ChatGPT to draft a school report and it includes a statistic: "Research shows 73% of pupils learn better with background music." This sounds plausible. What is the most important next step?</div>
+          <div class="mcq-question">A colleague drafts a school report using ChatGPT. It includes: "Research shows 73% of pupils learn better with background music." What is the most important next step?</div>
           <div class="mcq-options">
             <button class="mcq-opt" onclick="mcqAnswer(this,'h1',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Share it — if the AI generated it with confidence, it is likely accurate</span></button>
             <button class="mcq-opt" onclick="mcqAnswer(this,'h1',true)" data-correct="true"><span class="mcq-letter">B</span><span class="mcq-opt-text">Verify the statistic against a named, traceable source before using it</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h1',false)" data-correct="false"><span class="mcq-letter">C</span><span class="mcq-opt-text">Remove the statistic — AI-generated numbers are always fabricated</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'h1',false)" data-correct="false"><span class="mcq-letter">C</span><span class="mcq-opt-text">Remove it — AI-generated numbers are always fabricated</span></button>
             <button class="mcq-opt" onclick="mcqAnswer(this,'h1',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">Ask the AI to confirm whether the statistic is real</span></button>
           </div>
           <div class="mcq-explain">
-            <div class="mcq-explain-result ok">Correct — B is the right answer</div>
-            <p>AI models do not retrieve facts from verified databases — they predict statistically plausible text. A confidently stated figure is not evidence of accuracy. <strong>The only reliable check is tracing the claim to a named, verifiable source.</strong> Option C is too absolute — some AI-generated content is accurate — but accuracy can never be assumed. Option D is particularly risky: asking the AI to confirm its own output compounds the problem, since it may simply restate the hallucination more confidently.</p>
-          </div>
-          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
-        </div>
-
-        <div class="mcq-q">
-          <div class="mcq-question">2. In 2023, lawyer Steven Schwartz submitted a legal brief citing ChatGPT-generated court cases. What made this case significant?</div>
-          <div class="mcq-options">
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h2',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">The AI cases were real but misquoted — showing AI summarises poorly</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h2',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">The AI invented the cases, but Schwartz knew this and submitted them anyway</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h2',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">The AI invented entirely fictitious cases with convincing detail — and Schwartz did not verify them before submitting</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h2',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">It showed AI cannot produce legal writing at all</span></button>
-          </div>
-          <div class="mcq-explain">
-            <div class="mcq-explain-result ok">Correct — C is right</div>
-            <p>ChatGPT generated six completely fabricated court cases — complete with realistic case names, judges, rulings, and legal reasoning. <strong>Schwartz did not verify them because the output looked authoritative.</strong> When challenged by the court, he asked ChatGPT whether the cases were real and it confirmed they were — a second hallucination compounding the first. The case became a landmark example of why professional verification cannot be delegated to the tool that produced the content.</p>
-          </div>
-          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
-        </div>
-
-        <div class="mcq-q">
-          <div class="mcq-question">3. Which of these is the most reliable way to reduce the risk of acting on a hallucinated AI response?</div>
-          <div class="mcq-options">
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h3',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Use only the newest, most advanced AI model available</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h3',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">Ask the AI to add a confidence rating to each claim it makes</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h3',false)" data-correct="false"><span class="mcq-letter">C</span><span class="mcq-opt-text">Only use AI for creative tasks, never factual ones</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'h3',true)" data-correct="true"><span class="mcq-letter">D</span><span class="mcq-opt-text">Treat every specific factual claim as unverified until you have checked it against an independent source</span></button>
-          </div>
-          <div class="mcq-explain">
-            <div class="mcq-explain-result ok">Correct — D is right</div>
-            <p><strong>All current AI language models hallucinate — including the most advanced ones.</strong> Confidence ratings generated by AI are themselves AI outputs and carry no special reliability. Restricting AI to creative tasks entirely is unnecessarily limiting. The only sound professional approach is to treat factual claims — especially specific statistics, citations, names, and dates — as unverified by default, and check them independently before use in any professional document.</p>
+            <div class="mcq-explain-result ok">Correct — B is right</div>
+            <p>AI models predict plausible text — they do not retrieve verified facts. A confidently stated figure is not evidence of accuracy. <strong>The only reliable check is tracing the claim to a named, verifiable source.</strong> Option C is too absolute — some AI content is accurate, but accuracy can never be assumed. Option D is particularly dangerous: asking the AI to verify its own output often produces a second, more confident hallucination.</p>
           </div>
           <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
         </div>
       </div>
+    </div>
 
     <!-- ══════ TAB 3: DATA & BIAS ══════ -->
     <div class="tab-panel" id="data-bias">
+
 
       <p class="body-text">AI systems learn from data, and data is a record of the world as it has been — not as it should be. Historical inequalities, underrepresentation, and human labelling errors are all absorbed into AI models and can be reproduced, sometimes amplified, in their outputs.</p>
 
@@ -857,65 +828,33 @@
         <strong>Questions to Ask About Any AI Tool Used in School</strong>
         Who collected the training data and from where? Which groups are represented in it, and which are not? Has the tool been tested for equitable performance across different student demographics? Who is accountable if the tool produces harmful outputs?
       </div>
-    </div>
-
-
-      <!-- MCQ: Bias -->
-      <div class="mcq-block" style="margin-top:2rem">
+      <!-- MCQ -->
+      <div class="mcq-block mt-4">
         <div class="mcq-header">
           <div class="mcq-icon" style="background:var(--violet)">?</div>
           <span class="mcq-header-title">Check Your Understanding</span>
-          <span class="mcq-header-sub">Data &amp; Bias — 3 questions</span>
+          <span class="mcq-header-sub">Data &amp; Bias</span>
         </div>
-
         <div class="mcq-q">
-          <div class="mcq-question">1. Amazon's hiring algorithm, trained on a decade of CVs, consistently downgraded applications from women. What type of bias best explains this?</div>
+          <div class="mcq-question">A school is considering an AI tool to identify pupils "at risk" of disengagement. Which question is most important to ask before deployment?</div>
           <div class="mcq-options">
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Algorithmic bias — the engineers deliberately coded a preference for male candidates</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',true)" data-correct="true"><span class="mcq-letter">B</span><span class="mcq-opt-text">Historical bias — the training data reflected a decade of male-dominated tech hiring, which the model learned as a pattern to replicate</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">C</span><span class="mcq-opt-text">Representation bias — the algorithm was tested only on male candidates before deployment</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">Label bias — human labellers rated women's CVs lower during training data annotation</span></button>
-          </div>
-          <div class="mcq-explain">
-            <div class="mcq-explain-result ok">Correct — B is right</div>
-            <p>The algorithm was trained on CVs submitted to Amazon over ten years — a period when tech hiring was heavily male-dominated. <strong>The model learned that maleness correlated with success and used it as a signal.</strong> This is historical bias: the data accurately reflected past hiring practices, but those practices encoded discrimination. The algorithm had no explicit instruction to discriminate — it inferred the preference from patterns in the data. Amazon scrapped the tool in 2018 when the bias was discovered.</p>
-          </div>
-          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
-        </div>
-
-        <div class="mcq-q">
-          <div class="mcq-question">2. The COMPAS recidivism algorithm, used in US courts to predict reoffending, was found to have error rates that differed significantly by race. What is the most important implication for using AI in high-stakes decisions?</div>
-          <div class="mcq-options">
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b2',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">AI should never be used in any decision that affects individuals</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b2',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">The algorithm was designed by people who were deliberately biased</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b2',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">Apparently neutral, data-driven systems can embed and amplify discrimination — independent auditing and human oversight are essential</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b2',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">The problem was unique to the criminal justice system and does not apply to education contexts</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Which company built it and how much does it cost?</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">Has it been tested at a school with similar demographics to ours?</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">What data was it trained on, which pupil groups are over- or under-represented, and has it been independently audited for equitable performance?</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'b1',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">Does it integrate with our existing management information system?</span></button>
           </div>
           <div class="mcq-explain">
             <div class="mcq-explain-result ok">Correct — C is right</div>
-            <p>The COMPAS case (reported by ProPublica in 2016) showed that an algorithm presented as objective could produce racially disparate outcomes — falsely flagging Black defendants as higher risk at nearly twice the rate of white defendants. <strong>The system appeared neutral because it used data, not explicit racial categories.</strong> The lesson for schools: AI tools used for pupil assessment, setting, or support must be scrutinised for differential outcomes across groups. "Data-driven" is not a synonym for fair.</p>
-          </div>
-          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
-        </div>
-
-        <div class="mcq-q">
-          <div class="mcq-question">3. A school is considering using an AI tool to identify pupils "at risk" of disengagement. Which question is most important to ask before deployment?</div>
-          <div class="mcq-options">
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b3',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Which company built it and how much does it cost?</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b3',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">Has it been tested at a school with similar demographics to ours?</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b3',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">What data was it trained on, which pupil groups are over- or under-represented, and has it been independently audited for equitable performance?</span></button>
-            <button class="mcq-opt" onclick="mcqAnswer(this,'b3',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">Does it integrate with our existing management information system?</span></button>
-          </div>
-          <div class="mcq-explain">
-            <div class="mcq-explain-result ok">Correct — C is the most important question</div>
-            <p>Cost and integration matter for procurement, and contextual testing (B) is useful — but neither addresses the fundamental risk: <strong>the model may have learned to associate certain demographic characteristics with disengagement, producing biased flags.</strong> Pupils incorrectly identified as at-risk may receive inappropriate interventions; those missed may be overlooked. The DfE's own guidance asks schools to consider who collected the training data, which groups are represented, and who is accountable if the tool produces harmful outputs. Independent auditing is the only way to surface differential error rates before they affect real pupils.</p>
+            <p>Cost and integration matter for procurement, but neither addresses the fundamental risk: <strong>the model may have learned to associate demographic characteristics with disengagement, producing biased flags.</strong> Pupils incorrectly identified as at-risk may receive inappropriate interventions; those missed may be overlooked. The DfE's guidance asks schools to consider who collected the training data, which groups are represented, and who is accountable if the tool produces harmful outputs.</p>
           </div>
           <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
         </div>
       </div>
+    </div>
 
     <!-- ══════ TAB 4: ETHICS ══════ -->
     <div class="tab-panel" id="ethics">
+
 
       <div class="cell-grid cell-grid-2 mb-3">
         <div class="cell">
@@ -979,10 +918,33 @@
         <p><strong>The situation:</strong> A teacher uses ChatGPT to draft a set of written reports for a Year 10 class. They review them briefly, change a few names, and send them to parents without deeper editing. One report contains a factual error about a student's performance; another uses language a parent finds patronising. A third inadvertently reflects a cultural assumption that the family finds offensive.<br><br>
         <strong>Discussion questions:</strong> Who is responsible for each of these outcomes? At what point did the error become the teacher's error? What policy would your department need in order to use AI tools in report writing responsibly? What would you want to be told if AI had produced a report about your own child?</p>
       </div>
+      <!-- MCQ -->
+      <div class="mcq-block mt-4">
+        <div class="mcq-header">
+          <div class="mcq-icon" style="background:var(--amber)">?</div>
+          <span class="mcq-header-title">Check Your Understanding</span>
+          <span class="mcq-header-sub">Ethics &amp; Responsible Use</span>
+        </div>
+        <div class="mcq-q">
+          <div class="mcq-question">A teacher uses ChatGPT to write Year 10 reports, briefly reviews them, and sends them to parents. One contains a factual error about a pupil's performance. Who is responsible?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="mcqAnswer(this,'e1',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">OpenAI, as the provider of the tool that generated the error</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'e1',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">The school, for not having a clear policy on AI use in reports</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'e1',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">The teacher — content shared under your professional name is your responsibility regardless of how it was produced</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'e1',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">No one — errors are an accepted risk of using AI tools</span></button>
+          </div>
+          <div class="mcq-explain">
+            <div class="mcq-explain-result ok">Correct — C is right</div>
+            <p><strong>Professional responsibility does not transfer to the tool.</strong> An AI error that passes through your hands without adequate review is still your error — professionally and reputationally. This is why AI should assist professional judgement, not replace it. A brief review is not sufficient when the output concerns individual pupils by name; each report needs to be read with the same care you would apply to one you had written yourself.</p>
+          </div>
+          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
+        </div>
+      </div>
     </div>
 
     <!-- ══════ TAB 5: PRIVACY & SECURITY ══════ -->
     <div class="tab-panel" id="privacy">
+
 
       <div class="callout callout-rose mb-3">
         <strong>School Legal Obligation</strong>
@@ -1064,7 +1026,28 @@
           </div>
         </details>
       </div>
-
+      <!-- MCQ -->
+      <div class="mcq-block mt-4">
+        <div class="mcq-header">
+          <div class="mcq-icon" style="background:var(--teal)">?</div>
+          <span class="mcq-header-title">Check Your Understanding</span>
+          <span class="mcq-header-sub">Privacy &amp; Security</span>
+        </div>
+        <div class="mcq-q">
+          <div class="mcq-question">A member of staff wants to use ChatGPT to draft a letter about a pupil's SEND support plan, replacing the pupil's name with "Pupil A". Is this acceptable under UK GDPR?</div>
+          <div class="mcq-options">
+            <button class="mcq-opt" onclick="mcqAnswer(this,'p1',false)" data-correct="false"><span class="mcq-letter">A</span><span class="mcq-opt-text">Yes — removing the name means no personal data is being shared</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'p1',false)" data-correct="false"><span class="mcq-letter">B</span><span class="mcq-opt-text">Yes — ChatGPT is widely used in education so it is implicitly approved</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'p1',true)" data-correct="true"><span class="mcq-letter">C</span><span class="mcq-opt-text">Potentially not — SEND details combined with year group, subject, and school context may still be re-identifiable, and free-tier tools lack the data protection agreements required for sensitive data</span></button>
+            <button class="mcq-opt" onclick="mcqAnswer(this,'p1',false)" data-correct="false"><span class="mcq-letter">D</span><span class="mcq-opt-text">No — no AI tool may ever be used for tasks involving pupils</span></button>
+          </div>
+          <div class="mcq-explain">
+            <div class="mcq-explain-result ok">Correct — C is right</div>
+            <p>Removing a name does not automatically anonymise data. <strong>SEND details, year group, subject, and school context in combination can re-identify an individual</strong> — particularly in a small cohort. UK GDPR requires a lawful basis for processing special category data (which SEND records are), and a Data Processing Agreement with any third-party processor. Free-tier ChatGPT has no such agreement with your school. The safer approach is to use school Microsoft 365 Copilot, which operates within your existing Microsoft data processing agreement, or to keep all content fully generic with no contextual details.</p>
+          </div>
+          <button class="mcq-reset" onclick="mcqReset(this)">Try again</button>
+        </div>
+      </div>
     </div>
 
   </div><!-- /content -->
@@ -1077,6 +1060,7 @@
       <a href="prompt-generator.html">Prompts</a>
       <a href="microsoft.html">Microsoft</a>
       <a href="digital-safety.html">Safety</a>
+      <a href="policy.html">National Policy</a>
     </div>
   </footer>
 
