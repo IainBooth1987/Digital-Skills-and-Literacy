@@ -172,11 +172,12 @@ footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
 .pm-row-text strong{color:#111;font-weight:700}
 .pm-footer{padding:.85rem 1.75rem;border-top:1px solid #eee;font-size:.68rem;color:#aaa;display:flex;justify-content:space-between;align-items:center}
 @media print{
-  .print-modal-overlay{position:static!important;background:none!important;padding:0!important;display:block!important}
-  .print-modal{box-shadow:none!important;max-height:none!important;border-radius:0!important;border:none!important}
-  .pm-head{position:static!important}
-  .pm-actions{display:none!important}
-  .print-modal-overlay *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body > *:not(.print-modal-overlay){ display:none!important; }
+  .print-modal-overlay{ position:static!important; background:none!important; padding:0!important; display:block!important; }
+  .print-modal{ box-shadow:none!important; max-height:none!important; border-radius:0!important; border:none!important; width:100%!important; }
+  .pm-head{ position:static!important; }
+  .pm-actions{ display:none!important; }
+  .print-modal-overlay *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
 
 </style>
@@ -221,7 +222,7 @@ footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
 <div class="cal ro"><strong>Why this matters</strong>Phishing is the most common route into school systems. A single click on a malicious link can trigger a ransomware attack affecting the entire network. Schools have lost weeks of data and faced significant financial costs as a result.</div>
 <div class="bento">
   <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-rose">Red flag</span><h3>Urgency &amp; pressure</h3><p>Phishing emails create artificial urgency to bypass your critical thinking. "Your account will be deleted in 24 hours", "Immediate action required", "Final warning".</p><ul><li>Legitimate services rarely demand instant action by email</li><li>Urgent emails from IT, HR, or "management" are a classic vector</li><li>When in doubt, phone the sender directly using a known number — not the one in the email</li></ul></div>
-  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-rose">Red flag</span><h3>Suspicious sender address</h3><p>The display name can say anything — the real email address is what matters. Hover over the sender name before clicking anything.</p><ul><li><code>it-support@sch00l.org.uk</code> — note the zero instead of letter o</li><li><code>payroll@school.org.uk.malicious.com</code> — the real domain is after the last dot</li><li>A spoofed colleague name is easy to fake — check the actual address</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-rose">Red flag</span><h3>Suspicious sender address</h3><p>The display name can say anything — the real email address is what matters. Hover over the sender name before clicking anything.</p><ul><li><code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="670e134a141217170815132714040f57570b4908150049120c">[email&#160;protected]</a></code> — note the zero instead of letter o</li><li><code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec9c8d959e838080ac9f8f84838380c2839e8bc29987c2818d80858f8583999fc28f8381">[email&#160;protected]</a></code> — the real domain is after the last dot</li><li>A spoofed colleague name is easy to fake — check the actual address</li></ul></div>
   <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-rose">Red flag</span><h3>Unexpected attachments</h3><p>Malicious files often disguise themselves as PDFs, Word documents, or ZIP files. Opening them can install software silently.</p><ul><li>Were you expecting this attachment?</li><li>Hover over links — does the URL match the claimed destination?</li><li>.exe, .zip, .docm files are particularly high risk</li></ul></div>
   <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-amber">Technique</span><h3>Spear phishing</h3><p>Targeted attacks use your name, your school, and real context to appear convincing. More sophisticated than generic spam.</p><ul><li>Uses publicly available information: school website, LinkedIn, social media</li><li>May reference real events, colleagues, or systems</li><li>Increasingly difficult to distinguish from genuine messages</li></ul></div>
   <div class="cell"><div class="cell-n">5</div><span class="cell-tag ct-amber">Technique</span><h3>Credential harvesting</h3><p>Fake login pages that look identical to Microsoft 365, Google, or your school portal — designed to capture your username and password.</p><ul><li>Always check the URL before entering credentials</li><li>Genuine Microsoft sign-in: login.microsoftonline.com</li><li>Multi-factor authentication stops stolen credentials being used</li></ul></div>
@@ -473,7 +474,7 @@ SUBJECT ACCESS REQUESTS
   <p>Digital Skills &amp; Literacy — Staff Resource</p>
   <div class="fl"><a href="index.html">Home</a><a href="ai-literacy.html">Understanding AI</a><a href="prompt-generator.html">Prompts</a><a href="microsoft.html">Microsoft</a><a href="digital-safety.html">Safety</a><a href="policy.html">National Policy</a></div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function sw(id){
   document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('act'));
@@ -508,8 +509,19 @@ function closePrintModal(id){
   document.body.style.overflow='';
 }
 function printModal(id){
-  document.getElementById(id).classList.add('open');
-  setTimeout(()=>window.print(),300);
+  const overlay=document.getElementById(id);
+  overlay.style.background='none';
+  overlay.style.padding='0';
+  overlay.style.alignItems='flex-start';
+  overlay.classList.add('open');
+  setTimeout(()=>{
+    window.print();
+    setTimeout(()=>{
+      overlay.style.background='';
+      overlay.style.padding='';
+      overlay.style.alignItems='';
+    },500);
+  },400);
 }
 </script>
 
@@ -552,12 +564,4 @@ function printModal(id){
         <div class="pm-row"><div class="pm-dot" style="background:#7C3AED"></div><div class="pm-row-text">Use school OneDrive/SharePoint — not personal Dropbox or Google Drive.</div></div>
         <div class="pm-row"><div class="pm-dot" style="background:#7C3AED"></div><div class="pm-row-text">Breach? Tell your DPO immediately — 72-hour window to report to the ICO.</div></div>
       </div>
-    </div>
-    <div class="pm-footer" style="padding:.9rem 1.75rem;border-top:1px solid #eee;display:flex;justify-content:space-between;font-family:var(--fh,inherit);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#aaa">
-      <span>Digital Safety &amp; Wellbeing</span><span>Staff Resource</span>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+    <

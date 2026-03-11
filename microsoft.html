@@ -183,11 +183,12 @@ footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
 .pm-row-text strong{color:#111;font-weight:700}
 .pm-footer{padding:.85rem 1.75rem;border-top:1px solid #eee;font-size:.68rem;color:#aaa;display:flex;justify-content:space-between;align-items:center}
 @media print{
-  .print-modal-overlay{position:static!important;background:none!important;padding:0!important;display:block!important}
-  .print-modal{box-shadow:none!important;max-height:none!important;border-radius:0!important;border:none!important}
-  .pm-head{position:static!important}
-  .pm-actions{display:none!important}
-  .print-modal-overlay *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body > *:not(.print-modal-overlay){ display:none!important; }
+  .print-modal-overlay{ position:static!important; background:none!important; padding:0!important; display:block!important; }
+  .print-modal{ box-shadow:none!important; max-height:none!important; border-radius:0!important; border:none!important; width:100%!important; }
+  .pm-head{ position:static!important; }
+  .pm-actions{ display:none!important; }
+  .print-modal-overlay *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
 
 
@@ -1162,6 +1163,31 @@ function resetCoach(){
   document.getElementById('ppt-s1').style.display='none';
   document.getElementById('ppt-s2').style.display='none';
 }
+// ── PRINT MODAL ──
+function openPrintModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePrintModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+function printModal(id){
+  const overlay=document.getElementById(id);
+  overlay.style.background='none';
+  overlay.style.padding='0';
+  overlay.style.alignItems='flex-start';
+  overlay.classList.add('open');
+  setTimeout(()=>{
+    window.print();
+    setTimeout(()=>{
+      overlay.style.background='';
+      overlay.style.padding='';
+      overlay.style.alignItems='';
+    },500);
+  },400);
+}
+
 // init on load
 document.addEventListener('DOMContentLoaded',buildXL);
 </script>
