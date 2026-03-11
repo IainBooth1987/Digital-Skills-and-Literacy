@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Skills & Literacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0D0D12;
+      --ink-2:      #1C1C2A;
+      --cream:      #F5F2EC;
+      --warm-white: #FDFCF9;
+      --muted:      #888898;
+      --border:     #E4E1D8;
+      --blue:       #2563EB;
+      --teal:       #0D9488;
+      --amber:      #D97706;
+      --rose:       #E11D48;
+      --violet:     #7C3AED;
+      --font-head:  'Syne', sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-body:  'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px;
+      display: flex; align-items: center;
+      padding: 0 2.5rem; gap: 2rem;
+      background: rgba(13,13,18,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand {
+      font-family: var(--font-head); font-weight: 700; font-size: 1rem;
+      color: #fff; text-decoration: none; letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .nav-brand span { color: #60A5FA; }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      padding: 0.3rem 0.65rem; border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(255,255,255,0.09); }
+    @media (max-width: 700px) { .nav-links { display: none; } }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 5rem;
+      position: relative; overflow: hidden;
+      padding-top: 60px;
+    }
+
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); pointer-events: none;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 600px; height: 600px; background: rgba(37,99,235,0.16); top: -150px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 400px; height: 400px; background: rgba(124,58,237,0.10); top: 250px; left: -80px; animation-delay: -5s; }
+    .orb-3 { width: 320px; height: 320px; background: rgba(13,148,136,0.09); bottom: 50px; right: 25%; animation-delay: -9s; }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(28px,-18px) scale(1.07); }
+    }
+
+    /* dot-grid texture */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      padding: 0 4rem;
+      max-width: 1200px;
+    }
+    @media (max-width: 700px) { .hero-inner { padding: 0 1.5rem; } }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-head); font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #60A5FA; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 32px; height: 1px; background: #60A5FA;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3.8rem, 10vw, 9rem);
+      font-weight: 800; line-height: 0.92;
+      color: #fff; letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.85s 0.35s ease forwards;
+    }
+    .hero-title .serif-line {
+      font-family: var(--font-serif);
+      font-weight: 400; font-style: italic;
+      color: #93C5FD; letter-spacing: -0.01em;
+    }
+
+    .hero-bottom {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.85s 0.5s ease forwards;
+    }
+    .hero-desc {
+      font-size: 0.95rem; color: rgba(255,255,255,0.45);
+      max-width: 380px; line-height: 1.7;
+    }
+    .hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; }
+    .hero-stat .num {
+      font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
+      color: #fff; line-height: 1; display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-top: 0.3rem;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      background: #2563EB; color: #fff;
+      font-family: var(--font-head); font-size: 0.82rem;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.9rem 1.8rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .hero-cta:hover {
+      background: #1D4ED8; transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(37,99,235,0.45);
+    }
+    .hero-cta .arrow { transition: transform 0.2s; font-style: normal; }
+    .hero-cta:hover .arrow { transform: translateX(5px); }
+
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 4rem;
+      display: flex; align-items: center; gap: 0.7rem;
+      font-family: var(--font-head); font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      opacity: 0; animation: fadeUp 1s 1.1s ease forwards;
+    }
+    .scroll-line {
+      width: 44px; height: 1px; background: rgba(255,255,255,0.15);
+      position: relative; overflow: hidden;
+    }
+    .scroll-line::after {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 44px; height: 100%; background: rgba(255,255,255,0.5);
+      animation: scan 2.2s ease-in-out infinite;
+    }
+    @keyframes scan { 0%,100%{transform:translateX(-100%)} 50%{transform:translateX(100%)} }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ─── DIAGONAL BREAK ─── */
+    .diag {
+      height: 72px; background: var(--ink);
+      clip-path: polygon(0 0,100% 0,100% 100%,0 35%);
+      margin-bottom: -1px;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee {
+      background: var(--ink); overflow: hidden;
+      padding: 0.9rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: scroll 28s linear infinite;
+    }
+    .marquee-track span {
+      font-family: var(--font-head); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); white-space: nowrap;
+      padding-right: 3rem; display: inline-flex; align-items: center; gap: 3rem;
+    }
+    .dot { color: #2563EB; }
+    @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ─── MODULES ─── */
+    .modules {
+      background: var(--cream);
+      padding: 5.5rem 4rem 6rem;
+    }
+    @media (max-width: 700px) { .modules { padding: 3rem 1.5rem 4rem; } }
+
+    .sec-hd {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .sec-kicker {
+      font-family: var(--font-head); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--blue); display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+    .sec-kicker::before { content:''; width:22px; height:1px; background:var(--blue); display:block; }
+    .sec-title {
+      font-family: var(--font-head); font-size: clamp(1.9rem,3.5vw,2.9rem);
+      font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; color: var(--ink);
+    }
+    .sec-title em { font-family: var(--font-serif); font-weight:400; font-style:italic; }
+    .sec-count {
+      font-family: var(--font-head); font-size: 5rem; font-weight: 800;
+      color: var(--border); line-height: 1; letter-spacing: -0.04em; flex-shrink:0;
+    }
+
+    /* Bento grid */
+    .bento {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.1rem;
+    }
+    @media (max-width: 860px) { .bento { grid-template-columns: 1fr; } }
+
+    .bcard {
+      border-radius: 22px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      padding: 2rem 2rem 1.75rem;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
+    }
+    .bcard:hover {
+      transform: translateY(-5px) scale(1.012);
+      box-shadow: 0 28px 64px rgba(13,13,18,0.13);
+    }
+    /* colour wash on hover */
+    .bcard::after {
+      content: '';
+      position: absolute; inset: 0; border-radius: 22px;
+      opacity: 0; transition: opacity 0.35s; pointer-events: none;
+    }
+    .bcard:hover::after { opacity: 1; }
+    .bcard.ac-blue::after   { background: radial-gradient(ellipse at top left, rgba(37,99,235,0.08), transparent 65%); }
+    .bcard.ac-violet::after { background: radial-gradient(ellipse at top left, rgba(124,58,237,0.08), transparent 65%); }
+    .bcard.ac-teal::after   { background: radial-gradient(ellipse at top left, rgba(13,148,136,0.08), transparent 65%); }
+    .bcard.ac-rose::after   { background: radial-gradient(ellipse at top left, rgba(225,29,72,0.08), transparent 65%); }
+    .bcard.ac-amber::after  { background: radial-gradient(ellipse at top left, rgba(217,119,6,0.08), transparent 65%); }
+
+    /* big decorative number */
+    .bcard-bg-num {
+      position: absolute; right: 1.5rem; bottom: -0.5rem;
+      font-family: var(--font-head); font-size: 7rem; font-weight: 800;
+      color: rgba(0,0,0,0.04); line-height: 1; pointer-events: none; z-index: 0;
+      transition: color 0.3s;
+    }
+    .bcard:hover .bcard-bg-num { color: rgba(0,0,0,0.07); }
+
+    .bcard-inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+
+    .bcard.tall { grid-row: span 2; min-height: 400px; }
+
+    .bcard-icon {
+      width: 50px; height: 50px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.45rem; margin-bottom: 1.4rem; flex-shrink: 0;
+    }
+    .ic-blue   { background: #DBEAFE; }
+    .ic-violet { background: #EDE9FE; }
+    .ic-teal   { background: #CCFBF1; }
+    .ic-rose   { background: #FFE4E8; }
+    .ic-amber  { background: #FEF3C7; }
+
+    .bcard-num {
+      font-family: var(--font-head); font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .bcard h2 {
+      font-family: var(--font-head); font-size: 1.3rem; font-weight: 700;
+      letter-spacing: -0.015em; color: var(--ink); line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+    .bcard.tall h2 { font-size: 1.85rem; }
+    .bcard p { font-size: 0.84rem; color: #66666E; line-height: 1.62; flex: 1; }
+
+    .bcard-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+    .btag {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.04em;
+      padding: 0.2rem 0.6rem; border-radius: 100px;
+      background: var(--cream); color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .bcard-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 1.5rem; padding-top: 1.1rem;
+      border-top: 1px solid var(--border);
+    }
+    .bcard-label {
+      font-family: var(--font-head); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+    }
+    .bcard-arrow {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: var(--ink); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; transition: transform 0.2s, background 0.2s;
+    }
+    .bcard:hover .bcard-arrow { transform: rotate(-42deg); }
+    .bcard.ac-blue:hover   .bcard-arrow { background: var(--blue);   }
+    .bcard.ac-violet:hover .bcard-arrow { background: var(--violet); }
+    .bcard.ac-teal:hover   .bcard-arrow { background: var(--teal);   }
+    .bcard.ac-rose:hover   .bcard-arrow { background: var(--rose);   }
+    .bcard.ac-amber:hover  .bcard-arrow { background: var(--amber);  }
+
+    /* ─── TIPS ─── */
+    .tips {
+      background: var(--ink);
+      padding: 5.5rem 4rem 6rem;
+    }
+    @media (max-width: 700px) { .tips { padding: 3rem 1.5rem 4rem; } }
+    .tips .sec-kicker { color: #60A5FA; }
+    .tips .sec-kicker::before { background: #60A5FA; }
+    .tips .sec-title { color: #fff; }
+    .tips .sec-title em { color: #93C5FD; }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px; overflow: hidden;
+      margin-top: 3rem;
+    }
+    @media (max-width: 800px) { .tips-grid { grid-template-columns: 1fr; } }
+
+    .tcell {
+      background: #141420; padding: 1.75rem;
+      position: relative; overflow: hidden;
+      transition: background 0.2s;
+    }
+    .tcell:hover { background: #1D1D30; }
+    .tcell-ghost {
+      position: absolute; right: 1rem; bottom: 0;
+      font-family: var(--font-head); font-size: 5rem; font-weight: 800;
+      color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+    }
+    .tcell-emoji { font-size: 1.6rem; margin-bottom: 0.9rem; display: block; }
+    .tcell h4 {
+      font-family: var(--font-head); font-size: 0.88rem; font-weight: 700;
+      color: #fff; margin-bottom: 0.4rem; letter-spacing: -0.01em;
+    }
+    .tcell p { font-size: 0.79rem; color: rgba(255,255,255,0.38); line-height: 1.55; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #08080E;
+      padding: 2rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer p { font-size: 0.77rem; color: rgba(255,255,255,0.22); }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a {
+      font-size: 0.77rem; color: rgba(255,255,255,0.35);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .foot-links a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="index.html">Digital<span>Skills</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">🏠 Home</a></li>
+      <li><a href="ai-literacy.html">🤖 Understanding AI</a></li>
+      <li><a href="prompt-generator.html">✏️ Prompt Generator</a></li>
+      <li><a href="microsoft.html">💻 Microsoft Skills</a></li>
+      <li><a href="digital-safety.html">🔒 Digital Safety</a></li>
+      <li><a href="policy.html">📋 National Policy</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Staff Resource · 2024–25</p>
+      <h1 class="hero-title">
+        Digital<br>
+        <span class="serif-line">Skills</span> &amp;<br>
+        Literacy
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">A practical toolkit for teaching and support staff — covering AI literacy, Microsoft 365, digital safety, and responsible technology use.</p>
+        <div class="hero-right">
+          <div class="hero-stats">
+            <div class="hero-stat"><span class="num">5</span><div class="lbl">Modules</div></div>
+            <div class="hero-stat"><span class="num">40+</span><div class="lbl">Topics</div></div>
+            <div class="hero-stat"><span class="num">∞</span><div class="lbl">Self-paced</div></div>
+          </div>
+          <a class="hero-cta" href="#modules">Explore Modules <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- diagonal -->
+  <div class="diag"></div>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>AI Literacy <span class="dot">✦</span> Machine Learning <span class="dot">✦</span> Microsoft Copilot <span class="dot">✦</span> Digital Safety <span class="dot">✦</span> Prompt Engineering <span class="dot">✦</span> Data Privacy <span class="dot">✦</span> Teams &amp; Excel <span class="dot">✦</span> Responsible AI <span class="dot">✦</span> Cybersecurity <span class="dot">✦</span> Digital Wellbeing <span class="dot">✦</span></span>
+      <span>AI Literacy <span class="dot">✦</span> Machine Learning <span class="dot">✦</span> Microsoft Copilot <span class="dot">✦</span> Digital Safety <span class="dot">✦</span> Prompt Engineering <span class="dot">✦</span> Data Privacy <span class="dot">✦</span> Teams &amp; Excel <span class="dot">✦</span> Responsible AI <span class="dot">✦</span> Cybersecurity <span class="dot">✦</span> Digital Wellbeing <span class="dot">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ═══ MODULES ═══ -->
+  <section class="modules" id="modules">
+    <div class="sec-hd">
+      <div>
+        <p class="sec-kicker">Learning Modules</p>
+        <h2 class="sec-title">What would you<br>like to <em>explore?</em></h2>
+      </div>
+      <div class="sec-count">05</div>
+    </div>
+
+    <div class="bento">
+
+      <!-- Featured: AI -->
+      <a class="bcard tall ac-blue" href="ai-literacy.html">
+        <div class="bcard-bg-num">01</div>
+        <div class="bcard-inner">
+          <div class="bcard-icon ic-blue">🤖</div>
+          <div class="bcard-num">Module 01</div>
+          <h2>Understanding<br>Artificial Intelligence</h2>
+          <p>What AI and machine learning actually are, how models learn from data, how to critically evaluate outputs, the nature of hallucinations and bias, and the ethical responsibilities that come with using generative AI in an educational setting.</p>
+          <div class="bcard-tags">
+            <span class="btag">Machine Learning</span>
+            <span class="btag">Hallucinations</span>
+            <span class="btag">Bias & Fairness</span>
+            <span class="btag">Ethics</span>
+            <span class="btag">Privacy</span>
+            <span class="btag">Academic Integrity</span>
+          </div>
+          <div class="bcard-foot">
+            <span class="bcard-label">Explore Module</span>
+            <div class="bcard-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Prompt Generator -->
+      <a class="bcard ac-violet" href="prompt-generator.html">
+        <div class="bcard-bg-num">02</div>
+        <div class="bcard-inner">
+          <div class="bcard-icon ic-violet">✏️</div>
+          <div class="bcard-num">Module 02</div>
+          <h2>Prompt Generator</h2>
+          <p>Build effective AI prompts for teaching, planning, and admin. Learn what makes a great prompt and get the most from AI tools.</p>
+          <div class="bcard-tags">
+            <span class="btag">Prompt Craft</span>
+            <span class="btag">T&amp;L</span>
+            <span class="btag">Productivity</span>
+          </div>
+          <div class="bcard-foot">
+            <span class="bcard-label">Explore Module</span>
+            <div class="bcard-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Microsoft -->
+      <a class="bcard ac-teal" href="microsoft.html">
+        <div class="bcard-bg-num">03</div>
+        <div class="bcard-inner">
+          <div class="bcard-icon ic-teal">💻</div>
+          <div class="bcard-num">Module 03</div>
+          <h2>Microsoft 365 Skills</h2>
+          <p>Teams, Excel, Copilot, OneDrive, Outlook — shortcuts, walkthroughs, and practical tips for everyday school use.</p>
+          <div class="bcard-tags">
+            <span class="btag">Teams</span>
+            <span class="btag">Excel</span>
+            <span class="btag">Copilot</span>
+            <span class="btag">OneDrive</span>
+          </div>
+          <div class="bcard-foot">
+            <span class="bcard-label">Explore Module</span>
+            <div class="bcard-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Digital Safety -->
+      <a class="bcard ac-rose" href="digital-safety.html">
+        <div class="bcard-bg-num">04</div>
+        <div class="bcard-inner">
+          <div class="bcard-icon ic-rose">🔒</div>
+          <div class="bcard-num">Module 04</div>
+          <h2>Digital Safety & Wellbeing</h2>
+          <p>Phishing awareness, GDPR responsibilities, digital footprint, passwords, and wellbeing strategies for a healthier relationship with technology at work.</p>
+          <div class="bcard-tags">
+            <span class="btag">Phishing</span>
+            <span class="btag">GDPR</span>
+            <span class="btag">Passwords</span>
+            <span class="btag">Wellbeing</span>
+          </div>
+          <div class="bcard-foot">
+            <span class="bcard-label">Explore Module</span>
+            <div class="bcard-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- National Policy -->
+      <a class="bcard ac-amber" href="policy.html">
+        <div class="bcard-bg-num">05</div>
+        <div class="bcard-inner">
+          <div class="bcard-icon ic-amber">📋</div>
+          <div class="bcard-num">Module 05</div>
+          <h2>National Policy</h2>
+          <p>Key DfE and NCSC guidance every staff member should know — AI in education, data protection, KCSIE, cyber security standards, and more.</p>
+          <div class="bcard-tags">
+            <span class="btag">DfE</span>
+            <span class="btag">KCSIE</span>
+            <span class="btag">UK GDPR</span>
+            <span class="btag">NCSC</span>
+          </div>
+          <div class="bcard-foot">
+            <span class="bcard-label">Explore Module</span>
+            <div class="bcard-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══ TIPS ═══ -->
+  <section class="tips">
+    <div class="sec-hd">
+      <div>
+        <p class="sec-kicker">Quick Wins</p>
+        <h2 class="sec-title">Good habits to<br>start <em>today</em></h2>
+      </div>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tcell">
+        <span class="tcell-ghost">1</span>
+        <span class="tcell-emoji">🔍</span>
+        <h4>Fact-check AI outputs</h4>
+        <p>Never publish AI-generated content without verifying key claims. Confidence ≠ accuracy.</p>
+      </div>
+      <div class="tcell">
+        <span class="tcell-ghost">2</span>
+        <span class="tcell-emoji">🔐</span>
+        <h4>Strong, unique passwords</h4>
+        <p>Use a password manager. Never reuse passwords across work and personal accounts.</p>
+      </div>
+      <div class="tcell">
+        <span class="tcell-ghost">3</span>
+        <span class="tcell-emoji">☁️</span>
+        <h4>Save to OneDrive</h4>
+        <p>Files saved locally can be lost. OneDrive gives you version history and recovery.</p>
+      </div>
+      <div class="tcell">
+        <span class="tcell-ghost">4</span>
+        <span class="tcell-emoji">⚠️</span>
+        <h4>Never upload pupil data to AI</h4>
+        <p>Personal data about students must never be entered into public AI tools like ChatGPT.</p>
+      </div>
+      <div class="tcell">
+        <span class="tcell-ghost">5</span>
+        <span class="tcell-emoji">✉️</span>
+        <h4>Pause before you click</h4>
+        <p>Phishing emails create urgency. Always verify unexpected requests before acting.</p>
+      </div>
+      <div class="tcell">
+        <span class="tcell-ghost">6</span>
+        <span class="tcell-emoji">🧠</span>
+        <h4>Be transparent about AI</h4>
+        <p>If AI helped you create something, say so. Model good digital citizenship for students.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Digital Skills &amp; Literacy — Staff Resource</p>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="ai-literacy.html">Understanding AI</a>
+      <a href="prompt-generator.html">Prompts</a>
+      <a href="microsoft.html">Microsoft</a>
+      <a href="digital-safety.html">Safety</a>
+    </div>
+  </footer>
+
+</body>
+</html>

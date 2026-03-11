@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Digital Safety &amp; Wellbeing — Digital Skills &amp; Literacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D0D12;--ink-2:#141420;--ink-3:#1C1C2E;--ink-4:#22223A;
+  --blue:#2563EB;--blue-pale:#93C5FD;--blue-dim:#60A5FA;
+  --teal:#0D9488;--teal-pale:#5EEAD4;--teal-dim:rgba(13,148,136,.12);--teal-bdr:rgba(13,148,136,.28);
+  --violet:#7C3AED;--violet-pale:#C4B5FD;--violet-dim:rgba(124,58,237,.12);--violet-bdr:rgba(124,58,237,.28);
+  --amber:#D97706;--amber-pale:#FCD34D;--amber-dim:rgba(217,119,6,.12);--amber-bdr:rgba(217,119,6,.28);
+  --rose:#E11D48;--rose-pale:#FDA4AF;--rose-dim:rgba(225,29,72,.12);--rose-bdr:rgba(225,29,72,.28);
+  --green:#16A34A;--green-pale:#86EFAC;--green-dim:rgba(22,163,74,.12);--green-bdr:rgba(22,163,74,.25);
+  --border-dark:rgba(255,255,255,.07);--border-med:rgba(255,255,255,.13);
+  --muted:rgba(255,255,255,.35);--body-c:rgba(255,255,255,.55);
+  --fh:'Syne',sans-serif;--fs:'Instrument Serif',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;padding:0 2.5rem;gap:2rem;background:rgba(13,13,18,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-dark)}
+.nb{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;text-decoration:none;letter-spacing:.04em;flex-shrink:0}
+.nb span{color:var(--blue-dim)}
+.nl{display:flex;gap:.2rem;list-style:none}
+.nl a{font-size:.78rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.3rem .65rem;border-radius:6px;transition:all .15s}
+.nl a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nl a.act{color:var(--blue-dim);background:rgba(96,165,250,.1)}
+@media(max-width:760px){.nl{display:none}}
+.hero{min-height:44vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 4rem 4rem;position:relative;overflow:hidden}
+@media(max-width:700px){.hero{padding:90px 1.5rem 3rem}}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.o1{width:460px;height:460px;background:rgba(225,29,72,.1);top:-100px;right:-30px}
+.o2{width:260px;height:260px;background:rgba(124,58,237,.09);bottom:20px;left:20%;animation-delay:-6s}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(20px,-14px) scale(1.05)}}
+.dg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.042) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hi{position:relative;z-index:2;max-width:1100px}
+.hbc{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.24);margin-bottom:1.4rem;display:flex;gap:.5rem;opacity:0;animation:fu .6s .1s forwards}
+.hbc .c{color:var(--rose-pale)}
+.ht{font-family:var(--fh);font-size:clamp(2.6rem,7vw,6rem);font-weight:800;line-height:.93;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;opacity:0;animation:fu .75s .22s forwards}
+.ht .s{font-family:var(--fs);font-weight:400;font-style:italic;color:var(--rose-pale)}
+.hm{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;opacity:0;animation:fu .75s .38s forwards}
+.htag{background:var(--rose-dim);border:1px solid var(--rose-bdr);color:var(--rose-pale);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;border-radius:100px}
+.hdesc{font-size:.87rem;color:rgba(255,255,255,.36);max-width:500px;line-height:1.7}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mq{background:var(--rose);padding:.55rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.mqt{display:flex;gap:3rem;animation:mqs 32s linear infinite;white-space:nowrap}
+.mqt span{font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);flex-shrink:0}
+.mqt span::before{content:'·';margin-right:3rem}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wrap{max-width:1100px;margin:0 auto;padding:3.5rem 4rem 6rem}
+@media(max-width:700px){.wrap{padding:2rem 1.5rem 4rem}}
+.tr{display:flex;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;margin-bottom:2.5rem;flex-wrap:wrap}
+.tb{flex:1;min-width:110px;padding:.8rem .7rem;background:transparent;border:none;border-right:1px solid var(--border-dark);cursor:pointer;font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:all .15s;position:relative}
+.tb:last-child{border-right:none}
+.tb:hover{color:#fff;background:rgba(255,255,255,.05)}
+.tb.act{color:#fff;background:var(--rose-dim)}
+.tb.act::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--rose)}
+@media(max-width:700px){.tb{min-width:46%;font-size:.58rem;padding:.65rem .35rem}}
+.pn{display:none}.pn.act{display:block}
+/* BENTO GRID */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-dark);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+.bento.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.bento{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.bento,.bento.c2{grid-template-columns:1fr}}
+.cell{background:var(--ink-2);padding:1.5rem 1.7rem;position:relative;overflow:hidden;transition:background .18s}
+.cell:hover{background:var(--ink-3)}
+.cell.span2{grid-column:span 2}
+.cell-n{position:absolute;right:.7rem;bottom:-.5rem;font-family:var(--fh);font-size:4.5rem;font-weight:800;color:rgba(255,255,255,.024);line-height:1;pointer-events:none}
+.cell-tag{display:inline-flex;align-items:center;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:100px;margin-bottom:.65rem}
+.ct-rose{background:var(--rose-dim);color:var(--rose-pale);border:1px solid var(--rose-bdr);border-top:2px solid var(--rose)}
+.ct-amber{background:var(--amber-dim);color:var(--amber-pale);border:1px solid var(--amber-bdr);border-top:2px solid var(--amber)}
+.ct-teal{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr);border-top:2px solid var(--teal)}
+.ct-violet{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr);border-top:2px solid var(--violet)}
+.ct-green{background:var(--green-dim);color:var(--green-pale);border:1px solid var(--green-bdr);border-top:2px solid var(--green)}
+.ct-blue{background:rgba(96,165,250,.1);color:var(--blue-pale);border:1px solid rgba(96,165,250,.25);border-top:2px solid var(--blue-dim)}
+.cell h3{font-family:var(--fh);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.45rem;line-height:1.2}
+.cell p{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.65}
+.cell ul{list-style:none;margin-top:.6rem;display:flex;flex-direction:column;gap:.28rem}
+.cell li{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.5;display:flex;gap:.45rem}
+.cell li::before{content:'→';color:var(--rose);font-weight:700;flex-shrink:0;font-family:var(--fh)}
+.cell li.tl::before{color:var(--teal)}
+.cell li.am::before{color:var(--amber)}
+.cell li.vi::before{color:var(--violet)}
+/* SCENARIO TABLE */
+.scenario-t{width:100%;border-collapse:collapse;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.scenario-t th{background:var(--ink-3);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.85rem 1.1rem;text-align:left;border-bottom:1px solid var(--border-dark)}
+.scenario-t td{padding:.82rem 1.1rem;font-size:.82rem;color:rgba(255,255,255,.5);border-bottom:1px solid var(--border-dark);line-height:1.6;vertical-align:top}
+.scenario-t tr:last-child td{border-bottom:none}
+.scenario-t td:first-child{color:#fff;font-weight:500;font-family:var(--fh);font-size:.78rem}
+.scenario-t tr:hover td{background:rgba(255,255,255,.02)}
+.risk-high{color:var(--rose-pale);font-weight:600}
+.risk-med{color:var(--amber-pale)}
+.risk-low{color:var(--teal-pale)}
+/* ACCORDION */
+.acc{border:1px solid var(--border-dark);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.acc-item{border-bottom:1px solid var(--border-dark)}.acc-item:last-child{border-bottom:none}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.5rem;background:var(--ink-2);border:none;cursor:pointer;font-family:var(--fb);text-align:left;transition:background .15s}
+.acc-btn:hover{background:var(--ink-3)}
+.acc-btn-l{display:flex;align-items:center;gap:.75rem}
+.acc-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.65rem;font-weight:800;flex-shrink:0}
+.acc-title{font-family:var(--fh);font-size:.85rem;font-weight:700;color:#fff}
+.acc-chev{font-family:var(--fh);font-size:.7rem;font-weight:700;color:var(--muted);transition:transform .2s;flex-shrink:0}
+.acc-item.open .acc-chev{transform:rotate(90deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s}
+.acc-item.open .acc-body{max-height:600px;padding:1.25rem 1.5rem 1.25rem}
+.acc-body p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:.75rem}
+.acc-body p:last-child{margin-bottom:0}
+.acc-body strong{color:rgba(255,255,255,.72)}
+.acc-body ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;margin-top:.5rem}
+.acc-body li{font-size:.8rem;color:rgba(255,255,255,.45);display:flex;gap:.5rem;line-height:1.55}
+.acc-body li::before{content:'·';color:var(--rose);font-weight:800;font-size:1rem;line-height:1;flex-shrink:0}
+/* CALLOUT */
+.cal{border:1px solid var(--border-med);border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1.25rem;font-size:.82rem;line-height:1.65;color:rgba(255,255,255,.5)}
+.cal.ro{background:var(--rose-dim);border-color:var(--rose-bdr);border-left:3px solid var(--rose)}
+.cal.am{background:var(--amber-dim);border-color:var(--amber-bdr);border-left:3px solid var(--amber)}
+.cal.tl{background:var(--teal-dim);border-color:var(--teal-bdr);border-left:3px solid var(--teal)}
+.cal strong{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.05em;display:block;margin-bottom:.3rem}
+.cal.ro strong{color:var(--rose-pale)}.cal.am strong{color:var(--amber-pale)}.cal.tl strong{color:var(--teal-pale)}
+/* WELLBEING ROWS */
+.wb-row{display:flex;align-items:flex-start;gap:1.2rem;padding:1.1rem 1.4rem;background:var(--ink-2);border-bottom:1px solid var(--border-dark)}
+.wb-row:last-child{border-bottom:none}
+.wb-num{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
+.wb-row h4{font-family:var(--fh);font-size:.84rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.wb-row p{font-size:.79rem;color:rgba(255,255,255,.42);line-height:1.6}
+footer{background:#08080E;padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05)}
+footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
+.fl{display:flex;gap:1.5rem}
+.fl a{font-size:.77rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
+.fl a:hover{color:#fff}
+
+/* ── CHEAT SHEET ── */
+.cheat-strip{margin-top:1.75rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02)}
+.cheat-header{padding:.75rem 1.25rem;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.cheat-title{font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:.5rem}
+.cheat-title::before{content:'';display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--cheat-color,#2563EB)}
+.cheat-copy-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);border-radius:7px;padding:.35rem .9rem;font-family:var(--fh,inherit);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.cheat-copy-btn:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+.cheat-copy-btn.copied{background:rgba(13,148,136,.2);border-color:rgba(13,148,136,.4);color:#5EEAD4}
+.cheat-body{padding:1rem 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.cheat-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.45rem .8rem;display:flex;gap:.5rem;align-items:flex-start;min-width:200px;flex:1}
+.cheat-bullet{width:16px;height:16px;border-radius:4px;background:var(--cheat-color,#2563EB);opacity:.7;flex-shrink:0;margin-top:.1rem;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:800}
+.cheat-item-text{font-size:.77rem;color:rgba(255,255,255,.55);line-height:1.5;flex:1}
+.cheat-item-text strong{color:rgba(255,255,255,.8);font-weight:600;font-family:var(--fm,inherit);font-size:.75rem}
+/* ── PRINT CARD BUTTON ── */
+.print-card-btn{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);border-radius:8px;padding:.5rem 1.1rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;margin-top:1.5rem}
+.print-card-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)}
+.print-card-btn svg{opacity:.6}
+/* ── PRINT MODAL ── */
+.print-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9000;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.print-modal-overlay.open{display:flex}
+.print-modal{background:#fff;color:#111;border-radius:12px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.pm-head{padding:1.25rem 1.75rem;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1}
+.pm-title{font-family:var(--fh,inherit);font-size:.85rem;font-weight:800;color:#111;letter-spacing:.04em}
+.pm-actions{display:flex;gap:.6rem}
+.pm-print-btn{background:#111;color:#fff;border:none;border-radius:7px;padding:.45rem 1.1rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.pm-print-btn:hover{background:#333}
+.pm-close-btn{background:#f5f5f5;color:#555;border:none;border-radius:7px;padding:.45rem .9rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.pm-close-btn:hover{background:#e5e5e5;color:#111}
+.pm-body{padding:1.5rem 1.75rem}
+.pm-section{margin-bottom:1.5rem}
+.pm-section:last-child{margin-bottom:0}
+.pm-section-title{font-family:var(--fh,inherit);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#888;border-bottom:2px solid #f0f0f0;padding-bottom:.4rem;margin-bottom:.85rem}
+.pm-row{display:flex;gap:.5rem;align-items:flex-start;padding:.4rem 0;border-bottom:1px solid #f7f7f7}
+.pm-row:last-child{border-bottom:none}
+.pm-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;margin-top:.35rem}
+.pm-row-text{font-size:.8rem;color:#333;line-height:1.5;flex:1}
+.pm-row-text strong{color:#111;font-weight:700}
+.pm-footer{padding:.85rem 1.75rem;border-top:1px solid #eee;font-size:.68rem;color:#aaa;display:flex;justify-content:space-between;align-items:center}
+@media print{
+  .print-modal-overlay{position:static!important;background:none!important;padding:0!important;display:block!important}
+  .print-modal{box-shadow:none!important;max-height:none!important;border-radius:0!important;border:none!important}
+  .pm-head{position:static!important}
+  .pm-actions{display:none!important}
+  .print-modal-overlay *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <a class="nb" href="index.html">Digital<span>Skills</span></a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="ai-literacy.html">Understanding AI</a></li>
+    <li><a href="prompt-generator.html">Prompt Generator</a></li>
+    <li><a href="microsoft.html">Microsoft Skills</a></li>
+    <li><a href="digital-safety.html" class="act">Digital Safety</a></li>
+    <li><a href="policy.html">National Policy</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="dg"></div>
+  <div class="hi">
+    <div class="hbc"><span>Home</span><span>/</span><span class="c">Module 05</span></div>
+    <h1 class="ht">Digital Safety<br><span class="s">&amp; Wellbeing</span></h1>
+    <div class="hm">
+      <span class="htag">Module 05</span>
+      <p class="hdesc">Phishing, passwords, GDPR, digital footprint, online safeguarding, and managing your relationship with technology as a professional.</p>
+    </div>
+  </div>
+</section>
+<div class="mq"><div class="mqt"><span>Phishing</span><span>Passwords</span><span>GDPR</span><span>Digital Footprint</span><span>Safeguarding Online</span><span>Cyber Security</span><span>Wellbeing</span><span>Screen Time</span><span>Phishing</span><span>Passwords</span><span>GDPR</span><span>Digital Footprint</span><span>Safeguarding Online</span><span>Cyber Security</span><span>Wellbeing</span><span>Screen Time</span></div></div>
+<div class="wrap">
+
+<div class="tr">
+  <button class="tb act" onclick="sw('phish')" id="t-phish">Phishing</button>
+  <button class="tb" onclick="sw('pass')" id="t-pass">Passwords</button>
+  <button class="tb" onclick="sw('gdpr')" id="t-gdpr">GDPR</button>
+  <button class="tb" onclick="sw('foot')" id="t-foot">Digital Footprint</button>
+  <button class="tb" onclick="sw('safe')" id="t-safe">Online Safety</button>
+  <button class="tb" onclick="sw('well')" id="t-well">Wellbeing</button>
+</div>
+
+<!-- PHISHING -->
+<div class="pn act" id="p-phish">
+<div class="cal ro"><strong>Why this matters</strong>Phishing is the most common route into school systems. A single click on a malicious link can trigger a ransomware attack affecting the entire network. Schools have lost weeks of data and faced significant financial costs as a result.</div>
+<div class="bento">
+  <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-rose">Red flag</span><h3>Urgency &amp; pressure</h3><p>Phishing emails create artificial urgency to bypass your critical thinking. "Your account will be deleted in 24 hours", "Immediate action required", "Final warning".</p><ul><li>Legitimate services rarely demand instant action by email</li><li>Urgent emails from IT, HR, or "management" are a classic vector</li><li>When in doubt, phone the sender directly using a known number — not the one in the email</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-rose">Red flag</span><h3>Suspicious sender address</h3><p>The display name can say anything — the real email address is what matters. Hover over the sender name before clicking anything.</p><ul><li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e3858a8d828d8086a390808bd3d38fcd808c8e">[email&#160;protected]</a> — note the zeros</li><li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="442d3069373134342b363004232b2b2328216a272b296a342c2d372c2d2a236a2a2130">[email&#160;protected]</a> — the real domain is after the last dot</li><li>A spoofed colleague name is easy to fake — check the actual address</li></ul></div>
+  <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-rose">Red flag</span><h3>Unexpected attachments</h3><p>Malicious files often disguise themselves as PDFs, Word documents, or ZIP files. Opening them can install software silently.</p><ul><li>Were you expecting this attachment?</li><li>Hover over links — does the URL match the claimed destination?</li><li>.exe, .zip, .docm files are particularly high risk</li></ul></div>
+  <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-amber">Technique</span><h3>Spear phishing</h3><p>Targeted attacks use your name, your school, and real context to appear convincing. More sophisticated than generic spam.</p><ul><li>Uses publicly available information: school website, LinkedIn, social media</li><li>May reference real events, colleagues, or systems</li><li>Increasingly difficult to distinguish from genuine messages</li></ul></div>
+  <div class="cell"><div class="cell-n">5</div><span class="cell-tag ct-amber">Technique</span><h3>Credential harvesting</h3><p>Fake login pages that look identical to Microsoft 365, Google, or your school portal — designed to capture your username and password.</p><ul><li>Always check the URL before entering credentials</li><li>Genuine Microsoft sign-in: login.microsoftonline.com</li><li>Multi-factor authentication stops stolen credentials being used</li></ul></div>
+  <div class="cell"><div class="cell-n">6</div><span class="cell-tag ct-teal">Response</span><h3>What to do if you're unsure</h3><p>Doing nothing is always safer than clicking. Reporting is always the right call.</p><ul class="tl"><li class="tl">Do not click any links or open any attachments</li><li class="tl">Forward the email to your IT team or report it via your school's process</li><li class="tl">If you clicked something accidentally: immediately contact IT and change your password</li><li class="tl">Use the "Report phishing" button in Outlook if available</li></ul></div>
+</div>
+<div class="cal am"><strong>The 30-second check</strong>Before acting on any unexpected email: (1) Check the real sender address. (2) Hover over any link and read the actual URL. (3) Ask yourself: was I expecting this? (4) If in doubt, verify by calling the sender. These four steps stop the vast majority of phishing attempts.</div>
+</div>
+
+
+<!-- PHISHING CHEAT SHEET -->
+<div class="cheat-strip" style="--cheat-color:#E11D48;margin-top:1.25rem">
+  <div class="cheat-header">
+    <div class="cheat-title">Phishing Red Flags — Quick Reference</div>
+    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-phishing')">&#9889; Copy Cheat Sheet</button>
+  </div>
+  <div class="cheat-body">
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Urgency &amp; pressure</strong> — "Act now", "Account deleted in 24h", "Final warning"</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Suspicious sender</strong> — hover the name; check the real email address, not the display name</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Unexpected attachment</strong> — .zip, .exe, .docm are high risk; were you expecting it?</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Mismatched URL</strong> — hover any link; the real destination should match where it claims to go</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Fake login page</strong> — genuine Microsoft sign-in: login.microsoftonline.com</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>30-second check:</strong> real sender? hover link? was I expecting this? if in doubt — call the sender</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>If you clicked:</strong> contact IT immediately, change your password, do not wait</div></div>
+  </div>
+  <textarea id="cs-phishing" style="position:absolute;opacity:0;pointer-events:none;height:1px">PHISHING RED FLAGS — Quick Reference
+=====================================
+RED FLAGS
+! Urgency & pressure       "Act now", "Account deleted in 24h", "Final warning"
+! Suspicious sender        Hover the name — check the real email address
+! Unexpected attachment    .zip, .exe, .docm are high risk
+! Mismatched URL           Hover links — does the real URL match the claim?
+! Fake login page          Real Microsoft sign-in: login.microsoftonline.com
+! Spear phishing           Uses your name, school, real context — trust your instincts
+
+THE 30-SECOND CHECK
+1. Is the sender address exactly right?
+2. Hover any link — does the URL look legitimate?
+3. Was I expecting this email/attachment?
+4. If in doubt — phone the sender using a known number (not from the email)
+
+IF YOU CLICKED SOMETHING
+→ Contact IT immediately
+→ Change your password now
+→ Do not wait to see if anything happens
+→ Use Report Phishing in Outlook if available
+</textarea>
+</div>
+
+<!-- PASSWORDS -->
+<div class="pn" id="p-pass">
+<div class="cal am"><strong>The password problem</strong>Weak or reused passwords are one of the leading causes of data breaches. A password breached on one site is immediately tested against email, banking, and school systems. Length beats complexity — a passphrase is both more secure and easier to remember.</div>
+<div class="bento">
+  <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-teal">Best practice</span><h3>Use a password manager</h3><p>A password manager generates and stores long, unique passwords for every site — you only remember one master password.</p><ul class="tl"><li class="tl">Options: Bitwarden (free), 1Password, Dashlane</li><li class="tl">Generates passwords like: T7#mK9&amp;qX2vL — impossible to guess, impossible to reuse</li><li class="tl">Works across devices via a browser extension</li><li class="tl">Far more secure than writing passwords down or reusing them</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-teal">Best practice</span><h3>Strong passphrases</h3><p>Three or four random words chained together are both secure and memorable — NCSC actively recommends this approach.</p><ul class="tl"><li class="tl">coffee-lamp-railway-bridge — 32 characters, easy to remember</li><li class="tl">Length matters more than special characters</li><li class="tl">Avoid predictable substitutions: p@ssw0rd is not secure</li><li class="tl">Use a different passphrase for every important account</li></ul></div>
+  <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-teal">Best practice</span><h3>Multi-factor authentication</h3><p>MFA requires a second factor — usually your phone — in addition to your password. Even if your password is stolen, MFA blocks access.</p><ul class="tl"><li class="tl">Enable MFA on your school Microsoft account, email, and any sensitive system</li><li class="tl">Use an authenticator app (Microsoft Authenticator, Google Authenticator) over SMS where possible</li><li class="tl">Never share MFA codes with anyone — IT will never ask for them</li></ul></div>
+  <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-rose">Avoid</span><h3>Password mistakes to stop now</h3><p>These habits are common and create significant vulnerability for both personal and school accounts.</p><ul><li>Reusing the same password across sites</li><li>Using personal information: names, dates of birth, school name</li><li>Writing passwords on sticky notes near your screen</li><li>Sharing passwords with colleagues for shared accounts</li><li>Using simple sequences: Password1, Summer2024!</li></ul></div>
+  <div class="cell"><div class="cell-n">5</div><span class="cell-tag ct-amber">Check yourself</span><h3>Have I been breached?</h3><p>Visit haveibeenpwned.com to check whether your email address appears in any known data breach — updated in real time.</p><ul class="am"><li class="am">Enter your school and personal email addresses</li><li class="am">If breached: change the password on that site immediately</li><li class="am">Check whether you used the same password anywhere else — change those too</li></ul></div>
+  <div class="cell"><div class="cell-n">6</div><span class="cell-tag ct-violet">School context</span><h3>Shared account risks</h3><p>Shared login accounts make breach investigation impossible — you cannot determine who accessed what when.</p><ul class="vi"><li class="vi">Every staff member should have their own named account</li><li class="vi">Shared resource accounts should use a documented process — not a sticky note password</li><li class="vi">When a staff member leaves: their access should be revoked immediately, not "when we get round to it"</li></ul></div>
+</div>
+</div>
+
+
+<!-- PASSWORDS CHEAT SHEET -->
+<div class="cheat-strip" style="--cheat-color:#D97706;margin-top:1.25rem">
+  <div class="cheat-header">
+    <div class="cheat-title">Password Best Practice — Quick Reference</div>
+    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-passwords')">&#9889; Copy Cheat Sheet</button>
+  </div>
+  <div class="cheat-body">
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Use a password manager</strong> — Bitwarden (free), 1Password; one master password, all others unique</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Passphrases beat complexity</strong> — coffee-lamp-railway-bridge is stronger than P@ssw0rd1</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Enable MFA on everything</strong> — Microsoft Authenticator app preferred over SMS</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Unique password per site</strong> — a breach on one site tests yours everywhere else</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Never share MFA codes</strong> — IT will never ask for them; nobody legitimate will</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Check for breaches</strong> — haveibeenpwned.com; enter school and personal emails</div></div>
+  </div>
+  <textarea id="cs-passwords" style="position:absolute;opacity:0;pointer-events:none;height:1px">PASSWORD BEST PRACTICE — Quick Reference
+=========================================
+DO
+✓ Use a password manager (Bitwarden is free) — generates & stores unique passwords
+✓ Use passphrases: coffee-lamp-railway-bridge (long, memorable, secure)
+✓ Enable MFA on your school Microsoft account and all sensitive logins
+✓ Use an authenticator app (Microsoft Authenticator) rather than SMS
+✓ Check haveibeenpwned.com with your school and personal emails
+
+DON'T
+✗ Reuse passwords across sites
+✗ Use names, dates, or school name in passwords
+✗ Write passwords on sticky notes near your screen
+✗ Share passwords with colleagues — use proper shared account processes
+✗ Share MFA codes — ever. IT will never ask for them.
+
+PASSPHRASE FORMULA: 4 random words + memorable = secure
+Example: correct-horse-battery-staple (36 characters, easy to type)
+</textarea>
+</div>
+
+<!-- GDPR -->
+<div class="pn" id="p-gdpr">
+<div class="cal ro"><strong>Your legal responsibility</strong>UK GDPR applies to every member of staff who handles personal data — not just the DPO. Ignorance is not a defence. A personal data breach must be reported to the ICO within 72 hours if it is likely to result in a risk to individuals' rights and freedoms.</div>
+<div class="bento">
+  <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-violet">Definition</span><h3>What counts as personal data</h3><p>Personal data is any information that identifies or could identify a living person — directly or in combination with other data.</p><ul class="vi"><li class="vi">Name, address, date of birth, photo, email address</li><li class="vi">IP address, device identifiers, location data</li><li class="vi">School performance data, attendance records</li><li class="vi">Special category data: health, SEND, ethnicity, religion — has stronger protections</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-violet">Principle</span><h3>Data minimisation</h3><p>Only collect, use, and store the minimum personal data needed for the specific purpose. If you don't need it, don't hold it.</p><ul class="vi"><li class="vi">Don't collect data "just in case" it might be useful</li><li class="vi">Delete data you no longer need in line with your retention schedule</li><li class="vi">Don't share data between systems without a lawful basis</li></ul></div>
+  <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-rose">Risk area</span><h3>AI tools &amp; personal data</h3><p>Entering pupil names, SEND data, or identifiable information into AI tools such as ChatGPT or Copilot (personal account) is a likely GDPR breach — that data leaves your control.</p><ul><li>Use [Pupil] as a placeholder — always</li><li>Your school Microsoft 365 Copilot has enterprise protection — free tools do not</li><li>The DfE's own guidance explicitly names this as a data protection risk area</li></ul></div>
+  <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-rose">Risk area</span><h3>Email mistakes</h3><p>Sending an email to the wrong person is one of the most frequently reported data breaches in schools — and one of the most avoidable.</p><ul><li>Double-check recipient addresses before sending anything sensitive</li><li>Use BCC when emailing a group of parents (not CC)</li><li>Be careful with Reply All — check who is in the thread</li><li>Don't send personal data via unencrypted email to external addresses</li></ul></div>
+  <div class="cell"><div class="cell-n">5</div><span class="cell-tag ct-amber">Process</span><h3>If a breach occurs</h3><p>Speed matters — you have 72 hours to report to the ICO if the breach is likely to cause risk to individuals.</p><ul class="am"><li class="am">Report it to your DPO immediately — do not wait to assess it yourself</li><li class="am">Document what happened, what data was involved, who was affected</li><li class="am">The DPO will assess whether ICO notification is required</li><li class="am">Never try to cover up a breach — late reporting is a separate offence</li></ul></div>
+  <div class="cell"><div class="cell-n">6</div><span class="cell-tag ct-teal">Your rights</span><h3>Subject access requests</h3><p>Any individual — including a pupil or parent — can request a copy of all personal data the school holds about them. Schools must respond within one month.</p><ul class="tl"><li class="tl">SARs must be fulfilled free of charge</li><li class="tl">You cannot withhold data because it is inconvenient</li><li class="tl">Third-party data (e.g. other pupils' names) must be redacted before disclosure</li><li class="tl">Log all SARs — your DPO should manage the process</li></ul></div>
+</div>
+</div>
+
+
+<!-- GDPR CHEAT SHEET -->
+<div class="cheat-strip" style="--cheat-color:#7C3AED;margin-top:1.25rem">
+  <div class="cheat-header">
+    <div class="cheat-title">UK GDPR Staff Checklist</div>
+    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-gdpr')">&#9889; Copy Cheat Sheet</button>
+  </div>
+  <div class="cheat-body">
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Never enter pupil data into free AI tools</strong> — use [Pupil] as a placeholder; school Copilot only</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>BCC parents in group emails</strong> — never CC; exposes all email addresses</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>Double-check recipients</strong> before sending anything sensitive — most breaches are misdirected email</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>No pupil photos on personal social media</strong> — school accounts only, with consent in place</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">&#10003;</div><div class="cheat-item-text"><strong>No personal cloud storage</strong> (Dropbox, personal Google Drive) for school data — use OneDrive/SharePoint</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Breach? Tell your DPO immediately</strong> — 72-hour window to report to ICO; do not delay</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">!</div><div class="cheat-item-text"><strong>Subject access requests</strong> — respond within 1 month, free of charge; log all SARs</div></div>
+  </div>
+  <textarea id="cs-gdpr" style="position:absolute;opacity:0;pointer-events:none;height:1px">UK GDPR STAFF CHECKLIST
+========================
+DAILY HABITS
+✓ Never enter pupil names or identifiable data into free AI tools (ChatGPT, etc.)
+  → Use [Pupil] as a placeholder; school Microsoft 365 Copilot has enterprise protection
+✓ BCC parents in group emails — never CC (exposes all addresses)
+✓ Double-check recipient before sending sensitive information
+✓ Use school OneDrive / SharePoint — not personal Dropbox or Google Drive
+✓ Delete personal data you no longer need (follow your retention schedule)
+
+PHOTOS & SOCIAL MEDIA
+✓ Pupil photos = personal data under UK GDPR
+✓ Only photograph pupils if parental consent is on file
+✓ Never post identifiable pupil photos on personal social media
+✓ Delete photos from personal devices after transferring to school systems
+
+IF A BREACH OCCURS
+→ Tell your DPO immediately — do not try to assess it yourself
+→ The ICO must be notified within 72 hours if there is risk to individuals
+→ Document what happened, what data, who affected
+→ Never try to cover up a breach — late reporting is a separate offence
+
+SUBJECT ACCESS REQUESTS
+→ Any pupil or parent can request all data the school holds about them
+→ Respond within 1 month, free of charge
+→ Redact third-party data before disclosure
+→ Log all SARs — your DPO manages the process
+</textarea>
+</div>
+
+<!-- DIGITAL FOOTPRINT -->
+<div class="pn" id="p-foot">
+<div class="cal am"><strong>Your professional digital identity</strong>As a teacher or school leader, your online presence is visible to pupils, parents, governors, and prospective employers. Content you post — or that others tag you in — can surface years later. Understanding your footprint is part of professional responsibility.</div>
+<div class="bento">
+  <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-amber">Awareness</span><h3>What is your footprint?</h3><p>Your digital footprint is everything that can be found about you online — active posts you've made and passive data collected without your knowledge.</p><ul class="am"><li class="am">Social media posts, profile photos, check-ins, and tagged content</li><li class="am">Comments on news articles or forums under a recognisable name</li><li class="am">Professional profiles: LinkedIn, school website, conference talks</li><li class="am">Data held by companies: purchases, search history, location data</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-violet">Privacy settings</span><h3>Audit your social media</h3><p>Regularly review the privacy settings on every platform you use — defaults often favour visibility over privacy.</p><ul class="vi"><li class="vi">Set personal accounts to private or friends-only</li><li class="vi">Review what a non-follower can see — this is what a pupil or parent sees</li><li class="vi">Untag yourself from posts or photos that are professionally inappropriate</li><li class="vi">Consider whether a public LinkedIn is sufficient for professional presence</li></ul></div>
+  <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-rose">Professional boundary</span><h3>Staff–pupil boundaries online</h3><p>Accepting pupil follow requests on personal social media — even once they have left school — carries professional risk and blurs important boundaries.</p><ul><li>Do not accept current pupils as social media followers or friends</li><li>Be cautious about accepting recent leavers — professional conduct codes still apply</li><li>Never communicate with pupils through personal social media or messaging apps</li><li>Use school-sanctioned platforms only for pupil communication</li></ul></div>
+  <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-teal">Good practice</span><h3>Separating professional &amp; personal</h3><p>Maintain a clear separation between your professional digital presence and personal accounts — it protects you and your school.</p><ul class="tl"><li class="tl">Use your school email exclusively for school business</li><li class="tl">Do not use personal cloud storage (Dropbox, personal Google Drive) for school data</li><li class="tl">Think before posting anything during school trips or events — photos of pupils require consent</li><li class="tl">Google yourself periodically to see what is publicly visible</li></ul></div>
+  <div class="cell"><div class="cell-n">5</div><span class="cell-tag ct-rose">Risk</span><h3>Photographs &amp; data protection</h3><p>Photographs of pupils are personal data under UK GDPR. Capturing or sharing pupil images has clear rules you must follow.</p><ul><li>Only photograph pupils if your school has parental consent on file</li><li>Never post photos of identifiable pupils on personal social media</li><li>School events shared on official school channels must respect opted-out pupils</li><li>Delete photographs from personal devices after transferring to school systems</li></ul></div>
+  <div class="cell"><div class="cell-n">6</div><span class="cell-tag ct-amber">AI &amp; footprint</span><h3>AI-generated content about you</h3><p>AI tools can scrape publicly available information and generate summaries, images, or quotes that appear authentic but may be inaccurate or harmful.</p><ul class="am"><li class="am">Audit what is publicly available about you — reduce it where possible</li><li class="am">Be aware deepfake audio and video of real people is increasingly accessible</li><li class="am">Report any AI-generated content misrepresenting you to your school leadership</li></ul></div>
+</div>
+</div>
+
+<!-- ONLINE SAFETY -->
+<div class="pn" id="p-safe">
+<div class="cal ro"><strong>Safeguarding responsibility</strong>Under Keeping Children Safe in Education 2025, all staff have a duty to report concerns about a child's online safety. You do not need to be certain — if something doesn't feel right, report it to your DSL immediately. The online world is not a separate space; risks there are as real as any offline safeguarding concern.</div>
+
+<div class="acc" id="safe-acc">
+  <div class="acc-item">
+    <button class="acc-btn" onclick="tog(this)">
+      <div class="acc-btn-l"><div class="acc-icon" style="background:var(--rose)">1</div><div class="acc-title">Recognising online safeguarding concerns</div></div>
+      <div class="acc-chev">▸</div>
+    </button>
+    <div class="acc-body">
+      <p>Online risks often present through changes in pupil behaviour rather than direct disclosure. Signs that a pupil may be experiencing online harm include: becoming withdrawn after using devices, distress when phones are taken away, secretive behaviour about what they are viewing or who they are talking to, or unexplained gifts or money.</p>
+      <p><strong>Online risks you may encounter as a professional:</strong></p>
+      <ul><li>Cyberbullying between pupils — including outside school hours, which can still create a duty of care</li><li>Grooming — adults building inappropriate relationships with pupils online</li><li>Radicalisation — extremist content or contact through gaming platforms, social media, or messaging apps</li><li>Sexting or sharing of intimate images — increasingly common, never treat as trivial</li><li>Exposure to harmful, age-inappropriate, or illegal content</li></ul>
+    </div>
+  </div>
+  <div class="acc-item">
+    <button class="acc-btn" onclick="tog(this)">
+      <div class="acc-btn-l"><div class="acc-icon" style="background:var(--amber)">2</div><div class="acc-title">Your duty to report — when and how</div></div>
+      <div class="acc-chev">▸</div>
+    </button>
+    <div class="acc-body">
+      <p>Every member of staff has a legal duty to act on safeguarding concerns. You do not need proof. You do not need to investigate. You need to report.</p>
+      <p><strong>The process:</strong></p>
+      <ul><li>Report any concern to your Designated Safeguarding Lead (DSL) immediately — the same day, the same lesson if necessary</li><li>Do not ask leading questions or attempt to investigate yourself</li><li>Do not promise a pupil confidentiality — explain that you have a duty to share with people who can help</li><li>Make a factual written record of what the pupil said, in their own words, as soon as possible</li><li>Out of hours: follow your school's emergency contacts procedure</li></ul>
+    </div>
+  </div>
+  <div class="acc-item">
+    <button class="acc-btn" onclick="tog(this)">
+      <div class="acc-btn-l"><div class="acc-icon" style="background:var(--teal)">3</div><div class="acc-title">Filtering &amp; monitoring — what schools must do</div></div>
+      <div class="acc-chev">▸</div>
+    </button>
+    <div class="acc-body">
+      <p>Under the DfE's digital and technology standards, schools are required to have appropriate filtering and monitoring of internet access. As of 2023 this includes specific requirements for schools to review systems annually.</p>
+      <p><strong>What this means for staff:</strong></p>
+      <ul><li>Filtering blocks access to harmful categories of content on school networks and devices</li><li>Monitoring alerts designated staff when pupils attempt to access or search for harmful content</li><li>This is not surveillance of staff — it applies to all users on school networks including pupils</li><li>If you discover a pupil has found a way around filtering, report it to your IT team immediately</li><li>Pupils using personal mobile data can bypass school filtering — this is a known gap</li></ul>
+    </div>
+  </div>
+  <div class="acc-item">
+    <button class="acc-btn" onclick="tog(this)">
+      <div class="acc-btn-l"><div class="acc-icon" style="background:var(--violet)">4</div><div class="acc-title">AI tools and child safety</div></div>
+      <div class="acc-chev">▸</div>
+    </button>
+    <div class="acc-body">
+      <p>AI tools present new and rapidly evolving child safety risks. The DfE's generative AI in education guidance requires schools to carefully assess pupil-facing use of AI tools for compliance with safeguarding duties.</p>
+      <p><strong>Key concerns:</strong></p>
+      <ul><li>AI chatbots can generate harmful, age-inappropriate, or inaccurate content if not appropriately restricted</li><li>Pupils may use AI to produce fake communications — e.g. phishing emails appearing to come from school</li><li>AI image generation tools can produce harmful imagery — including of minors — if unfiltered</li><li>AI tools may collect pupil data in ways that breach GDPR if the tool has not been approved by your school</li><li>Before approving any AI tool for pupil use, check the DfE's Generative AI Product Safety Standards</li></ul>
+    </div>
+  </div>
+</div>
+
+<table class="scenario-t">
+  <thead><tr><th>Scenario</th><th>Risk level</th><th>What to do</th></tr></thead>
+  <tbody>
+    <tr><td>Pupil discloses they have received unwanted messages from an adult online</td><td><span class="risk-high">High — report immediately</span></td><td>Do not ask further questions. Report to DSL today. Document in the pupil's own words.</td></tr>
+    <tr><td>You notice a pupil looking distressed after using their phone</td><td><span class="risk-med">Medium — report to DSL</span></td><td>Note the observation. Report to DSL — do not ask the pupil what they were viewing.</td></tr>
+    <tr><td>A pupil shows you a video that appears to contain harmful content</td><td><span class="risk-high">High — do not view further</span></td><td>Do not watch or share the video. Do not delete it. Report to DSL immediately. This may need to be preserved as evidence.</td></tr>
+    <tr><td>You receive a friend request from a current pupil on Instagram</td><td><span class="risk-med">Professional risk</span></td><td>Do not accept. Do not engage. Inform your line manager. Document the date and time.</td></tr>
+    <tr><td>You discover a pupil has accessed inappropriate content on a school device</td><td><span class="risk-med">Medium — report to IT and DSL</span></td><td>Do not handle the device alone. Report to IT team and DSL. An adult witness is advisable.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- WELLBEING -->
+<div class="pn" id="p-well">
+<div class="cal tl"><strong>Digital wellbeing matters for staff too</strong>The research on digital technology and wellbeing applies as much to teaching professionals as to pupils. Constant connectivity, out-of-hours email, and the pressure to be perpetually responsive can significantly affect sleep, attention, and mental health. Managing your relationship with technology is a professional skill.</div>
+<div class="bento c2" style="margin-bottom:1.5rem">
+  <div class="cell"><div class="cell-n">1</div><span class="cell-tag ct-teal">Boundary</span><h3>After-hours email</h3><p>There is no professional obligation to respond to emails outside working hours. Research consistently links constant email monitoring to elevated stress and disrupted sleep.</p><ul class="tl"><li class="tl">Use Outlook's Schedule Send to write emails at any time without creating pressure for immediate response</li><li class="tl">Agree a team norm around expected response times — it protects everyone</li><li class="tl">Turn off email push notifications outside working hours on your personal device</li><li class="tl">The school has no legal right to require instant response at 9pm</li></ul></div>
+  <div class="cell"><div class="cell-n">2</div><span class="cell-tag ct-teal">Boundary</span><h3>Managing device time</h3><p>Intentional use — knowing why you are picking up your phone — is more protective of wellbeing than abstinence. Build in deliberate non-screen time.</p><ul class="tl"><li class="tl">Use Screen Time (iOS) or Digital Wellbeing (Android) to audit actual usage</li><li class="tl">Charge your phone outside the bedroom — protects sleep significantly</li><li class="tl">Build at least one sustained offline period into each day</li><li class="tl">Meetings without devices improve engagement and recall</li></ul></div>
+  <div class="cell"><div class="cell-n">3</div><span class="cell-tag ct-violet">Awareness</span><h3>Doom scrolling &amp; the attention economy</h3><p>Social media and news platforms are designed to maximise time on site — often through negative emotional content. This is by design, not accident.</p><ul class="vi"><li class="vi">The algorithm prioritises outrage and anxiety — it keeps you scrolling</li><li class="vi">Distinguish between "informed" and "endlessly refreshing" — they feel similar but are different</li><li class="vi">Curate your feeds: mute, unfollow, use time limits</li><li class="vi">News apps can be replaced with a once-daily scheduled read</li></ul></div>
+  <div class="cell"><div class="cell-n">4</div><span class="cell-tag ct-amber">Modelling</span><h3>Visible choices in the classroom</h3><p>How staff use technology in front of pupils sends a clear message about what professional, intentional device use looks like.</p><ul class="am"><li class="am">Be intentional about when devices are used in class — model purposeful use</li><li class="am">Demonstrate that it is normal to put a device away during conversations</li><li class="am">Discuss your own digital choices with pupils where appropriate — it normalises reflection</li><li class="am">Acknowledging the challenges of attention in a digital world is not weakness</li></ul></div>
+</div>
+<div style="background:var(--ink-2);border:1px solid var(--border-dark);border-radius:14px;overflow:hidden">
+  <div style="padding:.9rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark)"><span style="font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)">Practical strategies for a healthier digital relationship</span></div>
+  <div class="wb-row"><div class="wb-num" style="background:var(--teal)">1</div><div><h4>The two-hour evening rule</h4><p>Avoid bright screens in the two hours before sleep. Blue light suppresses melatonin production and delays sleep onset. Night mode helps but does not eliminate the effect entirely. Reading, non-screen conversation, or light physical activity in the evening improves sleep quality measurably.</p></div></div>
+  <div class="wb-row"><div class="wb-num" style="background:var(--violet)">2</div><div><h4>Single-tasking and deep work</h4><p>Multitasking between screens, applications, and notifications significantly reduces cognitive performance — research suggests by as much as 40%. Block time in your calendar for tasks requiring sustained attention. Close email, silence notifications, and put your phone face down. Twenty uninterrupted minutes of focused work outperforms an hour of fragmented attention.</p></div></div>
+  <div class="wb-row"><div class="wb-num" style="background:var(--amber)">3</div><div><h4>Regular digital audits</h4><p>Once a term, review the apps and notifications on your devices. Delete anything you have not opened in three months. Turn off all non-essential push notifications — the world does not end when you stop receiving them in real time. Each notification is a small but real interruption to your attention.</p></div></div>
+  <div class="wb-row"><div class="wb-num" style="background:var(--rose)">4</div><div><h4>If you are concerned about your digital habits</h4><p>Concerns about your own relationship with technology — or a colleague's — are as legitimate as any other wellbeing concern. Speak to your line manager or access your school's employee assistance programme. Digital burnout is real and recognised — it does not require a crisis to seek support.</p></div></div>
+</div>
+</div>
+
+</div>
+<footer>
+  <p>Digital Skills &amp; Literacy — Staff Resource</p>
+  <div class="fl"><a href="index.html">Home</a><a href="ai-literacy.html">Understanding AI</a><a href="prompt-generator.html">Prompts</a><a href="microsoft.html">Microsoft</a><a href="digital-safety.html">Safety</a><a href="policy.html">National Policy</a></div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function sw(id){
+  document.queryS

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>National Policy — Digital Skills &amp; Literacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D0D12;--ink-2:#141420;--ink-3:#1C1C2E;--ink-4:#22223A;
+  --blue:#2563EB;--blue-pale:#93C5FD;--blue-dim:#60A5FA;
+  --teal:#0D9488;--teal-pale:#5EEAD4;--teal-dim:rgba(13,148,136,.12);--teal-bdr:rgba(13,148,136,.28);
+  --violet:#7C3AED;--violet-pale:#C4B5FD;--violet-dim:rgba(124,58,237,.12);--violet-bdr:rgba(124,58,237,.28);
+  --amber:#D97706;--amber-pale:#FCD34D;--amber-dim:rgba(217,119,6,.12);--amber-bdr:rgba(217,119,6,.28);
+  --rose:#E11D48;--rose-pale:#FDA4AF;--rose-dim:rgba(225,29,72,.12);--rose-bdr:rgba(225,29,72,.28);
+  --green:#16A34A;--green-pale:#86EFAC;--green-dim:rgba(22,163,74,.12);--green-bdr:rgba(22,163,74,.25);
+  --gold:#B45309;--gold-pale:#FDE68A;--gold-dim:rgba(180,83,9,.12);--gold-bdr:rgba(180,83,9,.3);
+  --border-dark:rgba(255,255,255,.07);--border-med:rgba(255,255,255,.13);
+  --muted:rgba(255,255,255,.35);--body-c:rgba(255,255,255,.55);
+  --fh:'Syne',sans-serif;--fs:'Instrument Serif',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;padding:0 2.5rem;gap:2rem;background:rgba(13,13,18,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-dark)}
+.nb{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;text-decoration:none;letter-spacing:.04em;flex-shrink:0}
+.nb span{color:var(--blue-dim)}
+.nl{display:flex;gap:.2rem;list-style:none}
+.nl a{font-size:.78rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.3rem .65rem;border-radius:6px;transition:all .15s}
+.nl a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nl a.act{color:var(--blue-dim);background:rgba(96,165,250,.1)}
+@media(max-width:760px){.nl{display:none}}
+/* HERO */
+.hero{min-height:44vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 4rem 4rem;position:relative;overflow:hidden}
+@media(max-width:700px){.hero{padding:90px 1.5rem 3rem}}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.o1{width:460px;height:460px;background:rgba(180,83,9,.1);top:-100px;right:-30px}
+.o2{width:260px;height:260px;background:rgba(37,99,235,.08);bottom:20px;left:20%;animation-delay:-7s}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(20px,-14px) scale(1.05)}}
+.dg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.042) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hi{position:relative;z-index:2;max-width:1100px}
+.hbc{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.24);margin-bottom:1.4rem;display:flex;gap:.5rem;opacity:0;animation:fu .6s .1s forwards}
+.hbc .c{color:var(--gold-pale)}
+.ht{font-family:var(--fh);font-size:clamp(2.6rem,7vw,6rem);font-weight:800;line-height:.93;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;opacity:0;animation:fu .75s .22s forwards}
+.ht .s{font-family:var(--fs);font-weight:400;font-style:italic;color:var(--gold-pale)}
+.hm{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;opacity:0;animation:fu .75s .38s forwards}
+.htag{background:var(--gold-dim);border:1px solid var(--gold-bdr);color:var(--gold-pale);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;border-radius:100px}
+.hdesc{font-size:.87rem;color:rgba(255,255,255,.36);max-width:520px;line-height:1.7}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+/* MARQUEE */
+.mq{background:var(--gold);padding:.55rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.mqt{display:flex;gap:3rem;animation:mqs 35s linear infinite;white-space:nowrap}
+.mqt span{font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);flex-shrink:0}
+.mqt span::before{content:'·';margin-right:3rem}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* CONTENT */
+.wrap{max-width:1100px;margin:0 auto;padding:3.5rem 4rem 6rem}
+@media(max-width:700px){.wrap{padding:2rem 1.5rem 4rem}}
+.section-hd{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.sec-kicker{font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-pale);display:flex;align-items:center;gap:.5rem}
+.sec-kicker::before{content:'';width:20px;height:1px;background:var(--gold);display:block}
+.sec-title{font-family:var(--fh);font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:#fff;margin-bottom:1.75rem}
+.sec-title em{font-family:var(--fs);font-weight:400;font-style:italic;color:var(--gold-pale)}
+/* POLICY CARDS */
+.policy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:3.5rem}
+@media(max-width:760px){.policy-grid{grid-template-columns:1fr}}
+.pc{background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .18s}
+.pc:hover{border-color:var(--border-med);transform:translateY(-2px)}
+.pc-top{padding:1.5rem 1.75rem 0}
+.pc-source{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.pc-badge{font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .55rem;border-radius:100px}
+.pc-dept{font-size:.73rem;color:var(--muted);font-family:var(--fm)}
+.pc-status{font-family:var(--fh);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .45rem;border-radius:100px;margin-left:auto}
+.stat-stat{background:var(--rose-dim);color:var(--rose-pale);border:1px solid var(--rose-bdr)}
+.stat-guid{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr)}
+.stat-pol{background:var(--blue-pale);color:#1e3a5f;border:1px solid rgba(147,197,253,.3)}
+.stat-std{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr)}
+.pc-title{font-family:var(--fh);font-size:1rem;font-weight:800;color:#fff;margin-bottom:.5rem;line-height:1.2}
+.pc-meta{font-family:var(--fm);font-size:.68rem;color:var(--muted);margin-bottom:.85rem}
+.pc-body{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1rem}
+.pc-points{list-style:none;display:flex;flex-direction:column;gap:.35rem;padding-bottom:1.25rem}
+.pc-point{font-size:.79rem;color:rgba(255,255,255,.4);line-height:1.55;display:flex;gap:.5rem}
+.pc-point::before{content:'→';font-weight:700;flex-shrink:0;font-family:var(--fh)}
+.pc-footer{margin-top:auto;padding:.9rem 1.75rem;background:var(--ink-3);border-top:1px solid var(--border-dark);display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.pc-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.45rem 1rem;border-radius:8px;transition:all .18s}
+.pc-link-ext{font-size:.68rem;color:var(--muted)}
+.pc-updated{font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.25)}
+/* colour themes per card */
+.pc[data-theme="rose"] .pc-top{border-top:2px solid var(--rose)}
+.pc[data-theme="rose"] .pc-point::before{color:var(--rose)}
+.pc[data-theme="rose"] .pc-link{background:var(--rose-dim);color:var(--rose-pale);border:1px solid var(--rose-bdr)}
+.pc[data-theme="rose"] .pc-link:hover{background:var(--rose);color:#fff}
+.pc[data-theme="rose"] .pc-badge{background:var(--rose-dim);color:var(--rose-pale);border:1px solid var(--rose-bdr)}
+.pc[data-theme="teal"] .pc-top{border-top:2px solid var(--teal)}
+.pc[data-theme="teal"] .pc-point::before{color:var(--teal)}
+.pc[data-theme="teal"] .pc-link{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr)}
+.pc[data-theme="teal"] .pc-link:hover{background:var(--teal);color:#fff}
+.pc[data-theme="teal"] .pc-badge{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr)}
+.pc[data-theme="amber"] .pc-top{border-top:2px solid var(--amber)}
+.pc[data-theme="amber"] .pc-point::before{color:var(--amber)}
+.pc[data-theme="amber"] .pc-link{background:var(--amber-dim);color:var(--amber-pale);border:1px solid var(--amber-bdr)}
+.pc[data-theme="amber"] .pc-link:hover{background:var(--amber);color:#fff}
+.pc[data-theme="amber"] .pc-badge{background:var(--amber-dim);color:var(--amber-pale);border:1px solid var(--amber-bdr)}
+.pc[data-theme="violet"] .pc-top{border-top:2px solid var(--violet)}
+.pc[data-theme="violet"] .pc-point::before{color:var(--violet)}
+.pc[data-theme="violet"] .pc-link{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr)}
+.pc[data-theme="violet"] .pc-link:hover{background:var(--violet);color:#fff}
+.pc[data-theme="violet"] .pc-badge{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr)}
+.pc[data-theme="blue"] .pc-top{border-top:2px solid var(--blue-dim)}
+.pc[data-theme="blue"] .pc-point::before{color:var(--blue-dim)}
+.pc[data-theme="blue"] .pc-link{background:rgba(96,165,250,.1);color:var(--blue-pale);border:1px solid rgba(96,165,250,.25)}
+.pc[data-theme="blue"] .pc-link:hover{background:var(--blue);color:#fff}
+.pc[data-theme="blue"] .pc-badge{background:rgba(96,165,250,.1);color:var(--blue-pale);border:1px solid rgba(96,165,250,.25)}
+.pc[data-theme="green"] .pc-top{border-top:2px solid var(--green)}
+.pc[data-theme="green"] .pc-point::before{color:var(--green-pale)}
+.pc[data-theme="green"] .pc-link{background:var(--green-dim);color:var(--green-pale);border:1px solid var(--green-bdr)}
+.pc[data-theme="green"] .pc-link:hover{background:var(--green);color:#fff}
+.pc[data-theme="green"] .pc-badge{background:var(--green-dim);color:var(--green-pale);border:1px solid var(--green-bdr)}
+/* SUMMARY TABLE */
+.st{width:100%;border-collapse:collapse;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;margin-bottom:3rem}
+.st th{background:var(--ink-3);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.85rem 1.1rem;text-align:left;border-bottom:1px solid var(--border-dark)}
+.st td{padding:.85rem 1.1rem;font-size:.8rem;color:rgba(255,255,255,.5);border-bottom:1px solid var(--border-dark);line-height:1.6;vertical-align:top}
+.st tr:last-child td{border-bottom:none}
+.st td:first-child{color:#fff;font-weight:500;font-family:var(--fh);font-size:.77rem}
+.st td a{color:var(--blue-dim);text-decoration:none}
+.st td a:hover{color:#fff;text-decoration:underline}
+.st tr:hover td{background:rgba(255,255,255,.02)}
+/* CALLOUT */
+.cal{border:1px solid var(--border-med);border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1.5rem;font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.5)}
+.cal.go{background:var(--gold-dim);border-color:var(--gold-bdr);border-left:3px solid var(--gold)}
+.cal.am{background:var(--amber-dim);border-color:var(--amber-bdr);border-left:3px solid var(--amber)}
+.cal strong{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.05em;display:block;margin-bottom:.3rem}
+.cal.go strong{color:var(--gold-pale)}.cal.am strong{color:var(--amber-pale)}
+/* FOOTER */
+footer{background:#08080E;padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05)}
+footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
+.fl{display:flex;gap:1.5rem}
+.fl a{font-size:.77rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
+.fl a:hover{color:#fff}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nb" href="index.html">Digital<span>Skills</span></a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="ai-literacy.html">Understanding AI</a></li>
+    <li><a href="prompt-generator.html">Prompt Generator</a></li>
+    <li><a href="microsoft.html">Microsoft Skills</a></li>
+    <li><a href="digital-safety.html">Digital Safety</a></li>
+    <li><a href="policy.html" class="act">National Policy</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="dg"></div>
+  <div class="hi">
+    <div class="hbc"><span>Home</span><span>/</span><span class="c">Module 06</span></div>
+    <h1 class="ht">National<br><span class="s">Policy</span></h1>
+    <div class="hm">
+      <span class="htag">Module 06</span>
+      <p class="hdesc">The government legislation, statutory guidance, and official policy that frames how schools must approach AI, data, safeguarding, and cyber security.</p>
+    </div>
+  </div>
+</section>
+<div class="mq"><div class="mqt"><span>DfE</span><span>Statutory Guidance</span><span>UK GDPR</span><span>Keeping Children Safe</span><span>NCSC</span><span>Generative AI</span><span>Cyber Security</span><span>Data Protection</span><span>AI Safety Standards</span><span>DfE</span><span>Statutory Guidance</span><span>UK GDPR</span><span>Keeping Children Safe</span><span>NCSC</span><span>Generative AI</span><span>Cyber Security</span><span>Data Protection</span><span>AI Safety Standards</span></div></div>
+
+<div class="wrap">
+
+<div class="cal go"><strong>How to use this page</strong>Each document below is an official government or public body publication that directly applies to schools and colleges. The summary describes what it covers and why it matters to you as a staff member. Click the link on each card to access the full official document on GOV.UK or the NCSC website.</div>
+
+<p class="sec-kicker">Six key documents</p>
+<h2 class="sec-title">Official <em>Guidance &amp; Legislation</em></h2>
+
+<div class="policy-grid">
+
+  <!-- 1 — Generative AI in Education -->
+  <div class="pc" data-theme="teal">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">DfE Policy Paper</span>
+        <span class="pc-dept">Department for Education</span>
+        <span class="pc-status stat-pol">Policy</span>
+      </div>
+      <div class="pc-title">Generative Artificial Intelligence in Education</div>
+      <div class="pc-meta">Updated: August 2025 &nbsp;·&nbsp; Applies to: England</div>
+      <div class="pc-body">The DfE's core position on generative AI use in schools and colleges. Sets out the government's expectations for safe and effective use by staff and pupils, the known risks, and the principles schools must apply when making decisions about AI tools.</div>
+      <ul class="pc-points">
+        <li class="pc-point">Safety must be the top priority when deciding whether to use any generative AI tool in an education setting</li>
+        <li class="pc-point">Schools choosing to use pupil-facing AI must ensure compliance with data protection law and Keeping Children Safe in Education</li>
+        <li class="pc-point">The quality and accuracy of any AI-generated content remains the professional responsibility of the staff member who produced it</li>
+        <li class="pc-point">Risks include hallucination, bias, intellectual property concerns, and data protection breaches</li>
+        <li class="pc-point">AI-generated content could include realistic phishing emails or harmful material — risk assessments must address unauthorised use cases</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">Last updated August 2025</div>
+        <div class="pc-link-ext">gov.uk/government/publications</div>
+      </div>
+      <a class="pc-link" href="https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education/generative-artificial-intelligence-ai-in-education" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+  <!-- 2 — Data Protection in Schools -->
+  <div class="pc" data-theme="violet">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">DfE Guidance Toolkit</span>
+        <span class="pc-dept">Department for Education</span>
+        <span class="pc-status stat-guid">Guidance</span>
+      </div>
+      <div class="pc-title">Data Protection in Schools</div>
+      <div class="pc-meta">Updated: October 2025 &nbsp;·&nbsp; Applies to: Maintained schools, academies</div>
+      <div class="pc-body">A comprehensive DfE toolkit covering all aspects of UK GDPR compliance in schools — from lawful bases for data processing to managing breaches, subject access requests, and the Data Use and Access Act 2025. Includes dedicated guidance on generative AI and data protection.</div>
+      <ul class="pc-points">
+        <li class="pc-point">Schools must have a lawful basis for every category of data they process — this includes data processed by third-party AI tools</li>
+        <li class="pc-point">Special category data (health, SEND, ethnicity, religion) requires an additional condition beyond the standard lawful basis</li>
+        <li class="pc-point">Data breaches likely to cause risk to individuals must be reported to the ICO within 72 hours</li>
+        <li class="pc-point">Subject access requests must be fulfilled free of charge within one calendar month</li>
+        <li class="pc-point">Specific section on generative AI risks: using free AI tools with pupil data is likely to constitute a data breach</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">Last updated October 2025</div>
+        <div class="pc-link-ext">gov.uk/guidance</div>
+      </div>
+      <a class="pc-link" href="https://www.gov.uk/guidance/data-protection-in-schools" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+  <!-- 3 — Keeping Children Safe in Education -->
+  <div class="pc" data-theme="rose">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">DfE Statutory Guidance</span>
+        <span class="pc-dept">Department for Education</span>
+        <span class="pc-status stat-stat">Statutory</span>
+      </div>
+      <div class="pc-title">Keeping Children Safe in Education 2025</div>
+      <div class="pc-meta">Updated: September 2025 &nbsp;·&nbsp; Applies to: All schools and colleges, England</div>
+      <div class="pc-body">The statutory safeguarding guidance that every member of staff in a school or college must read Part 1 of annually. Sets out the legal duties on schools to safeguard and promote the welfare of children under 18, including online safety and safer recruitment. Compliance is mandatory — this is law, not guidance.</div>
+      <ul class="pc-points">
+        <li class="pc-point">Every member of staff has a responsibility to act on any safeguarding concern — this includes online safety concerns</li>
+        <li class="pc-point">Online safety is explicitly named as a safeguarding issue — risks include grooming, radicalisation, cyberbullying, and sexting</li>
+        <li class="pc-point">Schools must have robust filtering and monitoring of internet use by pupils</li>
+        <li class="pc-point">Staff must not communicate with pupils via personal social media or messaging apps</li>
+        <li class="pc-point">The Designated Safeguarding Lead (DSL) must be accessible to all staff — including for online concerns</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">September 2025 — all staff must read Part 1</div>
+        <div class="pc-link-ext">gov.uk/government/publications</div>
+      </div>
+      <a class="pc-link" href="https://www.gov.uk/government/publications/keeping-children-safe-in-education--2" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+  <!-- 4 — Generative AI Product Safety Standards -->
+  <div class="pc" data-theme="amber">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">DfE Guidance</span>
+        <span class="pc-dept">Department for Education</span>
+        <span class="pc-status stat-std">Standards</span>
+      </div>
+      <div class="pc-title">Generative AI: Product Safety Standards</div>
+      <div class="pc-meta">Updated: January 2026 &nbsp;·&nbsp; Applies to: England (edtech suppliers + schools)</div>
+      <div class="pc-body">Standards for the capabilities and safety features that generative AI products must meet to be considered safe for use in educational settings. Primarily directed at edtech developers, but schools should use it to assess whether any AI tool they are considering deploying meets the required standards — particularly for pupil-facing use.</div>
+      <ul class="pc-points">
+        <li class="pc-point">AI products used in schools should prevent generation of harmful, age-inappropriate, or extremist content</li>
+        <li class="pc-point">2026 update added new standards on cognitive development, emotional and social development, mental health, and manipulation</li>
+        <li class="pc-point">Products should be transparent about when a user is interacting with AI, not a human</li>
+        <li class="pc-point">Schools can use these standards as a checklist when evaluating any AI tool before procurement or deployment</li>
+        <li class="pc-point">Pupil-facing AI tools must be assessed against these standards before being approved for use</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">Updated January 2026 — includes new wellbeing standards</div>
+        <div class="pc-link-ext">gov.uk/government/publications</div>
+      </div>
+      <a class="pc-link" href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+  <!-- 5 — Cyber Security Core Standard -->
+  <div class="pc" data-theme="blue">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">DfE Digital Standards</span>
+        <span class="pc-dept">Department for Education</span>
+        <span class="pc-status stat-std">Standards</span>
+      </div>
+      <div class="pc-title">Cyber Security — Core Standard for Schools</div>
+      <div class="pc-meta">Updated: February 2026 &nbsp;·&nbsp; Applies to: All schools and colleges, England</div>
+      <div class="pc-body">One of the DfE's six core digital and technology standards for schools and colleges. Schools are expected to be working towards this standard by 2030. Covers cyber risk assessment, account security, patching, network protection, and incident response. Cyber attacks have caused school closures, data loss, and significant financial cost.</div>
+      <ul class="pc-points">
+        <li class="pc-point">Schools must conduct an annual cyber risk assessment and review every term</li>
+        <li class="pc-point">Multi-factor authentication must be applied to all staff accounts, especially email and admin systems</li>
+        <li class="pc-point">User accounts must be reviewed regularly — access must be removed immediately when staff leave</li>
+        <li class="pc-point">Schools should work towards Cyber Essentials certification (mandatory for colleges, recommended for schools)</li>
+        <li class="pc-point">An incident response plan must exist and be tested — staff should know their role in the event of a cyber attack</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">Updated February 2026 — target year 2030</div>
+        <div class="pc-link-ext">gov.uk/guidance</div>
+      </div>
+      <a class="pc-link" href="https://www.gov.uk/guidance/meeting-digital-and-technology-standards-in-schools-and-colleges/cyber-security-core-standard" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+  <!-- 6 — NCSC Machine Learning Principles -->
+  <div class="pc" data-theme="green">
+    <div class="pc-top">
+      <div class="pc-source">
+        <span class="pc-badge">NCSC Guidance</span>
+        <span class="pc-dept">National Cyber Security Centre</span>
+        <span class="pc-status stat-guid">Technical Guidance</span>
+      </div>
+      <div class="pc-title">Machine Learning Principles</div>
+      <div class="pc-meta">Published by NCSC &nbsp;·&nbsp; Applies to: All organisations using ML/AI</div>
+      <div class="pc-body">The NCSC's technical guidance on the security considerations of using machine learning and AI systems. Explains how ML models can be attacked, manipulated, or behave unexpectedly — and what organisations should consider when procuring, deploying, or interacting with AI tools. Relevant background reading for school leaders making AI procurement decisions.</div>
+      <ul class="pc-points">
+        <li class="pc-point">AI systems can be manipulated through "prompt injection" — crafted inputs that cause the system to behave in unintended ways</li>
+        <li class="pc-point">Training data can be poisoned, causing the model to produce systematically biased or harmful outputs</li>
+        <li class="pc-point">AI systems may behave differently in deployment than in testing — ongoing monitoring is essential</li>
+        <li class="pc-point">Before deploying any AI tool, organisations should understand what data it was trained on and how it is updated</li>
+        <li class="pc-point">The principles of secure software procurement apply to AI tools: vet suppliers, review data handling, test before deploying with pupils</li>
+      </ul>
+    </div>
+    <div class="pc-footer">
+      <div>
+        <div class="pc-updated">NCSC — the UK's National Cyber Security Centre</div>
+        <div class="pc-link-ext">ncsc.gov.uk/collection</div>
+      </div>
+      <a class="pc-link" href="https://www.ncsc.gov.uk/collection/machine-learning-principles" target="_blank" rel="noopener">Open document ↗</a>
+    </div>
+  </div>
+
+</div><!-- /policy-grid -->
+
+<p class="sec-kicker">Quick reference</p>
+<h2 class="sec-title">At a <em>Glance</em></h2>
+
+<div class="cal am"><strong>What applies to you directly</strong>Keeping Children Safe in Education is statutory — every member of staff must read Part 1 annually. The other documents are guidance and standards, but departing from them without good reason leaves the school open to risk. As a staff member using technology professionally, all six documents are relevant to your practice.</div>
+
+<table class="st">
+  <thead><tr><th>Document</th><th>Status</th><th>What it means for staff</th><th>Link</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Generative AI in Education</td>
+      <td>DfE Policy Paper — August 2025</td>
+      <td>Sets the DfE's position on AI use in schools. Professional judgement and accountability remain with the staff member regardless of AI assistance.</td>
+      <td><a href="https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education/generative-artificial-intelligence-ai-in-education" target="_blank" rel="noopener">GOV.UK ↗</a></td>
+    </tr>
+    <tr>
+      <td>Data Protection in Schools</td>
+      <td>DfE Guidance — October 2025</td>
+      <td>UK GDPR applies to every staff member handling personal data. Free AI tools are a data protection risk. Report breaches to your DPO immediately.</td>
+      <td><a href="https://www.gov.uk/guidance/data-protection-in-schools" target="_blank" rel="noopener">GOV.UK ↗</a></td>
+    </tr>
+    <tr>
+      <td>Keeping Children Safe in Education 2025</td>
+      <td>Statutory — September 2025 — must read Part 1</td>
+      <td>All staff must act on any safeguarding concern including online safety. Report to your DSL. Online risks are safeguarding risks.</td>
+      <td><a href="https://www.gov.uk/government/publications/keeping-children-safe-in-education--2" target="_blank" rel="noopener">GOV.UK ↗</a></td>
+    </tr>
+    <tr>
+      <td>Generative AI: Product Safety Standards</td>
+      <td>DfE Guidance — January 2026</td>
+      <td>Schools must assess AI tools against safety standards before pupil-facing deployment. Updated to include wellbeing and manipulation standards in 2026.</td>
+      <td><a href="https://www.gov.uk/government/publications/generative-ai-product-safety-standards" target="_blank" rel="noopener">GOV.UK ↗</a></td>
+    </tr>
+    <tr>
+      <td>Cyber Security Core Standard</td>
+      <td>DfE Digital Standards — February 2026</td>
+      <td>Schools must work towards this standard by 2030. Requires annual risk assessments, MFA, access reviews, and incident response plans.</td>
+      <td><a href="https://www.gov.uk/guidance/meeting-digital-and-technology-standards-in-schools-and-colleges/cyber-security-core-standard" target="_blank" rel="noopener">GOV.UK ↗</a></td>
+    </tr>
+    <tr>
+      <td>NCSC: Machine Learning Principles</td>
+      <td>NCSC Technical Guidance</td>
+      <td>Technical background on AI security risks including prompt injection and model poisoning. Relevant when evaluating AI procurement decisions.</td>
+      <td><a href="https://www.ncsc.gov.uk/collection/machine-learning-principles" target="_blank" rel="noopener">NCSC ↗</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<footer>
+  <p>Digital Skills &amp; Literacy — Staff Resource</p>
+  <div class="fl"><a href="index.html">Home</a><a href="ai-literacy.html">Understanding AI</a><a href="prompt-generator.html">Prompts</a><a href="microsoft.html">Microsoft</a><a href="digital-safety.html">Safety</a><a href="policy.html">National Policy</a></div>
+</footer>
+</body>
+</html>

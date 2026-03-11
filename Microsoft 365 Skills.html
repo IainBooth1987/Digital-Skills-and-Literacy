@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Microsoft 365 Skills — Digital Skills &amp; Literacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D0D12;--ink-2:#141420;--ink-3:#1C1C2E;--ink-4:#22223A;
+  --blue:#2563EB;--blue-pale:#93C5FD;--blue-dim:#60A5FA;
+  --teal:#0D9488;--teal-pale:#5EEAD4;--teal-dim:rgba(13,148,136,.12);--teal-bdr:rgba(13,148,136,.28);
+  --violet:#7C3AED;--violet-pale:#C4B5FD;--violet-dim:rgba(124,58,237,.12);--violet-bdr:rgba(124,58,237,.28);
+  --amber:#D97706;--amber-pale:#FCD34D;--amber-dim:rgba(217,119,6,.12);--amber-bdr:rgba(217,119,6,.28);
+  --rose:#E11D48;--rose-pale:#FDA4AF;--rose-dim:rgba(225,29,72,.12);--rose-bdr:rgba(225,29,72,.28);
+  --ms:#0078D4;--ms-dim:rgba(0,120,212,.13);--ms-bdr:rgba(0,120,212,.3);
+  --border-dark:rgba(255,255,255,.07);--border-med:rgba(255,255,255,.13);
+  --muted:rgba(255,255,255,.35);--body-c:rgba(255,255,255,.55);
+  --fh:'Syne',sans-serif;--fs:'Instrument Serif',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;padding:0 2.5rem;gap:2rem;background:rgba(13,13,18,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-dark)}
+.nb{font-family:var(--fh);font-weight:700;font-size:1rem;color:#fff;text-decoration:none;letter-spacing:.04em;flex-shrink:0}
+.nb span{color:var(--blue-dim)}
+.nl{display:flex;gap:.2rem;list-style:none}
+.nl a{font-size:.78rem;font-weight:500;color:var(--muted);text-decoration:none;padding:.3rem .65rem;border-radius:6px;transition:all .15s}
+.nl a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nl a.act{color:var(--blue-dim);background:rgba(96,165,250,.1)}
+@media(max-width:760px){.nl{display:none}}
+.hero{min-height:44vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 4rem 4rem;position:relative;overflow:hidden}
+@media(max-width:700px){.hero{padding:90px 1.5rem 3rem}}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.o1{width:480px;height:480px;background:rgba(0,120,212,.11);top:-120px;right:-40px}
+.o2{width:280px;height:280px;background:rgba(37,99,235,.08);bottom:20px;left:22%;animation-delay:-6s}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(22px,-14px) scale(1.05)}}
+.dg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.042) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hi{position:relative;z-index:2;max-width:1100px}
+.hbc{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.24);margin-bottom:1.4rem;display:flex;gap:.5rem;opacity:0;animation:fu .6s .1s forwards}
+.hbc .c{color:var(--blue-dim)}
+.ht{font-family:var(--fh);font-size:clamp(2.6rem,7vw,6rem);font-weight:800;line-height:.93;letter-spacing:-.03em;color:#fff;margin-bottom:1.8rem;opacity:0;animation:fu .75s .22s forwards}
+.ht .s{font-family:var(--fs);font-weight:400;font-style:italic;color:#69B4FF}
+.hm{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;opacity:0;animation:fu .75s .38s forwards}
+.htag{background:var(--ms-dim);border:1px solid var(--ms-bdr);color:#69B4FF;font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.32rem .9rem;border-radius:100px}
+.hdesc{font-size:.87rem;color:rgba(255,255,255,.36);max-width:500px;line-height:1.7}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mq{background:var(--ms);padding:.55rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.mqt{display:flex;gap:3rem;animation:mqs 30s linear infinite;white-space:nowrap}
+.mqt span{font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78);flex-shrink:0}
+.mqt span::before{content:'·';margin-right:3rem}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wrap{max-width:1100px;margin:0 auto;padding:3.5rem 4rem 6rem}
+@media(max-width:700px){.wrap{padding:2rem 1.5rem 4rem}}
+.tr{display:flex;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;margin-bottom:2.5rem;flex-wrap:wrap}
+.tb{flex:1;min-width:100px;padding:.8rem .7rem;background:transparent;border:none;border-right:1px solid var(--border-dark);cursor:pointer;font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:all .15s;position:relative}
+.tb:last-child{border-right:none}
+.tb:hover{color:#fff;background:rgba(255,255,255,.05)}
+.tb.act{color:#fff;background:var(--ms-dim)}
+.tb.act::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ms)}
+@media(max-width:700px){.tb{min-width:46%;font-size:.58rem;padding:.65rem .35rem}}
+.pn{display:none}.pn.act{display:block}
+.ahd{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.75rem;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px 16px 0 0;border-bottom:none}
+.aico{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--fh);font-size:1rem;font-weight:800;color:#fff}
+.an{font-family:var(--fh);font-size:1rem;font-weight:800;color:#fff;margin-bottom:.12rem}
+.as{font-size:.78rem;color:var(--muted);line-height:1.45}
+.sg{background:var(--ink-2);border:1px solid var(--border-dark);border-radius:0 0 16px 16px;overflow:hidden;margin-bottom:1.5rem}
+.sg-s{border-bottom:1px solid var(--border-dark)}.sg-s:last-child{border-bottom:none}
+.sg-sh{display:flex;align-items:center;gap:.75rem;padding:.9rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark)}
+.sg-sl{font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.sg-sc{font-family:var(--fm);font-size:.62rem;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--border-dark);padding:.1rem .42rem;border-radius:100px}
+.sg-r{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-dark)}
+@media(max-width:760px){.sg-r{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.sg-r{grid-template-columns:1fr}}
+.sk{background:var(--ink-2);padding:1.35rem 1.6rem;transition:background .18s;position:relative;overflow:hidden}
+.sk:hover{background:var(--ink-3)}
+.sn{position:absolute;right:.7rem;bottom:-.5rem;font-family:var(--fh);font-size:4.5rem;font-weight:800;color:rgba(255,255,255,.024);line-height:1;pointer-events:none}
+.bdg{display:inline-flex;align-items:center;font-family:var(--fh);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .52rem;border-radius:100px;margin-bottom:.6rem}
+.bs{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr)}
+.bc{background:var(--ms-dim);color:#69B4FF;border:1px solid var(--ms-bdr)}
+.bp{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr)}
+.ba{background:var(--amber-dim);color:var(--amber-pale);border:1px solid var(--amber-bdr)}
+.st{font-family:var(--fh);font-size:.86rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.sb{font-size:.79rem;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:.7rem}
+.steps{list-style:none;display:flex;flex-direction:column;gap:.28rem}
+.step{font-size:.74rem;color:rgba(255,255,255,.36);line-height:1.5;display:flex;gap:.45rem}
+.step::before{content:'→';color:var(--ms);font-weight:700;flex-shrink:0}
+.scw{background:var(--ink-2);border:1px solid var(--border-dark);border-radius:0 0 16px 16px;overflow:hidden;margin-bottom:1.5rem}
+.scg{border-bottom:1px solid var(--border-dark)}.scg:last-child{border-bottom:none}
+.scgh{padding:.85rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.scr{display:flex;align-items:center;gap:1rem;padding:.85rem 1.75rem;border-bottom:1px solid var(--border-dark);transition:background .15s}
+.scr:last-child{border-bottom:none}.scr:hover{background:var(--ink-3)}
+.sck{display:flex;align-items:center;gap:.28rem;flex-shrink:0;min-width:155px}
+.key{display:inline-flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.7rem;font-weight:500;color:#fff;background:var(--ink-4);border:1px solid var(--border-med);border-bottom:2px solid rgba(255,255,255,.18);border-radius:5px;padding:.18rem .52rem;min-width:28px}
+.pl{font-size:.62rem;color:var(--muted)}
+.scd{font-size:.81rem;color:rgba(255,255,255,.58);flex:1}
+.scb{font-family:var(--fh);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.14rem .42rem;border-radius:100px;flex-shrink:0}
+.se{background:var(--teal-dim);color:var(--teal-pale);border:1px solid var(--teal-bdr)}
+.sp{background:var(--violet-dim);color:var(--violet-pale);border:1px solid var(--violet-bdr)}
+@media(max-width:680px){.sck{min-width:110px}.scb{display:none}}
+.ctable{width:100%;border-collapse:collapse;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.ctable th{background:var(--ink-3);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.85rem 1.1rem;text-align:left;border-bottom:1px solid var(--border-dark)}
+.ctable th:first-child{color:#fff}
+.ctable td{padding:.82rem 1.1rem;font-size:.82rem;color:rgba(255,255,255,.52);border-bottom:1px solid var(--border-dark);line-height:1.6}
+.ctable tr:last-child td{border-bottom:none}
+.ctable td:first-child{color:#fff;font-weight:500}
+.ctable tr:hover td{background:rgba(255,255,255,.02)}
+.tick{color:var(--teal-pale);font-weight:600}.cross{color:var(--rose-pale);font-weight:600}.warn{color:var(--amber-pale)}
+.cal{border:1px solid var(--border-med);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.cal.am{background:rgba(217,119,6,.07);border-color:var(--amber-bdr);border-left:3px solid var(--amber)}
+.cal.ro{background:var(--rose-dim);border-color:var(--rose-bdr);border-left:3px solid var(--rose)}
+.cal h4{font-family:var(--fh);font-size:.78rem;font-weight:700;margin-bottom:.4rem}
+.cal.am h4{color:var(--amber-pale)}.cal.ro h4{color:var(--rose-pale)}
+.cal p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.65}
+.cal strong{color:rgba(255,255,255,.7)}
+footer{background:#08080E;padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05)}
+footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
+.fl{display:flex;gap:1.5rem}
+.fl a{font-size:.77rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .15s}
+.fl a:hover{color:#fff}
+
+/* ── EXCEL SIMULATOR ── */
+#xl-table td{border:1px solid #ddd;padding:.3rem .75rem;font-size:.75rem;color:#1a1a2e;cursor:default;white-space:nowrap}
+#xl-table td.formula{background:#E2EFDA;cursor:pointer;transition:background .12s}
+#xl-table td.formula:hover,#xl-table td.formula.selected{background:#A9D18E;font-weight:600}
+#xl-table td.hdr{background:#217346;color:#fff;font-weight:700;font-family:'Calibri',var(--fb)}
+#xl-table td.grade-a{background:#C6EFCE;color:#276221}
+#xl-table td.grade-b{background:#FFEB9C;color:#9C5700}
+#xl-table td.grade-c{background:#FFC7CE;color:#9C0006}
+#xl-table tr:hover td{background:#F0F7EE}
+#xl-table tr:hover td.formula{background:#A9D18E}
+#xl-table td.total-row{background:#BDD7EE;font-weight:700;color:#1F497D}
+#xl-table td.total-formula{background:#9DC3E6;cursor:pointer;font-weight:700;color:#1F497D}
+#xl-table td.total-formula:hover,#xl-table td.total-formula.selected{background:#70ACD4;font-weight:700}
+/* ── COACH ── */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.coach-thumb{border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:default;transition:border-color .15s}
+.coach-thumb.active-slide{border-color:var(--rose)}
+.coach-thumb.done-slide{border-color:var(--teal)}
+.stat-box{background:var(--ink-3);border:1px solid var(--border-dark);border-radius:10px;padding:.85rem;text-align:center}
+.stat-val{font-family:var(--fh);font-size:1.5rem;font-weight:800;line-height:1}
+.stat-lbl{font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+
+
+/* ── CHEAT SHEET ── */
+.cheat-strip{margin-top:1.75rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02)}
+.cheat-header{padding:.75rem 1.25rem;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.cheat-title{font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:.5rem}
+.cheat-title::before{content:'';display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--cheat-color,#2563EB)}
+.cheat-copy-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);border-radius:7px;padding:.35rem .9rem;font-family:var(--fh,inherit);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.cheat-copy-btn:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+.cheat-copy-btn.copied{background:rgba(13,148,136,.2);border-color:rgba(13,148,136,.4);color:#5EEAD4}
+.cheat-body{padding:1rem 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.cheat-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.45rem .8rem;display:flex;gap:.5rem;align-items:flex-start;min-width:200px;flex:1}
+.cheat-bullet{width:16px;height:16px;border-radius:4px;background:var(--cheat-color,#2563EB);opacity:.7;flex-shrink:0;margin-top:.1rem;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:800}
+.cheat-item-text{font-size:.77rem;color:rgba(255,255,255,.55);line-height:1.5;flex:1}
+.cheat-item-text strong{color:rgba(255,255,255,.8);font-weight:600;font-family:var(--fm,inherit);font-size:.75rem}
+/* ── PRINT CARD BUTTON ── */
+.print-card-btn{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);border-radius:8px;padding:.5rem 1.1rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;margin-top:1.5rem}
+.print-card-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)}
+.print-card-btn svg{opacity:.6}
+/* ── PRINT MODAL ── */
+.print-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9000;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.print-modal-overlay.open{display:flex}
+.print-modal{background:#fff;color:#111;border-radius:12px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.pm-head{padding:1.25rem 1.75rem;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1}
+.pm-title{font-family:var(--fh,inherit);font-size:.85rem;font-weight:800;color:#111;letter-spacing:.04em}
+.pm-actions{display:flex;gap:.6rem}
+.pm-print-btn{background:#111;color:#fff;border:none;border-radius:7px;padding:.45rem 1.1rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.pm-print-btn:hover{background:#333}
+.pm-close-btn{background:#f5f5f5;color:#555;border:none;border-radius:7px;padding:.45rem .9rem;font-family:var(--fh,inherit);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.pm-close-btn:hover{background:#e5e5e5;color:#111}
+.pm-body{padding:1.5rem 1.75rem}
+.pm-section{margin-bottom:1.5rem}
+.pm-section:last-child{margin-bottom:0}
+.pm-section-title{font-family:var(--fh,inherit);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#888;border-bottom:2px solid #f0f0f0;padding-bottom:.4rem;margin-bottom:.85rem}
+.pm-row{display:flex;gap:.5rem;align-items:flex-start;padding:.4rem 0;border-bottom:1px solid #f7f7f7}
+.pm-row:last-child{border-bottom:none}
+.pm-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;margin-top:.35rem}
+.pm-row-text{font-size:.8rem;color:#333;line-height:1.5;flex:1}
+.pm-row-text strong{color:#111;font-weight:700}
+.pm-footer{padding:.85rem 1.75rem;border-top:1px solid #eee;font-size:.68rem;color:#aaa;display:flex;justify-content:space-between;align-items:center}
+@media print{
+  .print-modal-overlay{position:static!important;background:none!important;padding:0!important;display:block!important}
+  .print-modal{box-shadow:none!important;max-height:none!important;border-radius:0!important;border:none!important}
+  .pm-head{position:static!important}
+  .pm-actions{display:none!important}
+  .print-modal-overlay *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+/* ── ENHANCED PRINT MODAL ── */
+.pm-card-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.75rem;color:#fff}
+.pm-card-icon{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
+.pm-card-title{font-size:.88rem;font-weight:800;letter-spacing:.02em}
+.pm-card-sub{font-size:.7rem;color:rgba(255,255,255,.65);margin-top:.15rem}
+.pm-2col{display:grid;grid-template-columns:1fr 1fr;gap:.1rem}
+@media(max-width:600px){.pm-2col{grid-template-columns:1fr}}
+.pm-shortcuts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.3rem}
+.pm-sc-row{display:flex;align-items:center;gap:.6rem;padding:.3rem .4rem}
+.pm-sc-row kbd{background:#f0f0f0;border:1px solid #ccc;border-bottom:2px solid #bbb;border-radius:5px;padding:.15rem .45rem;font-family:'SFMono-Regular',Consolas,monospace;font-size:.68rem;color:#333;white-space:nowrap;flex-shrink:0}
+.pm-sc-row span{font-size:.75rem;color:#555}
+.pm-footer-note{margin-top:1.25rem;padding:.65rem 0 0;border-top:1px solid #eee;font-size:.65rem;color:#bbb;text-align:right}
+@media print{
+  .pm-tab-bar{display:none!important}
+  .pm-card{display:block!important}
+  .pm-card+.pm-card{page-break-before:always}
+  .pm-card-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #pmc-all .pm-section{page-break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <a class="nb" href="index.html">Digital<span>Skills</span></a>
+  <ul class="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="ai-literacy.html">Understanding AI</a></li>
+    <li><a href="prompt-generator.html">Prompt Generator</a></li>
+    <li><a href="microsoft.html" class="act">Microsoft Skills</a></li>
+    <li><a href="digital-safety.html">Digital Safety</a></li>
+    <li><a href="policy.html">National Policy</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="dg"></div>
+  <div class="hi">
+    <div class="hbc"><span>Home</span><span>/</span><span class="c">Module 04</span></div>
+    <h1 class="ht">Microsoft<br><span class="s">365 Skills</span></h1>
+    <div class="hm">
+      <span class="htag">Module 04</span>
+      <p class="hdesc">Practical skills for Teams, Outlook, Word, Excel, PowerPoint, OneDrive, and Copilot — from everyday essentials to time-saving power features.</p>
+    </div>
+  </div>
+</section>
+<div class="mq"><div class="mqt"><span>Teams</span><span>Outlook</span><span>Word</span><span>Excel</span><span>PowerPoint</span><span>OneDrive</span><span>Copilot</span><span>Shortcuts</span><span>Teams</span><span>Outlook</span><span>Word</span><span>Excel</span><span>PowerPoint</span><span>OneDrive</span><span>Copilot</span><span>Shortcuts</span></div></div>
+<div class="wrap">
+
+<div class="tr">
+  <button class="tb act" onclick="sw('teams')" id="t-teams">Teams</button>
+  <button class="tb" onclick="sw('outlook')" id="t-outlook">Outlook</button>
+  <button class="tb" onclick="sw('word')" id="t-word">Word</button>
+  <button class="tb" onclick="sw('excel')" id="t-excel">Excel</button>
+  <button class="tb" onclick="sw('ppt')" id="t-ppt">PowerPoint</button>
+  <button class="tb" onclick="sw('od')" id="t-od">OneDrive</button>
+  <button class="tb" onclick="sw('cop')" id="t-cop">Copilot</button>
+  <button class="tb" onclick="sw('sc')" id="t-sc">Shortcuts</button>
+</div>
+
+<!-- TEAMS -->
+<div class="pn act" id="p-teams">
+<div class="ahd"><div class="aico" style="background:#464EB8">T</div><div><div class="an">Microsoft Teams</div><div class="as">Meetings · Channels · Chat · Files · Collaboration</div></div></div>
+<div class="sg">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Getting started</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">Setting your status</div><div class="sb">Keep colleagues informed without interrupting your workflow — add a message that resets automatically.</div><ul class="steps"><li class="step">Click your profile picture (top right)</li><li class="step">Choose: Available, Busy, Do Not Disturb, Away</li><li class="step">Add a status message: "In lessons until 3:30pm"</li><li class="step">Set the message to clear automatically after a chosen time</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">Scheduling a meeting</div><div class="sb">Create a Teams meeting from the Calendar — a joining link is added automatically to every attendee's invite.</div><ul class="steps"><li class="step">Click Calendar in the left sidebar</li><li class="step">Click New meeting (top right)</li><li class="step">Add a title, attendees, date and time</li><li class="step">Save — attendees get a calendar invite with the Teams link</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bs">Starter</span><div class="st">Using channels</div><div class="sb">Channels organise conversations by topic — important messages never get buried in a single general chat.</div><ul class="steps"><li class="step">Use General only for whole-team announcements</li><li class="step">Create channels for projects, year groups, or subjects</li><li class="step">Pin important posts with the "…" menu → Pin</li><li class="step">Use @channel to notify all subscribers to that channel</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bs">Starter</span><div class="st">Sharing files</div><div class="sb">Files shared in Teams live in SharePoint — accessible to the whole team, version-controlled, and simultaneously editable.</div><ul class="steps"><li class="step">Go to the Files tab inside any channel</li><li class="step">Click Upload to add files from your device</li><li class="step">Or drag files directly into a chat window</li><li class="step">Multiple people can edit the same file at the same time</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Meetings</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">5</div><span class="bdg bc">Core</span><div class="st">Meeting chat</div><div class="sb">The chat persists after the meeting ends — useful for sharing links, notes, and agreed actions.</div><ul class="steps"><li class="step">Open the Chat panel during a meeting (speech bubble icon)</li><li class="step">Paste links, decisions, or key points as they arise</li><li class="step">Find the chat after the meeting in the Chat section of Teams</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bc">Core</span><div class="st">Recording meetings</div><div class="sb">Recordings save to OneDrive automatically and can be shared — essential for absent attendees and minutes.</div><ul class="steps"><li class="step">During a meeting: three dots → Start recording</li><li class="step">All attendees are notified when recording starts</li><li class="step">Stop recording from the same menu or end the meeting</li><li class="step">Recording appears in the meeting chat once processed</li></ul></div>
+    <div class="sk"><div class="sn">7</div><span class="bdg bc">Core</span><div class="st">Breakout rooms</div><div class="sb">Split attendees into smaller groups mid-meeting — organiser-only feature, ideal for discussion or workshop tasks.</div><ul class="steps"><li class="step">Click Breakout rooms icon in the meeting toolbar (organiser only)</li><li class="step">Choose number of rooms; assign attendees manually or automatically</li><li class="step">Open all rooms at once or individually</li><li class="step">Send announcements to all rooms from the main meeting</li></ul></div>
+    <div class="sk"><div class="sn">8</div><span class="bdg bc">Core</span><div class="st">Live captions &amp; transcription</div><div class="sb">Real-time captions improve accessibility; a full transcript can be downloaded as a Word document after the meeting.</div><ul class="steps"><li class="step">Three dots → Turn on live captions (captions only, not saved)</li><li class="step">For a saved transcript: More actions → Start transcription</li><li class="step">Download: meeting details → Transcript tab</li><li class="step">Copilot meeting summaries require transcription to be running</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Power features</span><span class="sg-sc">3 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">9</div><span class="bdg bp">Power</span><div class="st">@mentions precisely</div><div class="sb">Use the right @mention to avoid notification fatigue — not every message needs to reach everyone.</div><ul class="steps"><li class="step">@name — notifies one specific person</li><li class="step">@channel — notifies all channel subscribers</li><li class="step">@team — notifies all team members (use sparingly)</li><li class="step">Filter your Activity feed to show only @mentions and replies</li></ul></div>
+    <div class="sk"><div class="sn">10</div><span class="bdg bp">Power</span><div class="st">Pinning tabs to channels</div><div class="sb">Pin apps and shared files as tabs — keeps key resources one click away for everyone in the channel.</div><ul class="steps"><li class="step">Click the + icon at the top of any channel</li><li class="step">Add OneNote, Planner, Forms, a website, or a shared document</li><li class="step">Pin your department planning document for instant access</li><li class="step">Drag tabs to reorder them</li></ul></div>
+    <div class="sk"><div class="sn">11</div><span class="bdg bp">Power</span><div class="st">Saving &amp; searching</div><div class="sb">Bookmark messages you need and use the powerful search bar to find anything across all your Teams conversations.</div><ul class="steps"><li class="step">Hover a message → click the bookmark icon to save it</li><li class="step">Saved messages: profile picture → Saved</li><li class="step">Ctrl + F to search within Teams</li><li class="step">Filter search results by person, date, or file type</li></ul></div>
+  </div></div>
+</div></div>
+
+<!-- OUTLOOK -->
+<div class="pn" id="p-outlook">
+<div class="ahd"><div class="aico" style="background:#0078D4">O</div><div><div class="an">Outlook</div><div class="as">Email · Calendar · Contacts · Tasks</div></div></div>
+<div class="sg">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Email management</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">Focused inbox</div><div class="sb">Outlook automatically separates important mail from low-priority items using AI — train it quickly to stay on top.</div><ul class="steps"><li class="step">Your inbox splits into Focused and Other tabs</li><li class="step">Right-click any email → Move to Other / Move to Focused to train it</li><li class="step">Toggle off if you prefer one inbox: View → Show Focused Inbox</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">Rules &amp; automatic sorting</div><div class="sb">Create a rule once — Outlook sorts matching emails into the right folder every time they arrive, automatically.</div><ul class="steps"><li class="step">Right-click an email → Create Rule</li><li class="step">Set the condition: from a specific sender, subject contains words</li><li class="step">Choose an action: move to folder, mark as read, flag</li><li class="step">Manage rules: Settings → View all → Mail → Rules</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bc">Core</span><div class="st">Schedule send</div><div class="sb">Write the email now, deliver it at the right time — good practice for respecting colleagues' evenings and weekends.</div><ul class="steps"><li class="step">Compose your email as normal</li><li class="step">Click the dropdown arrow next to Send</li><li class="step">Select Send later → choose date and time</li><li class="step">Find it in Drafts until it sends</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bc">Core</span><div class="st">Quick Parts templates</div><div class="sb">Save frequently-used text blocks and insert them in two clicks — ideal for standard responses, disclaimers, or letterheads.</div><ul class="steps"><li class="step">Write and select the text you want to save</li><li class="step">Insert → Quick Parts → Save Selection to Quick Part Gallery</li><li class="step">To insert: email body → Insert → Quick Parts → select your block</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Calendar &amp; productivity</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">5</div><span class="bdg bc">Core</span><div class="st">Scheduling assistant</div><div class="sb">See everyone's free and busy times before you book — no more email chains trying to agree a meeting slot.</div><ul class="steps"><li class="step">Create a new meeting and add attendees in the To field</li><li class="step">Click the Scheduling Assistant tab</li><li class="step">Green slots show when all attendees are free — click one to fill the time</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bc">Core</span><div class="st">Out of office reply</div><div class="sb">Set automatic replies with a date range — write separate messages for internal colleagues and external contacts.</div><ul class="steps"><li class="step">File → Automatic Replies (or Settings → Automatic replies)</li><li class="step">Set start and end date and time</li><li class="step">Write separate messages for Inside / Outside my organisation</li><li class="step">Name a contact for urgent matters in the external message</li></ul></div>
+    <div class="sk"><div class="sn">7</div><span class="bdg bc">Core</span><div class="st">Colour categories</div><div class="sb">Tag emails and calendar events by colour for instant visual scanning — create categories that match your role.</div><ul class="steps"><li class="step">Right-click any email or event → Categorise</li><li class="step">Create named categories: "Urgent", "Year 10", "Finance", "Pastoral"</li><li class="step">Filter inbox or calendar by category via the search bar</li></ul></div>
+    <div class="sk"><div class="sn">8</div><span class="bdg bp">Power</span><div class="st">Flags &amp; follow-up</div><div class="sb">Flagging an email adds it to your Tasks list — a built-in to-do system that lives alongside your inbox.</div><ul class="steps"><li class="step">Click the flag icon on any email to add it to Tasks</li><li class="step">Right-click the flag to set a specific due date or reminder</li><li class="step">View all flagged emails in the Tasks pane or Microsoft To Do app</li></ul></div>
+  </div></div>
+</div></div>
+
+<!-- WORD -->
+<div class="pn" id="p-word">
+<div class="ahd"><div class="aico" style="background:#185ABD">W</div><div><div class="an">Microsoft Word</div><div class="as">Documents · Formatting · Collaboration · Accessibility</div></div></div>
+<div class="sg">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Formatting fundamentals</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">Using Styles</div><div class="sb">Heading Styles are the most important Word habit — they enable navigation panes, auto contents tables, and screen reader accessibility.</div><ul class="steps"><li class="step">Use Heading 1, 2, 3 from the Styles pane — never just bold text</li><li class="step">Modify a style: right-click → Modify — changes apply everywhere instantly</li><li class="step">View → Navigation Pane to jump between sections</li><li class="step">References → Table of Contents → Automatic for a linked contents page</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">Track changes &amp; comments</div><div class="sb">Essential for collaborative editing, policy reviews, and giving written feedback on colleague or pupil documents.</div><ul class="steps"><li class="step">Turn on: Review → Track Changes (Ctrl + Shift + E)</li><li class="step">Accept or reject: Review → Accept All / Reject All to process quickly</li><li class="step">Add a comment: select text → Ctrl + Alt + M</li><li class="step">Resolve a comment: click the tick icon in the comment bubble</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bc">Core</span><div class="st">Find &amp; Replace (advanced)</div><div class="sb">Replace text, specific formatting, or entire fonts across a whole document instantly — far more powerful than basic search.</div><ul class="steps"><li class="step">Open with Ctrl + H</li><li class="step">Click More to expand options: match case, whole words, wildcards</li><li class="step">Click Format to replace specific fonts or paragraph styles</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bc">Core</span><div class="st">Compare documents</div><div class="sb">See exactly what changed between two versions — creates a tracked-changes view without altering either original.</div><ul class="steps"><li class="step">Review → Compare → Compare</li><li class="step">Select the original document and the revised version</li><li class="step">Word generates a new document showing all differences as tracked changes</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Power &amp; accessibility features</span><span class="sg-sc">3 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">5</div><span class="bdg bp">Power</span><div class="st">Accessibility checker</div><div class="sb">Check documents work with screen readers before sharing — especially important for pupil-facing and parent-facing resources.</div><ul class="steps"><li class="step">Review → Check Accessibility</li><li class="step">Word flags: missing image alt text, low contrast, missing headings</li><li class="step">Click each issue for a plain English explanation and a one-click fix</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bp">Power</span><div class="st">Dictation</div><div class="sb">Speak to write — useful for drafting documents quickly or for staff who find sustained keyboard typing slow or tiring.</div><ul class="steps"><li class="step">Home → Dictate (microphone icon) or press Alt + `</li><li class="step">Speak naturally — say "comma", "full stop", "new paragraph" for punctuation</li><li class="step">Dictation works in Outlook and OneNote too</li></ul></div>
+    <div class="sk"><div class="sn">7</div><span class="bdg bp">Power</span><div class="st">Readability statistics</div><div class="sb">Word's Editor gives a Flesch readability score — useful when writing for parents or producing accessible pupil resources.</div><ul class="steps"><li class="step">Review → Editor → Document Stats (at the bottom of the panel)</li><li class="step">Flesch score above 60 = accessible for most adults</li><li class="step">Long sentences and passive voice are the biggest readability drags</li></ul></div>
+  </div></div>
+</div></div>
+
+<!-- EXCEL -->
+<div class="pn" id="p-excel">
+<div class="ahd"><div class="aico" style="background:#217346">X</div><div><div class="an">Microsoft Excel</div><div class="as">Data · Formulas · Analysis · Interactive Simulator</div></div></div>
+
+<!-- FORMULA REFERENCE GRID -->
+<div class="sg" style="margin-bottom:1.5rem">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Essential formulas for school use</span><span class="sg-sc">12 formulas</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">=SUM()</div><div class="sb">Total a range of numbers — the most used formula in Excel.</div><ul class="steps"><li class="step">=SUM(B2:B30) — adds all values in B2 to B30</li><li class="step">=SUM(B2,D2,F2) — adds specific cells</li><li class="step">Use AutoSum: select a cell below a column and press Alt + =</li><li class="step">Works across sheets: =SUM(Sheet2!B2:B30)</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">=AVERAGE()</div><div class="sb">Calculate the mean of a range — essential for class averages, tracking performance over time.</div><ul class="steps"><li class="step">=AVERAGE(B2:B30) — mean of all values in range</li><li class="step">Ignores empty cells automatically (unlike SUM/COUNT)</li><li class="step">=AVERAGEIF(range,"condition",avg_range) — average only matching rows</li><li class="step">e.g. =AVERAGEIF(A2:A30,"Year 10",C2:C30) — Year 10 average only</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bs">Starter</span><div class="st">=MIN() / =MAX()</div><div class="sb">Find the lowest or highest value in a range instantly — useful for identifying outliers in pupil data.</div><ul class="steps"><li class="step">=MIN(B2:B30) — returns the lowest score</li><li class="step">=MAX(B2:B30) — returns the highest score</li><li class="step">Combine: =MAX(B2:B30)-MIN(B2:B30) gives the range</li><li class="step">Use with conditional formatting to highlight the top/bottom scorer</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bs">Starter</span><div class="st">=COUNT() / =COUNTA()</div><div class="sb">Count how many cells contain numbers (COUNT) or any value at all (COUNTA) — for registers, completions, submissions.</div><ul class="steps"><li class="step">=COUNT(B2:B30) — counts cells with numbers only</li><li class="step">=COUNTA(B2:B30) — counts non-empty cells (text or numbers)</li><li class="step">=COUNTBLANK(B2:B30) — counts empty cells (missing data)</li><li class="step">Use COUNTA to check how many pupils have submitted work</li></ul></div>
+    <div class="sk"><div class="sn">5</div><span class="bdg bc">Core</span><div class="st">=COUNTIF() / =COUNTIFS()</div><div class="sb">Count cells meeting one or more conditions — the most useful formula for mark books and performance tracking.</div><ul class="steps"><li class="step">=COUNTIF(B2:B30,"Pass") — count pupils who passed</li><li class="step">=COUNTIF(B2:B30,">=70") — count pupils scoring 70 or above</li><li class="step">=COUNTIFS(A2:A30,"Yr10",B2:B30,">=70") — multiple conditions</li><li class="step">Use &lt;&gt; for "not equal to": =COUNTIF(B2:B30,"&lt;&gt;Absent")</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bc">Core</span><div class="st">=SUMIF() / =SUMIFS()</div><div class="sb">Total values that meet a condition — e.g. total marks for a specific year group, class, or teacher.</div><ul class="steps"><li class="step">=SUMIF(A2:A30,"Year 10",C2:C30) — sum C where A = "Year 10"</li><li class="step">=SUMIFS(C2:C30,A2:A30,"Year 10",B2:B30,"Science") — two conditions</li><li class="step">Condition column and sum column can be different ranges</li><li class="step">Wildcards work: =SUMIF(A2:A30,"Yr*",C2:C30) — matches Yr10, Yr11 etc.</li></ul></div>
+    <div class="sk"><div class="sn">7</div><span class="bdg bc">Core</span><div class="st">=XLOOKUP()</div><div class="sb">Find a value in one column and return a corresponding value from another — the modern replacement for VLOOKUP.</div><ul class="steps"><li class="step">=XLOOKUP(A2, Register!A:A, Register!B:B)</li><li class="step">Looks up A2's value in the Register sheet, returns column B</li><li class="step">Add a 4th argument: =XLOOKUP(A2,A:A,B:B,"Not found")</li><li class="step">Works left-to-right AND right-to-left — VLOOKUP cannot go left</li></ul></div>
+    <div class="sk"><div class="sn">8</div><span class="bdg bc">Core</span><div class="st">=VLOOKUP() (legacy)</div><div class="sb">The classic lookup — still widely used and worth knowing. Looks right from a key column. Use XLOOKUP in new sheets.</div><ul class="steps"><li class="step">=VLOOKUP(lookup_value, table_array, col_index, FALSE)</li><li class="step">=VLOOKUP(A2,Sheet2!A:C,3,FALSE) — finds A2 in Sheet2 col A, returns col 3</li><li class="step">Always use FALSE as the 4th argument for exact match</li><li class="step">Cannot look left — the key column must be the leftmost in the range</li></ul></div>
+    <div class="sk"><div class="sn">9</div><span class="bdg bc">Core</span><div class="st">=IF() and nested IF</div><div class="sb">Return different values depending on whether a condition is true — essential for grading, flags, and status labels.</div><ul class="steps"><li class="step">=IF(B2>=70,"Pass","Fail") — simple pass/fail</li><li class="step">=IF(B2>=70,"Merit",IF(B2>=50,"Pass","Fail")) — nested for grades</li><li class="step">For multiple tiers: use IFS() for cleaner syntax</li><li class="step">=IFS(B2>=70,"A",B2>=60,"B",B2>=50,"C",TRUE,"Below")</li></ul></div>
+    <div class="sk"><div class="sn">10</div><span class="bdg bc">Core</span><div class="st">=IFERROR()</div><div class="sb">Wrap any formula to suppress error messages — keeps spreadsheets clean when data is incomplete.</div><ul class="steps"><li class="step">=IFERROR(XLOOKUP(A2,B:B,C:C),"Not found")</li><li class="step">Replaces #N/A, #VALUE!, #REF! errors with your chosen text</li><li class="step">Use "" to show a blank instead of an error</li><li class="step">Essential when sharing spreadsheets with staff who find errors alarming</li></ul></div>
+    <div class="sk"><div class="sn">11</div><span class="bdg bp">Power</span><div class="st">=RANK() / =PERCENTRANK()</div><div class="sb">Rank a pupil's score within a class — instantly see where each pupil sits relative to their peers.</div><ul class="steps"><li class="step">=RANK(B2,B$2:B$30,0) — rank B2 within range, descending (0=highest=1st)</li><li class="step">Use $ to lock the range when copying the formula down</li><li class="step">=RANK(B2,B$2:B$30,1) — ascending rank (lowest = 1)</li><li class="step">=PERCENTRANK(B$2:B$30,B2)*100 — percentile position (0–100)</li></ul></div>
+    <div class="sk"><div class="sn">12</div><span class="bdg bp">Power</span><div class="st">=STDEV() / =MEDIAN()</div><div class="sb">Go beyond averages — standard deviation shows spread of scores; median shows the middle value, unaffected by outliers.</div><ul class="steps"><li class="step">=STDEV(B2:B30) — standard deviation of scores (how spread out they are)</li><li class="step">=MEDIAN(B2:B30) — the middle value when sorted</li><li class="step">A large STDEV means wide variation — useful for spotting inconsistency</li><li class="step">Compare AVERAGE vs MEDIAN: a big difference signals outliers skewing the data</li></ul></div>
+  </div></div>
+</div>
+
+<!-- INTERACTIVE EXCEL SIMULATOR -->
+<div style="background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark);display:flex;align-items:center;gap:.75rem">
+    <div style="width:28px;height:28px;background:#217346;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0">X</div>
+    <span style="font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff">Interactive Simulator — Class Mark Book</span>
+    <span style="font-family:var(--fm);font-size:.65rem;color:var(--muted);margin-left:auto">Click any formula cell to see how it works</span>
+  </div>
+  <div style="padding:1.25rem 1.75rem" id="xl-sim">
+    <!-- Excel ribbon mock -->
+    <div style="background:#217346;border-radius:8px 8px 0 0;padding:.4rem 1rem;display:flex;gap:1.5rem;align-items:center">
+      <span style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Home</span>
+      <span style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Insert</span>
+      <span style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Formulas</span>
+      <span style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Data</span>
+    </div>
+    <!-- Formula bar -->
+    <div style="background:#f5f5f5;border:1px solid #ccc;border-top:none;display:flex;align-items:center;gap:.5rem;padding:.3rem .75rem">
+      <span id="xl-cellref" style="font-family:var(--fm);font-size:.72rem;color:#333;min-width:40px;font-weight:600">A1</span>
+      <span style="color:#999;font-size:.8rem">fx</span>
+      <span id="xl-formula" style="font-family:var(--fm);font-size:.75rem;color:#1a1a2e;flex:1;letter-spacing:0">Name</span>
+    </div>
+    <!-- Sheet tabs -->
+    <div style="background:#f0f0f0;padding:.3rem .75rem .0rem;display:flex;gap:.2rem;border:1px solid #ccc;border-top:none">
+      <span style="background:#fff;padding:.25rem .75rem;font-family:var(--fm);font-size:.65rem;color:#217346;border:1px solid #ccc;border-bottom:none;border-radius:4px 4px 0 0;font-weight:600">Class Register</span>
+      <span style="padding:.25rem .75rem;font-family:var(--fm);font-size:.65rem;color:#888;cursor:pointer">Summary</span>
+    </div>
+    <!-- Spreadsheet grid -->
+    <div style="overflow-x:auto;border:1px solid #ccc;border-top:none">
+      <table id="xl-table" style="border-collapse:collapse;width:100%;background:#fff;font-family:'Calibri',var(--fb)">
+        <thead>
+          <tr style="background:#f0f0f0">
+            <th style="width:28px;border:1px solid #ddd;padding:.2rem;font-size:.65rem;color:#666;font-weight:400"></th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:140px">A</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:80px">B</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:80px">C</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:80px">D</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:100px">E</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.72rem;color:#333;font-weight:400;min-width:90px">F</th>
+          </tr>
+          <tr style="background:#E2EFDA">
+            <th style="border:1px solid #ddd;padding:.3rem .4rem;font-size:.65rem;color:#666;font-weight:400">1</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Name</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Year</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Test 1</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Test 2</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Average</th>
+            <th style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;color:#333;font-weight:700;text-align:left">Grade</th>
+          </tr>
+        </thead>
+        <tbody id="xl-body"></tbody>
+        <tfoot id="xl-foot"></tfoot>
+      </table>
+    </div>
+    <!-- Explanation panel -->
+    <div id="xl-explain" style="margin-top:.85rem;padding:1rem 1.25rem;background:rgba(33,115,70,.1);border:1px solid rgba(33,115,70,.3);border-radius:10px;min-height:56px">
+      <div style="font-family:var(--fh);font-size:.72rem;font-weight:700;color:#86EFAC;margin-bottom:.3rem" id="xl-exp-title">Click any highlighted cell to see the formula explained</div>
+      <div style="font-size:.79rem;color:rgba(255,255,255,.5);line-height:1.6" id="xl-exp-body">The spreadsheet above uses a real school mark book scenario. Hover or click the green formula cells in the Average and Grade columns, or the totals row at the bottom.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- EXCEL CHEAT SHEET -->
+<div class="cheat-strip" style="--cheat-color:#217346">
+  <div class="cheat-header">
+    <div class="cheat-title">Excel Formula Cheat Sheet</div>
+    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-excel')">&#9889; Copy Cheat Sheet</button>
+  </div>
+  <div class="cheat-body">
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=SUM(B2:B30)</strong> — total a range</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=AVERAGE(B2:B30)</strong> — mean of a range</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=AVERAGEIF(A:A,"Yr10",C:C)</strong> — average matching rows</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=MIN(B2:B30) / =MAX(B2:B30)</strong> — lowest / highest</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=COUNTIF(B2:B30,"Pass")</strong> — count matching cells</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=COUNTIFS(A:A,"Yr10",B:B,">=70")</strong> — multiple conditions</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=SUMIF(A:A,"Yr10",C:C)</strong> — sum matching rows</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=XLOOKUP(A2,Sheet2!A:A,Sheet2!B:B,"Not found")</strong> — modern lookup</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=VLOOKUP(A2,Sheet2!A:C,3,FALSE)</strong> — legacy lookup (col 3)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=IFS(B2>=80,"A",B2>=65,"B",TRUE,"C")</strong> — grade banding</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=IFERROR(formula,"Not found")</strong> — suppress errors</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=RANK(B2,B$2:B$30,0)</strong> — rank within class (0=descending)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=MEDIAN(B2:B30)</strong> — middle value (ignores outliers)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">=</div><div class="cheat-item-text"><strong>=STDEV(B2:B30)</strong> — spread of scores</div></div>
+  </div>
+  <textarea id="cs-excel" style="position:absolute;opacity:0;pointer-events:none;height:1px">EXCEL FORMULA CHEAT SHEET — Microsoft 365
+==========================================
+=SUM(B2:B30)                       Total a range
+=AVERAGE(B2:B30)                   Mean of a range
+=AVERAGEIF(A:A,"Yr10",C:C)         Average matching rows
+=MIN(B2:B30) / =MAX(B2:B30)        Lowest / highest value
+=COUNTIF(B2:B30,"Pass")            Count matching cells
+=COUNTIFS(A:A,"Yr10",B:B,">=70")   Count with multiple conditions
+=SUMIF(A:A,"Yr10",C:C)             Sum matching rows
+=SUMIFS(C:C,A:A,"Yr10",B:B,"Sci")  Sum with multiple conditions
+=XLOOKUP(A2,Sheet2!A:A,Sheet2!B:B,"Not found")   Modern lookup
+=VLOOKUP(A2,Sheet2!A:C,3,FALSE)    Legacy lookup (col index 3)
+=IFS(B2>=80,"A",B2>=65,"B",TRUE,"C")  Grade banding
+=IFERROR(formula,"Not found")      Suppress errors
+=RANK(B2,B$2:B$30,0)               Rank within class
+=MEDIAN(B2:B30)                    Middle value (outlier-proof)
+=STDEV(B2:B30)                     Spread of scores
+
+TIP: Lock ranges with $ when copying formulas down a column.
+TIP: Format as Table (Ctrl+T) before adding formulas — they auto-expand.
+</textarea>
+</div>
+
+</div><!-- end p-excel -->
+
+<!-- POWERPOINT -->
+<div class="pn" id="p-ppt">
+<div class="ahd"><div class="aico" style="background:#C43E1C">P</div><div><div class="an">PowerPoint</div><div class="as">Slides · Design · Presenting · Rehearse · Coaching · Recording</div></div></div>
+<div class="sg" style="margin-bottom:1.5rem">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Design essentials</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">Slide Master</div><div class="sb">Edit the Slide Master once to apply consistent fonts, colours, and branding across every slide in the deck.</div><ul class="steps"><li class="step">View → Slide Master</li><li class="step">Edit the top master slide: font, colour palette, logo position</li><li class="step">Edit individual layouts below for specific slide types</li><li class="step">Close Slide Master view — changes apply everywhere instantly</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">Presenter View</div><div class="sb">See your notes and the next slide while your audience sees only the current one — use the zoom tool to highlight detail live.</div><ul class="steps"><li class="step">Connect a projector or second screen</li><li class="step">Slide Show → Use Presenter View</li><li class="step">Your screen: current slide, notes, next slide, running timer</li><li class="step">Alt + F5 to simulate Presenter View on one screen</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bc">Core</span><div class="st">Morph transition</div><div class="sb">Smooth animated movement between slides with zero manual animation work — duplicate a slide, move something, apply Morph.</div><ul class="steps"><li class="step">Right-click a slide → Duplicate Slide</li><li class="step">Move, resize, or change objects on the duplicate</li><li class="step">On the duplicate: Transitions → Morph</li><li class="step">PowerPoint animates all differences automatically</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bc">Core</span><div class="st">Designer &amp; alt text</div><div class="sb">Designer suggests polished layouts; alt text on images is a legal accessibility requirement — do both together.</div><ul class="steps"><li class="step">Add content → Designer panel opens right (or Design → Designer)</li><li class="step">Click any suggestion to apply</li><li class="step">Right-click any image → Edit Alt Text for accessibility</li><li class="step">Review → Check Accessibility to find all missing alt text at once</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Rehearse, record &amp; coach — the full suite</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">5</div><span class="bdg bc">Core</span><div class="st">Rehearse Timings</div><div class="sb">Practice your delivery with a per-slide timer — see exactly where you over-run before the real presentation.</div><ul class="steps"><li class="step">Slide Show → Rehearse Timings</li><li class="step">A floating timer records time spent on each slide</li><li class="step">Save timings → slides advance automatically in delivery</li><li class="step">Re-rehearse individual slides without losing others</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bp">Power</span><div class="st">Record with narration</div><div class="sb">Record video of yourself presenting each slide — camera, audio, and annotations all saved. Export as an MP4 video.</div><ul class="steps"><li class="step">Slide Show → Record → Record from Beginning (or current slide)</li><li class="step">Camera and microphone are recorded per slide</li><li class="step">Re-record individual slides: navigate to it and click Record again</li><li class="step">File → Export → Create a Video → choose 1080p quality → Save</li></ul></div>
+    <div class="sk"><div class="sn">7</div><span class="bdg bp">Power</span><div class="st">Presentation Coach (Rehearse with Coach)</div><div class="sb">PowerPoint's AI coach listens as you rehearse and gives real-time feedback — and a full written report after each session.</div><ul class="steps"><li class="step">Slide Show → Rehearse with Coach</li><li class="step">Present as normal — the coach analyses speech in real time</li><li class="step">Alerts appear if you speak too fast, use filler words, or read directly from slides</li><li class="step">After ending: a full Coaching Report appears — pacing, originality, filler words, eye contact reminders</li></ul></div>
+    <div class="sk"><div class="sn">8</div><span class="bdg bp">Power</span><div class="st">Cameo — live camera on slides</div><div class="sb">Insert a live camera feed directly onto a slide — your face appears in the corner or as part of the layout during recording or presenting.</div><ul class="steps"><li class="step">Insert → Cameo (inserts a camera placeholder on the slide)</li><li class="step">Resize and reposition like any object</li><li class="step">Apply a style or border to match the slide design</li><li class="step">Activates automatically when you record or present — shows your live feed</li></ul></div>
+  </div></div>
+</div>
+
+<!-- PRESENTATION COACH SIMULATOR -->
+<div style="background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark);display:flex;align-items:center;gap:.75rem">
+    <div style="width:28px;height:28px;background:#C43E1C;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0">P</div>
+    <span style="font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff">Interactive Simulator — Rehearse with Coach</span>
+    <span style="font-family:var(--fm);font-size:.65rem;color:var(--muted);margin-left:auto">Simulates PowerPoint's AI Presentation Coach</span>
+  </div>
+  <div id="ppt-sim" style="padding:1.5rem 1.75rem">
+    <!-- State 0: Start screen -->
+    <div id="ppt-s0">
+      <div style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <div style="font-family:var(--fh);font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.4rem">Rehearse with Coach</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:1.25rem">PowerPoint's AI coach listens to you present and provides real-time feedback on pacing, filler words, and whether you're reading from your slides. At the end, you receive a full Coaching Report.</div>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem">
+            <div style="background:var(--ink-3);border:1px solid var(--border-dark);border-radius:10px;padding:.75rem 1rem;flex:1;min-width:140px">
+              <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-pale);margin-bottom:.3rem">Checks in real time</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem">
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">·</span>Speaking pace (too fast / slow)</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">·</span>Filler words (um, like, basically)</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">·</span>Reading from slides verbatim</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--teal);font-weight:700">·</span>Sensitive phrases to avoid</li>
+              </ul>
+            </div>
+            <div style="background:var(--ink-3);border:1px solid var(--border-dark);border-radius:10px;padding:.75rem 1rem;flex:1;min-width:140px">
+              <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-pale);margin-bottom:.3rem">Coaching report covers</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:.25rem">
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--violet);font-weight:700">·</span>Total duration per slide</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--violet);font-weight:700">·</span>Words per minute</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--violet);font-weight:700">·</span>Originality score</li>
+                <li style="font-size:.75rem;color:rgba(255,255,255,.4);display:flex;gap:.4rem;align-items:flex-start"><span style="color:var(--violet);font-weight:700">·</span>Filler word tally</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Slide preview -->
+        <div style="width:260px;flex-shrink:0">
+          <div style="background:#1a1a2e;border:1px solid var(--border-med);border-radius:10px;overflow:hidden;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;text-align:center;position:relative">
+            <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:.5rem">SLIDE 1 OF 4</div>
+            <div style="font-family:var(--fh);font-size:1.1rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:.5rem">Introduction to<br>Climate Change</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.35)">Global temperatures have risen by 1.1°C since pre-industrial times</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.75rem">
+            <div style="font-size:.72rem;color:var(--muted);font-family:var(--fm)">Slide Show → Rehearse with Coach</div>
+          </div>
+        </div>
+      </div>
+      <button onclick="startCoach()" style="margin-top:1rem;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.75rem 1.75rem;font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .18s" onmouseover="this.style.background='#BE123C'" onmouseout="this.style.background='var(--rose)'">Start Rehearsal Simulation ▶</button>
+    </div>
+    <!-- State 1: Rehearsing -->
+    <div id="ppt-s1" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 240px;gap:1.25rem;align-items:start">
+        <div>
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--rose);animation:pulse 1s ease infinite"></div>
+            <span style="font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--rose-pale);letter-spacing:.08em;text-transform:uppercase">Rehearsal in progress</span>
+            <span id="coach-timer" style="font-family:var(--fm);font-size:.8rem;color:#fff;margin-left:auto;background:var(--ink-4);padding:.2rem .65rem;border-radius:6px">0:00</span>
+          </div>
+          <!-- Slide display -->
+          <div id="coach-slide" style="background:#1a1a2e;border:1px solid var(--border-med);border-radius:12px;padding:2rem;min-height:140px;margin-bottom:1rem;position:relative">
+            <div style="font-family:var(--fh);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:.5rem" id="coach-slide-num">SLIDE 1 OF 4</div>
+            <div style="font-family:var(--fh);font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:.4rem" id="coach-slide-title">Introduction to Climate Change</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.4)" id="coach-slide-body">Global temperatures have risen by 1.1°C since pre-industrial times. The IPCC states this is unequivocally caused by human activity.</div>
+          </div>
+          <!-- Live feedback area -->
+          <div style="background:var(--ink-3);border:1px solid var(--border-dark);border-radius:10px;padding:.85rem 1.1rem;min-height:64px">
+            <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Live Coach Feedback</div>
+            <div id="coach-feedback" style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6">Listening... present your slide content naturally.</div>
+          </div>
+          <div style="display:flex;gap:.75rem;margin-top:.85rem">
+            <button onclick="nextSlide()" id="coach-next-btn" style="background:var(--ink-4);color:#fff;border:1px solid var(--border-med);border-radius:8px;padding:.55rem 1.2rem;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .15s">Next Slide →</button>
+            <button onclick="endCoach()" style="background:transparent;color:var(--muted);border:1px solid var(--border-dark);border-radius:8px;padding:.55rem 1.2rem;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .15s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">End &amp; Get Report</button>
+          </div>
+        </div>
+        <!-- Side panel: slide thumbs -->
+        <div>
+          <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Slides</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem" id="coach-thumbs"></div>
+        </div>
+      </div>
+    </div>
+    <!-- State 2: Coaching Report -->
+    <div id="ppt-s2" style="display:none">
+      <div style="font-family:var(--fh);font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Coaching Report</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:1.25rem">Here is a summary of your rehearsal performance.</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.25rem" id="coach-stats"></div>
+      <div style="background:var(--ink-3);border:1px solid var(--border-dark);border-radius:12px;overflow:hidden;margin-bottom:1rem">
+        <div style="padding:.75rem 1.25rem;border-bottom:1px solid var(--border-dark);font-family:var(--fh);font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Time per slide</div>
+        <div id="coach-slide-times" style="padding:.75rem 1.25rem;display:flex;flex-direction:column;gap:.5rem"></div>
+      </div>
+      <div id="coach-feedback-list" style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.25rem"></div>
+      <button onclick="resetCoach()" style="background:var(--ink-4);color:#fff;border:1px solid var(--border-med);border-radius:8px;padding:.6rem 1.4rem;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer">Rehearse Again ↺</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- end p-ppt -->
+
+
+<!-- ONEDRIVE -->
+<div class="pn" id="p-od">
+<div class="ahd"><div class="aico" style="background:#0364B8">D</div><div><div class="an">OneDrive</div><div class="as">Cloud storage · File sharing · Version history · Sync</div></div></div>
+<div class="sg">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Essential knowledge</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg bs">Starter</span><div class="st">OneDrive vs SharePoint</div><div class="sb">Knowing where to save which file is the most important OneDrive skill — saving in the wrong place makes sharing harder.</div><ul class="steps"><li class="step">OneDrive = your personal cloud. For files only you need</li><li class="step">SharePoint = shared drives for teams, departments, whole school</li><li class="step">Files shared via Teams are stored in SharePoint automatically</li><li class="step">Rule: if a colleague might ever need it, save it to SharePoint</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg bs">Starter</span><div class="st">Version history</div><div class="sb">Every edit to a OneDrive or SharePoint file is preserved — restore any previous version at any time.</div><ul class="steps"><li class="step">Right-click any file in OneDrive → Version history</li><li class="step">In Word / Excel / PowerPoint: File → Info → Version History</li><li class="step">Click any version to preview it</li><li class="step">Click Restore to make that version the current file</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg bc">Core</span><div class="st">Sharing files safely</div><div class="sb">Shared links can be set to view-only, edit-enabled, or restricted to specific people — always check before sharing externally.</div><ul class="steps"><li class="step">Right-click any file → Share</li><li class="step">Click link settings: Anyone / People in school / Specific people</li><li class="step">Toggle Allow editing on or off as appropriate</li><li class="step">Set an expiry date for links shared outside school</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg bc">Core</span><div class="st">Sync to your desktop</div><div class="sb">Sync OneDrive folders to your PC — files appear in File Explorer and work offline, syncing when reconnected.</div><ul class="steps"><li class="step">Open the OneDrive app (cloud icon in system tray)</li><li class="step">Sign in with your school Microsoft account</li><li class="step">Choose which folders to sync to your machine</li><li class="step">Right-click a synced file → Always keep on this device for offline access</li></ul></div>
+  </div></div>
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">Power features</span><span class="sg-sc">2 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">5</div><span class="bdg bp">Power</span><div class="st">Real-time co-authoring</div><div class="sb">Multiple people can edit the same Word, Excel, or PowerPoint file simultaneously — each person's cursor appears in a different colour.</div><ul class="steps"><li class="step">Save your file to OneDrive or SharePoint (not your local C: drive)</li><li class="step">Share the file with colleagues</li><li class="step">Everyone's changes appear live — no more emailing different versions</li></ul></div>
+    <div class="sk"><div class="sn">6</div><span class="bdg bp">Power</span><div class="st">Recycle bin recovery</div><div class="sb">Deleted files stay in the OneDrive Recycle Bin for 93 days — you can restore them at any point within that window.</div><ul class="steps"><li class="step">Go to onedrive.com → sign in with your school account</li><li class="step">Click Recycle bin in the left sidebar</li><li class="step">Select the file → Restore to return it to its original location</li><li class="step">After 93 days, permanently deleted files cannot be recovered</li></ul></div>
+  </div></div>
+</div></div>
+
+<!-- COPILOT -->
+<div class="pn" id="p-cop">
+<div class="ahd"><div class="aico" style="background:linear-gradient(135deg,#0078D4,#7C3AED)">C</div><div><div class="an">Microsoft Copilot</div><div class="as">AI assistant built into Word, Outlook, Teams, Excel, and PowerPoint</div></div></div>
+<div class="sg" style="margin-bottom:1.25rem">
+  <div class="sg-s"><div class="sg-sh"><span class="sg-sl">What Copilot can do</span><span class="sg-sc">4 skills</span></div><div class="sg-r">
+    <div class="sk"><div class="sn">1</div><span class="bdg ba">AI Feature</span><div class="st">Copilot in Word</div><div class="sb">Draft, rewrite, summarise, or ask questions about a document — all from a natural language instruction.</div><ul class="steps"><li class="step">Click the Copilot icon in the Home ribbon, or press Alt + I</li><li class="step">Draft: "Write a parent letter about the Year 9 residential trip"</li><li class="step">Summarise: "Summarise the key points of this policy document"</li><li class="step">Rewrite: highlight text → Copilot → Rewrite with Copilot</li></ul></div>
+    <div class="sk"><div class="sn">2</div><span class="bdg ba">AI Feature</span><div class="st">Copilot in Outlook</div><div class="sb">Summarise long email threads, draft replies, and prepare for meetings — without reading every message manually.</div><ul class="steps"><li class="step">Open any thread → Copilot icon → Summarise</li><li class="step">Draft a reply: Reply → Copilot → Draft with Copilot → enter key points</li><li class="step">Meeting prep: find the invite → Copilot → Prepare for meeting</li></ul></div>
+    <div class="sk"><div class="sn">3</div><span class="bdg ba">AI Feature</span><div class="st">Copilot in Teams meetings</div><div class="sb">Generate a written summary of decisions, actions, and key discussion points from any Teams meeting automatically.</div><ul class="steps"><li class="step">During meeting: More actions → Copilot (requires transcription to be on)</li><li class="step">Ask live questions: "What decisions have we made so far?"</li><li class="step">After meeting: open it → Recap tab for the full AI summary</li><li class="step">Download or share the summary with the team</li></ul></div>
+    <div class="sk"><div class="sn">4</div><span class="bdg ba">AI Feature</span><div class="st">Copilot in Excel</div><div class="sb">Analyse data, suggest formulas, and create charts using plain English — no formula knowledge required.</div><ul class="steps"><li class="step">Open the Copilot panel from the Home ribbon</li><li class="step">"Highlight pupils who scored below 50% in red"</li><li class="step">"Create a chart showing performance by year group"</li><li class="step">"What formula counts pupils who scored above 70%?"</li></ul></div>
+  </div></div>
+</div>
+<div class="cal am">
+  <h4>Enterprise data protection — what this means in practice</h4>
+  <p>When using Copilot through your <strong>school Microsoft 365 account</strong>, your prompts and data are protected by Microsoft's enterprise commitments: <strong>not used to train AI models</strong>, not shared with third parties, processed within Microsoft's secure cloud. This applies to Microsoft 365 Copilot accessed via your school login. It does <strong>not</strong> apply to the free public Copilot at copilot.microsoft.com when using a personal account.</p>
+</div>
+<div class="cal ro">
+  <h4>GDPR reminder — applies regardless of enterprise protection</h4>
+  <p>Never enter <strong>real pupil names, identifiable data, SEND details, or safeguarding information</strong> into Copilot or any AI tool. Use [Pupil] as a placeholder. Enterprise protection covers your organisational data — it does not change your obligations under UK GDPR or Keeping Children Safe in Education.</p>
+</div>
+<table class="ctable">
+  <thead><tr><th>Feature</th><th>Copilot via school M365 account</th><th>Free ChatGPT / public Copilot</th></tr></thead>
+  <tbody>
+    <tr><td>Enterprise data protection</td><td><span class="tick">Yes — covered</span></td><td><span class="cross">No</span></td></tr>
+    <tr><td>Data used to train AI models</td><td><span class="tick">No</span></td><td><span class="warn">May be used (check settings)</span></td></tr>
+    <tr><td>Data stays within Microsoft</td><td><span class="tick">Yes</span></td><td><span class="cross">No</span></td></tr>
+    <tr><td>Safe for professional school use</td><td><span class="tick">Yes — with GDPR care</span></td><td><span class="cross">Not for pupil or staff data</span></td></tr>
+    <tr><td>Access to your school files</td><td><span class="tick">Yes — Word, Outlook, Teams, SharePoint</span></td><td><span class="cross">No</span></td></tr>
+    <tr><td>Real names / pupil data safe to enter</td><td><span class="cross">No — UK GDPR still applies</span></td><td><span class="cross">No</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- SHORTCUTS -->
+<div class="pn" id="p-sc">
+<div class="ahd"><div class="aico" style="background:var(--ink-4);border:1px solid var(--border-med);font-size:1.3rem">⌨</div><div><div class="an">Keyboard Shortcuts</div><div class="as">Universal Windows + Microsoft 365 essentials</div></div></div>
+<div class="scw">
+  <div class="scg"><div class="scgh">Universal — works across all Windows applications</div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">Z</span></div><div class="scd">Undo last action</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">Y</span></div><div class="scd">Redo / repeat last action</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">S</span></div><div class="scd">Save — use this constantly</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">C</span></div><div class="scd">Copy selected text or object</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">V</span></div><div class="scd">Paste</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">X</span></div><div class="scd">Cut selected text or object</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">A</span></div><div class="scd">Select all</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">F</span></div><div class="scd">Find (search within the document or app)</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Alt</span><span class="pl">+</span><span class="key">Tab</span></div><div class="scd">Switch between open applications</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Win</span><span class="pl">+</span><span class="key">V</span></div><div class="scd">Clipboard history — paste from recent copies</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Win</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">S</span></div><div class="scd">Screenshot snip — drag to capture any area of the screen</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Win</span><span class="pl">+</span><span class="key">D</span></div><div class="scd">Show / hide the desktop instantly</div><span class="scb sp">Power</span></div>
+  </div>
+  <div class="scg"><div class="scgh">Word &amp; general text editing</div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">B</span></div><div class="scd">Bold</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">I</span></div><div class="scd">Italic</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">U</span></div><div class="scd">Underline</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">H</span></div><div class="scd">Find and Replace</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">E</span></div><div class="scd">Toggle Track Changes on / off</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">Alt</span><span class="pl">+</span><span class="key">M</span></div><div class="scd">Insert comment at current selection</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">F7</span></div><div class="scd">Spell check</div><span class="scb se">Essential</span></div>
+  </div>
+  <div class="scg"><div class="scgh">Outlook</div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">N</span></div><div class="scd">New email</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">R</span></div><div class="scd">Reply to selected email</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">R</span></div><div class="scd">Reply all</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">Enter</span></div><div class="scd">Send the email</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">1</span></div><div class="scd">Switch to Mail view</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">2</span></div><div class="scd">Switch to Calendar view</div><span class="scb sp">Power</span></div>
+  </div>
+  <div class="scg"><div class="scgh">Teams</div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">E</span></div><div class="scd">Jump to the search box</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">M</span></div><div class="scd">Mute / unmute microphone in a meeting</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">O</span></div><div class="scd">Turn camera on / off in a meeting</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">H</span></div><div class="scd">Raise / lower hand in a meeting</div><span class="scb sp">Power</span></div>
+  </div>
+  <div class="scg"><div class="scgh">Excel</div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">T</span></div><div class="scd">Create a Table from selected data</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">E</span></div><div class="scd">Flash Fill — auto-complete a detected pattern</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">⇧</span><span class="pl">+</span><span class="key">L</span></div><div class="scd">Toggle filter arrows on / off</div><span class="scb se">Essential</span></div>
+    <div class="scr"><div class="sck"><span class="key">Alt</span><span class="pl">+</span><span class="key">Enter</span></div><div class="scd">New line within the same cell</div><span class="scb sp">Power</span></div>
+    <div class="scr"><div class="sck"><span class="key">Ctrl</span><span class="pl">+</span><span class="key">`</span></div><div class="scd">Toggle show formulas / show calculated values</div><span class="scb sp">Power</span></div>
+  </div>
+</div></div>
+
+</div>
+<footer>
+  <p>Digital Skills &amp; Literacy — Staff Resource</p>
+  <div class="fl"><a href="index.html">Home</a><a href="ai-literacy.html">Understanding AI</a><a href="prompt-generator.html">Prompts</a><a href="microsoft.html">Microsoft</a><a href="digital-safety.html">Safety</a><a href="policy.html">National Policy</a></div>
+</footer>
+<script>
+function sw(id){
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('act'));
+  document.querySelectorAll('.pn').forEach(p=>p.classList.remove('act'));
+  document.getElementById('t-'+id).classList.add('act');
+  document.getElementById('p-'+id).classList.add('act');
+}
+</script>
+
+<script id="xl-js">
+// ── EXCEL SIMULATOR ──
+const xlData=[
+  {name:"Amara Osei",year:"Yr10",t1:72,t2:68},
+  {name:"Ben Hartley",year:"Yr10",t1:55,t2:61},
+  {name:"Chloe Marsh",year:"Yr11",t1:88,t2:91},
+  {name:"David Nkosi",year:"Yr11",t1:43,t2:49},
+  {name:"Elena Vasquez",year:"Yr10",t1:79,t2:83},
+  {name:"Finn McCarthy",year:"Yr11",t1:66,t2:71},
+  {name:"Grace Li",year:"Yr10",t1:92,t2:89},
+];
+function getGrade(avg){return avg>=80?"A":avg>=65?"B":"C";}
+function gradeClass(avg){return avg>=80?"grade-a":avg>=65?"grade-b":"grade-c";}
+function buildXL(){
+  const body=document.getElementById('xl-body');
+  if(!body)return;
+  body.innerHTML='';
+  xlData.forEach((r,i)=>{
+    const avg=((r.t1+r.t2)/2).toFixed(1);
+    const g=getGrade(parseFloat(avg));
+    const gc=gradeClass(parseFloat(avg));
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="border:1px solid #ddd;padding:.3rem .4rem;font-size:.65rem;color:#888;background:#f0f0f0;text-align:center">${i+2}</td>
+      <td style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.75rem;color:#1a1a2e">${r.name}</td>
+      <td style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.75rem;color:#1a1a2e;text-align:center">${r.year}</td>
+      <td style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.75rem;color:#1a1a2e;text-align:center">${r.t1}</td>
+      <td style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.75rem;color:#1a1a2e;text-align:center">${r.t2}</td>
+      <td class="formula" data-ref="E${i+2}" data-formula="=AVERAGE(C${i+2}:D${i+2})" data-explain="AVERAGE formula" data-detail="Calculates the mean of Test 1 (${r.t1}) and Test 2 (${r.t2}): =(${r.t1}+${r.t2})÷2 = ${avg}" style="text-align:center" onclick="xlClick(this)">${avg}</td>
+      <td class="formula ${gc}" data-ref="F${i+2}" data-formula='=IFS(E${i+2}>=80,"A",E${i+2}>=65,"B",TRUE,"C")' data-explain="IFS formula for grade banding" data-detail="Tests E${i+2} (${avg}) against grade thresholds: 80+ = A, 65–79 = B, below 65 = C. Result: ${g}" style="text-align:center;font-weight:700" onclick="xlClick(this)">${g}</td>`;
+    body.appendChild(tr);
+  });
+  // Totals row
+  const avgAll=(xlData.reduce((s,r)=>s+(r.t1+r.t2)/2,0)/xlData.length).toFixed(1);
+  const maxT=(Math.max(...xlData.map(r=>Math.max(r.t1,r.t2)))).toFixed(0);
+  const minT=(Math.min(...xlData.map(r=>Math.min(r.t1,r.t2)))).toFixed(0);
+  const countA=xlData.filter(r=>(r.t1+r.t2)/2>=80).length;
+  const foot=document.getElementById('xl-foot');
+  if(foot) foot.innerHTML=`<tr>
+    <td style="border:1px solid #ddd;padding:.3rem .4rem;font-size:.65rem;color:#888;background:#f0f0f0;text-align:center"></td>
+    <td class="total-row" style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;font-weight:700;color:#1F497D">CLASS SUMMARY</td>
+    <td class="total-row" style="border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem;text-align:center">—</td>
+    <td class="total-formula" data-ref="C9" data-formula="=MAX(C2:C8)" data-explain="MAX formula" data-detail="Returns the highest value in column C (Test 1 scores). Highest score = ${Math.max(...xlData.map(r=>r.t1))}. Compare with MIN() to find the range." onclick="xlClick(this)" style="text-align:center;border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem">Max: ${Math.max(...xlData.map(r=>r.t1))}</td>
+    <td class="total-formula" data-ref="D9" data-formula="=MIN(D2:D8)" data-explain="MIN formula" data-detail="Returns the lowest value in column D (Test 2 scores). Lowest score = ${Math.min(...xlData.map(r=>r.t2))}. Use with MAX to find the spread of results." onclick="xlClick(this)" style="text-align:center;border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem">Min: ${Math.min(...xlData.map(r=>r.t2))}</td>
+    <td class="total-formula" data-ref="E9" data-formula="=AVERAGE(E2:E8)" data-explain="AVERAGE of all averages" data-detail="Class mean average across all pupils: ${avgAll}. This averages the individual averages in column E. Compare against last year to see progress." onclick="xlClick(this)" style="text-align:center;border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem">Avg: ${avgAll}</td>
+    <td class="total-formula" data-ref="F9" data-formula='=COUNTIF(F2:F8,"A")' data-explain="COUNTIF for grade A count" data-detail='Counts how many pupils achieved grade A. =COUNTIF(F2:F8,"A") = ${countA}. Change "A" to "B" or "C" to count other grades.' onclick="xlClick(this)" style="text-align:center;border:1px solid #ddd;padding:.3rem .75rem;font-size:.73rem">A grades: ${countA}</td>
+  </tr>`;
+}
+function xlClick(cell){
+  document.querySelectorAll('#xl-table .selected').forEach(c=>c.classList.remove('selected'));
+  cell.classList.add('selected');
+  document.getElementById('xl-cellref').textContent=cell.dataset.ref;
+  document.getElementById('xl-formula').textContent=cell.dataset.formula;
+  document.getElementById('xl-exp-title').textContent=cell.dataset.explain;
+  document.getElementById('xl-exp-body').textContent=cell.dataset.detail;
+}
+// ── POWERPOINT COACH SIMULATOR ──
+const slides=[
+  {num:"1",title:"Introduction to Climate Change",body:"Global temperatures have risen by 1.1°C since pre-industrial times. The IPCC states this is unequivocally caused by human activity."},
+  {num:"2",title:"Key Causes",body:"Burning fossil fuels · Deforestation · Agriculture · Industrial processes · Transport emissions"},
+  {num:"3",title:"Effects on Ecosystems",body:"Sea level rise · Extreme weather events · Loss of biodiversity · Ocean acidification · Glacier retreat"},
+  {num:"4",title:"What Can Schools Do?",body:"Reduce energy use · Curriculum integration · Pupil leadership · School grounds · Supply chain review"},
+];
+const feedbacks=[
+  [
+    {type:"ok",text:"Good pacing — speaking at a comfortable rate for your audience."},
+    {type:"warn",text:'Filler word detected: "um". Try pausing instead.'},
+  ],
+  [
+    {type:"ok",text:"Great — you didn't read the slide verbatim. Keep adding your own commentary."},
+    {type:"warn",text:"Pace is slightly fast on this slide. Aim for 110–150 words per minute."},
+  ],
+  [
+    {type:"warn",text:'Watch for sensitive language — avoid "obviously" or "as everyone knows".'},
+    {type:"ok",text:"Good eye contact reminder — look up from your notes regularly."},
+  ],
+  [
+    {type:"ok",text:"Strong closing slide — ending with a call to action is effective."},
+    {type:"ok",text:"Originality detected — you added content beyond the slide text."},
+  ],
+];
+let coachSlide=0,coachInterval=null,coachSeconds=0,slideTimes=[],feedbackGiven=[];
+let fillerCount=0,tooFastCount=0;
+function startCoach(){
+  coachSlide=0;slideTimes=[];feedbackGiven=[];fillerCount=0;tooFastCount=0;coachSeconds=0;
+  document.getElementById('ppt-s0').style.display='none';
+  document.getElementById('ppt-s1').style.display='block';
+  document.getElementById('ppt-s2').style.display='none';
+  buildThumbs();
+  loadSlide(0);
+  coachInterval=setInterval(()=>{
+    coachSeconds++;
+    const m=Math.floor(coachSeconds/60);
+    const s=coachSeconds%60;
+    document.getElementById('coach-timer').textContent=m+':'+(s<10?'0':'')+s;
+    // Simulated feedback at intervals
+    const elapsed=slideTimes[coachSlide]||0;
+    slideTimes[coachSlide]=(slideTimes[coachSlide]||0)+1;
+    if(slideTimes[coachSlide]===4){
+      const fb=feedbacks[coachSlide];
+      if(fb&&fb.length>0) showFeedback(fb[0]);
+    }
+    if(slideTimes[coachSlide]===8&&feedbacks[coachSlide]&&feedbacks[coachSlide].length>1){
+      showFeedback(feedbacks[coachSlide][1]);
+    }
+  },1000);
+  // Auto-collect feedback
+  feedbackGiven=[];
+}
+function buildThumbs(){
+  const el=document.getElementById('coach-thumbs');
+  if(!el)return;
+  el.innerHTML=slides.map((s,i)=>`<div class="coach-thumb ${i===0?'active-slide':''}" id="thumb-${i}" style="background:var(--ink-3);padding:.5rem .7rem;border-radius:8px"><div style="font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-bottom:.2rem">Slide ${parseInt(s.num)}</div><div style="font-family:var(--fh);font-size:.7rem;font-weight:700;color:#fff;line-height:1.2">${s.title}</div></div>`).join('');
+}
+function loadSlide(idx){
+  const s=slides[idx];
+  document.getElementById('coach-slide-num').textContent=`SLIDE ${s.num} OF ${slides.length}`;
+  document.getElementById('coach-slide-title').textContent=s.title;
+  document.getElementById('coach-slide-body').textContent=s.body;
+  document.getElementById('coach-feedback').textContent='Listening... present this slide naturally.';
+  document.querySelectorAll('.coach-thumb').forEach((t,i)=>{
+    t.classList.toggle('active-slide',i===idx);
+    if(i<idx) t.classList.add('done-slide');
+  });
+  const btn=document.getElementById('coach-next-btn');
+  if(btn) btn.textContent=idx<slides.length-1?'Next Slide →':'End & Get Report';
+}
+function showFeedback(fb){
+  const el=document.getElementById('coach-feedback');
+  if(!el)return;
+  if(fb.type==='warn'){
+    el.style.color='var(--amber-pale)';
+    if(fb.text.includes('Filler'))fillerCount++;
+    if(fb.text.includes('fast'))tooFastCount++;
+  } else {
+    el.style.color='var(--teal-pale)';
+  }
+  el.textContent=fb.text;
+  feedbackGiven.push(fb);
+}
+function nextSlide(){
+  if(coachSlide>=slides.length-1){endCoach();return;}
+  coachSlide++;
+  loadSlide(coachSlide);
+}
+function endCoach(){
+  clearInterval(coachInterval);
+  document.getElementById('ppt-s1').style.display='none';
+  document.getElementById('ppt-s2').style.display='block';
+  buildReport();
+}
+function buildReport(){
+  const totalSec=coachSeconds;
+  const wpm=Math.round(90+Math.random()*40); // simulated
+  const originality=Math.round(65+Math.random()*25);
+  const statsEl=document.getElementById('coach-stats');
+  statsEl.innerHTML=`
+    <div class="stat-box"><div class="stat-val" style="color:var(--teal-pale)">${Math.floor(totalSec/60)}:${(totalSec%60)<10?'0':''}${totalSec%60}</div><div class="stat-lbl">Total duration</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:${wpm>150?'var(--amber-pale)':'var(--teal-pale)'}">${wpm}</div><div class="stat-lbl">Words per min</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:${originality>=75?'var(--teal-pale)':'var(--amber-pale)'}">${originality}%</div><div class="stat-lbl">Originality</div></div>
+    <div class="stat-box"><div class="stat-val" style="color:${fillerCount===0?'var(--teal-pale)':'var(--amber-pale)'}">${fillerCount}</div><div class="stat-lbl">Filler words</div></div>`;
+  const timesEl=document.getElementById('coach-slide-times');
+  const total=slideTimes.reduce((a,b)=>a+(b||0),0)||1;
+  timesEl.innerHTML=slides.map((s,i)=>{
+    const t=slideTimes[i]||0;
+    const pct=Math.round((t/total)*100);
+    return `<div style="display:flex;align-items:center;gap:.75rem"><div style="font-family:var(--fh);font-size:.72rem;color:#fff;min-width:160px;font-weight:600">${s.title}</div><div style="flex:1;background:var(--ink-4);border-radius:100px;height:8px;overflow:hidden"><div style="width:${pct}%;height:100%;background:var(--rose);border-radius:100px;transition:width .5s"></div></div><div style="font-family:var(--fm);font-size:.68rem;color:var(--muted);min-width:36px;text-align:right">${t}s</div></div>`;
+  }).join('');
+  const fbEl=document.getElementById('coach-feedback-list');
+  const allFb=[...feedbackGiven];
+  if(wpm>150) allFb.push({type:'warn',text:'Overall pacing was slightly fast. Aim for 120–140 words per minute for classroom presentations.'});
+  if(originality<75) allFb.push({type:'warn',text:'Try to add more of your own commentary — reading from slides reduces audience engagement.'});
+  if(fillerCount===0) allFb.push({type:'ok',text:'No filler words detected. Confident, clean delivery throughout.'});
+  fbEl.innerHTML=allFb.map(f=>`<div style="display:flex;gap:.75rem;padding:.75rem 1rem;background:${f.type==='warn'?'rgba(217,119,6,.1)':'rgba(13,148,136,.1)'};border:1px solid ${f.type==='warn'?'rgba(217,119,6,.25)':'rgba(13,148,136,.25)'};border-left:3px solid ${f.type==='warn'?'var(--amber)':'var(--teal)'};border-radius:8px">
+    <div style="flex-shrink:0;font-family:var(--fh);font-size:.7rem;font-weight:700;color:${f.type==='warn'?'var(--amber-pale)':'var(--teal-pale)'};">${f.type==='warn'?'IMPROVE':'STRENGTH'}</div>
+    <div style="font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6">${f.text}</div></div>`).join('');
+}
+function resetCoach(){
+  document.getElementById('ppt-s0').style.display='block';
+  document.getElementById('ppt-s1').style.display='none';
+  document.getElementById('ppt-s2').style.display='none';
+}
+// init on load
+document.addEventListener('DOMContentLoaded',buildXL);
+</script>
+
+
+<!-- SHORTCUTS CHEAT SHEET -->
+<div class="cheat-strip" style="--cheat-color:#5B5EA6;margin-top:1.25rem">
+  <div class="cheat-header">
+    <div class="cheat-title">Keyboard Shortcut Cheat Sheet</div>
+    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-shortcuts')">&#9889; Copy Cheat Sheet</button>
+  </div>
+  <div class="cheat-body">
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + Z / Y</strong> — Undo / Redo</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + C / X / V</strong> — Copy / Cut / Paste</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + F / H</strong> — Find / Find & Replace</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + B / I / U</strong> — Bold / Italic / Underline</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + K</strong> — Insert hyperlink</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + P</strong> — Print</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Ctrl + T</strong> — Format as Table (Excel)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Alt + =</strong> — AutoSum selected range (Excel)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Ctrl + E</strong> — Flash Fill (Excel)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">P</div><div class="cheat-item-text"><strong>F5</strong> — Start slideshow from beginning (PowerPoint)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">P</div><div class="cheat-item-text"><strong>Alt + F5</strong> — Presenter View (PowerPoint)</div></div>
+    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Win + Shift + S</strong> — Snip & screenshot (Windows)</div></div>
+  </div>
+  <textarea id="cs-shortcuts" style="position:absolute;opacity:0;pointer-events:none;height:1px">KEYBOARD SHORTCUT CHEAT SHEET — Microsoft 365 & Windows
+=========================================================
+UNIVERSAL (Word, Excel, PowerPoint, Outlook)
+Ctrl + Z / Y        Undo / Redo
+Ctrl + C / X / V    Copy / Cut / Paste
+Ctrl + F / H        Find / Find & Replace
+Ctrl + B / I / U    Bold / Italic / Underline
+Ctrl + K            Insert hyperlink
+Ctrl + P            Print
+Ctrl + S            Save
+Ctrl + A            Select all
+Ctrl + Home / End   Go to start / end of document
+
+EXCEL
+Ctrl + T            Format as Table
+Alt + =             AutoSum selected range
+Ctrl + E            Flash Fill
+Ctrl + Shift + L    Toggle filters on/off
+F2                  Edit active cell
+
+POWERPOINT
+F5                  Start slideshow from beginning
+Shift + F5          Start from current slide
+Alt + F5            Presenter View (one screen)
+B                   Black screen during presentation
+W                   White screen during presentation
+
+WINDOWS
+Win + D             Show desktop
+Win + L             Lock screen
+Win + Shift + S     Snip screenshot
+Alt + Tab           Switch between windows
+</textarea>
+</div>
+
+
+<button class="print-card-btn" onclick="openPrintModal('pm-microsoft')">
+  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+  Print / Download Reference Cards
+</button>
+
+<div class="print-modal-overlay" id="pm-microsoft">
+  <div class="print-modal" style="max-width:780px">
+    <div class="pm-head">
+      <div class="pm-title">Microsoft 365 — Staff Reference Cards</div>
+      <div class="pm-actions">
+        <button class="pm-print-btn" onclick="printModal('pm-microsoft')">&#128438; Print / Save as PDF</button>
+        <button class="pm-close-btn" onclick="closePrintModal('pm-microsoft')">&#10005; Close</button>
+      </div>
+    </div>
+    <div class="pm-tab-bar" style="display:flex;gap:0;border-bottom:2px solid #f0f0f0;padding:0 1.75rem;background:#fafafa;overflow-x:auto">
+      <button class="pm-tab active" onclick="pmSwitch(this,'pmc-excel')" style="padding:.65rem 1.1rem;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none;cursor:pointer;color:#111;border-bottom:2px solid #111;margin-bottom:-2px;white-space:nowrap">Excel Formulas</button>
+      <button class="pm-tab" onclick="pmSwitch(this,'pmc-ppt')" style="padding:.65rem 1.1rem;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none;cursor:pointer;color:#999;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">PowerPoint</button>
+      <button class="pm-tab" onclick="pmSwitch(this,'pmc-teams')" style="padding:.65rem 1.1rem;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none;cursor:pointer;color:#999;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Teams &amp; Outlook</button>
+      <button class="pm-tab" onclick="pmSwitch(this,'pmc-shortcuts')" style="padding:.65rem 1.1rem;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none;cursor:pointer;color:#999;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Shortcuts</button>
+      <button class="pm-tab" onclick="pmSwitch(this,'pmc-all')" style="padding:.65rem 1.1rem;font-family:inherit;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none;cursor:pointer;color:#999;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap">Full Card (Print All)</button>
+    </div>
+    <div class="pm-body">
+
+      <div class="pm-card" id="pmc-excel">
+        <div class="pm-card-header" style="background:#217346">
+          <div class="pm-card-icon">X</div>
+          <div><div class="pm-card-title">Microsoft Excel — Formula Reference</div><div class="pm-card-sub">School mark book &amp; data management · UK school contexts</div></div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">Totals, Averages &amp; Counting</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=SUM(B2:B30)</strong> — total a range. Use Alt + = for AutoSum shortcut.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=AVERAGE(B2:B30)</strong> — arithmetic mean; ignores blank cells automatically.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=AVERAGEIF(A:A,"Yr10",C:C)</strong> — average only rows matching a condition (e.g. one year group).</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=MEDIAN(B2:B30)</strong> — middle value; not skewed by outliers. Compare with AVERAGE to spot skew.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=MIN(B2:B30) / =MAX(B2:B30)</strong> — lowest and highest score in a range. Subtract to get the spread.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=COUNT(B2:B30)</strong> — count numeric cells. COUNTA includes text. COUNTBLANK counts empty cells.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=STDEV(B2:B30)</strong> — standard deviation; shows how spread out the results are across a cohort.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=RANK(B2,B$2:B$30,0)</strong> — rank a pupil's score in the class (0 = highest first). Lock range with $ when copying down.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">Conditional Formulas</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=COUNTIF(B2:B30,"Pass")</strong> — count cells matching one condition. Use &gt;=, &lt;&gt;, and wildcards (* ?).</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=COUNTIFS(A:A,"Yr10",B:B,"&gt;=70")</strong> — count with two or more conditions simultaneously.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=SUMIF(A:A,"Yr10",C:C)</strong> — total column C only where column A equals the condition.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=SUMIFS(C:C,A:A,"Yr10",B:B,"Science")</strong> — sum with two or more conditions.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">Logic &amp; Grade Banding</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#155724"></div><div class="pm-row-text"><strong>=IF(B2&gt;=70,"Pass","Fail")</strong> — returns one of two values depending on whether the condition is true.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#155724"></div><div class="pm-row-text"><strong>=IFS(B2&gt;=80,"A",B2&gt;=65,"B",B2&gt;=50,"C",TRUE,"U")</strong> — cleaner multi-tier grade banding. No nesting.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#155724"></div><div class="pm-row-text"><strong>=IFERROR(formula,"Not found")</strong> — replaces #N/A, #VALUE!, #REF! errors with your chosen text.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">Lookups — Pulling Data Between Sheets</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#0D5928"></div><div class="pm-row-text"><strong>=XLOOKUP(A2,Sheet2!A:A,Sheet2!B:B,"Not found")</strong> — modern lookup. Works left and right; 4th argument handles missing values gracefully.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0D5928"></div><div class="pm-row-text"><strong>=VLOOKUP(A2,Sheet2!A:C,3,FALSE)</strong> — legacy lookup. Key column must be leftmost. Always use FALSE for exact match.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#888">Essential Habits</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>Ctrl + T</strong> — Format as Table before adding formulas. New rows inherit formulas and formatting automatically.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>$ in references</strong> — write B$2:B$30 (not B2:B30) to lock the range when copying a formula down a column.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>Ctrl + E</strong> — Flash Fill. Type one example, press Ctrl + E, and Excel fills the pattern for the whole column.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>PivotTable</strong> — Insert → PivotTable. Summarise hundreds of rows in under a minute; no formulas needed.</div></div>
+          </div>
+        </div>
+        <div class="pm-footer-note">Microsoft Excel · Microsoft 365 · GSAL Digital Skills &amp; Literacy</div>
+      </div>
+
+      <div class="pm-card" id="pmc-ppt" style="display:none">
+        <div class="pm-card-header" style="background:#C43E1C">
+          <div class="pm-card-icon">P</div>
+          <div><div class="pm-card-title">Microsoft PowerPoint — Staff Reference</div><div class="pm-card-sub">Design · Presenting · Rehearse · Record · Accessibility</div></div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#C43E1C;color:#C43E1C">Design &amp; Branding</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Slide Master</strong> — View → Slide Master. Edit fonts, colours, logo once. Every slide updates automatically.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Designer</strong> — Design → Designer. AI suggests polished layouts when you add content. One click to apply.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Morph transition</strong> — Duplicate a slide, move objects, Transitions → Morph. Smooth animation with no effort.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Alt text</strong> — Right-click image → Edit Alt Text. Legal accessibility requirement under UK Equality Act 2010.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#C43E1C;color:#C43E1C">Presenting</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>Presenter View</strong> — Alt + F5 (one screen). See notes, next slide, and running timer while audience sees only the current slide.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>F5</strong> — start from beginning. Shift + F5 — start from current slide.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>B / W during slideshow</strong> — press B for a black screen, W for white. Useful for discussion breaks mid-presentation.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>Ctrl + L</strong> — laser pointer during presentation. Ctrl + P — draw / annotate on slides.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#C43E1C;color:#C43E1C">Rehearse, Record &amp; Coach</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#7A2010"></div><div class="pm-row-text"><strong>Rehearse Timings</strong> — Slide Show → Rehearse Timings. Timer records time per slide; save for automatic advance during delivery.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#7A2010"></div><div class="pm-row-text"><strong>Rehearse with Coach</strong> — Slide Show → Rehearse with Coach. AI feedback on pacing, filler words (um, like), reading from slides. Full written coaching report after each session.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#7A2010"></div><div class="pm-row-text"><strong>Record with narration</strong> — Slide Show → Record. Camera and audio saved per slide. Re-record individual slides. Export: File → Export → Create a Video → 1080p.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#7A2010"></div><div class="pm-row-text"><strong>Cameo</strong> — Insert → Cameo. Places a live camera feed directly onto a slide for recording or presenting.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#888">Accessibility</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>Review → Check Accessibility</strong> — scans the whole deck for missing alt text, poor contrast, and reading-order issues.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>Reading order</strong> — Home → Arrange → Selection Pane. Screen readers follow this order, not the visual layout of the slide.</div></div>
+          </div>
+        </div>
+        <div class="pm-footer-note">Microsoft PowerPoint · Microsoft 365 · GSAL Digital Skills &amp; Literacy</div>
+      </div>
+
+      <div class="pm-card" id="pmc-teams" style="display:none">
+        <div class="pm-card-header" style="background:#464EB8">
+          <div class="pm-card-icon">T</div>
+          <div><div class="pm-card-title">Teams &amp; Outlook — Staff Reference</div><div class="pm-card-sub">Meetings · Channels · Email management · Calendar</div></div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#464EB8;color:#464EB8">Microsoft Teams Essentials</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Channels</strong> — organise team conversations by topic. Use tabs (Files, Notes) within channels to centralise resources.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Scheduling a meeting</strong> — Calendar → New meeting. A joining link is added automatically to every attendee's calendar invite.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Files tab</strong> — files in Teams are stored in SharePoint. Version-controlled, simultaneously editable, accessible to the whole team.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Recording meetings</strong> — three dots → Start recording. Saves to OneDrive automatically; appears in meeting chat once processed.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Transcription</strong> — More actions → Start transcription. Required for Copilot meeting summaries. Download as Word document.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>@mentions</strong> — @name notifies one person, @channel notifies all channel members, @team notifies everyone. Use sparingly.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#0078D4;color:#0078D4">Outlook Essentials</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Focused Inbox</strong> — View → Focused Inbox. Automatically separates important emails from newsletters and notifications.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Rules</strong> — Home → Rules → Create Rule. Auto-file, flag, or forward emails matching your conditions.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>BCC for group emails</strong> — always BCC parents in group messages, never CC. CC exposes all email addresses to every recipient — a GDPR risk.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Delay delivery</strong> — Options → Delay Delivery. Schedule an email to send at a set time — useful for out-of-hours drafting.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Recall message</strong> — Sent Items → open email → Message → Actions → Recall. Only works if the recipient hasn't opened it yet.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Quick Steps</strong> — Home → Quick Steps → New. Create one-click actions: e.g. file + mark as read + flag simultaneously.</div></div>
+          </div>
+        </div>
+        <div class="pm-footer-note">Microsoft Teams &amp; Outlook · Microsoft 365 · GSAL Digital Skills &amp; Literacy</div>
+      </div>
+
+      <div class="pm-card" id="pmc-shortcuts" style="display:none">
+        <div class="pm-card-header" style="background:#5B5EA6">
+          <div class="pm-card-icon">&#9650;</div>
+          <div><div class="pm-card-title">Keyboard Shortcuts — Quick Reference</div><div class="pm-card-sub">Universal · Excel · PowerPoint · Windows</div></div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#5B5EA6;color:#5B5EA6">Universal (Word, Excel, PowerPoint, Outlook)</div>
+          <div class="pm-shortcuts-grid">
+            <div class="pm-sc-row"><kbd>Ctrl + Z</kbd><span>Undo</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + Y</kbd><span>Redo</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + C / X / V</kbd><span>Copy / Cut / Paste</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + S</kbd><span>Save</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + P</kbd><span>Print</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + A</kbd><span>Select all</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + F</kbd><span>Find</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + H</kbd><span>Find &amp; Replace</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + K</kbd><span>Insert hyperlink</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + B / I / U</kbd><span>Bold / Italic / Underline</span></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">Excel</div>
+          <div class="pm-shortcuts-grid">
+            <div class="pm-sc-row"><kbd>Ctrl + T</kbd><span>Format as Table</span></div>
+            <div class="pm-sc-row"><kbd>Alt + =</kbd><span>AutoSum</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + E</kbd><span>Flash Fill</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + Shift + L</kbd><span>Toggle filters on/off</span></div>
+            <div class="pm-sc-row"><kbd>F2</kbd><span>Edit active cell</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + `</kbd><span>Show all formulas</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + Home</kbd><span>Go to cell A1</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + End</kbd><span>Go to last used cell</span></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#C43E1C;color:#C43E1C">PowerPoint</div>
+          <div class="pm-shortcuts-grid">
+            <div class="pm-sc-row"><kbd>F5</kbd><span>Start slideshow (beginning)</span></div>
+            <div class="pm-sc-row"><kbd>Shift + F5</kbd><span>Start from current slide</span></div>
+            <div class="pm-sc-row"><kbd>Alt + F5</kbd><span>Presenter View (one screen)</span></div>
+            <div class="pm-sc-row"><kbd>B</kbd><span>Black screen during show</span></div>
+            <div class="pm-sc-row"><kbd>W</kbd><span>White screen during show</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + D</kbd><span>Duplicate slide</span></div>
+            <div class="pm-sc-row"><kbd>Ctrl + M</kbd><span>New slide</span></div>
+            <div class="pm-sc-row"><kbd>Esc</kbd><span>End slideshow</span></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#888;color:#555">Windows</div>
+          <div class="pm-shortcuts-grid">
+            <div class="pm-sc-row"><kbd>Win + D</kbd><span>Show desktop</span></div>
+            <div class="pm-sc-row"><kbd>Win + L</kbd><span>Lock screen</span></div>
+            <div class="pm-sc-row"><kbd>Win + Shift + S</kbd><span>Screenshot (Snipping Tool)</span></div>
+            <div class="pm-sc-row"><kbd>Win + V</kbd><span>Clipboard history</span></div>
+            <div class="pm-sc-row"><kbd>Alt + Tab</kbd><span>Switch windows</span></div>
+            <div class="pm-sc-row"><kbd>Win + Tab</kbd><span>Task view / virtual desktops</span></div>
+          </div>
+        </div>
+        <div class="pm-footer-note">Keyboard Shortcuts · Microsoft 365 &amp; Windows · GSAL Digital Skills &amp; Literacy</div>
+      </div>
+
+      <div class="pm-card" id="pmc-all" style="display:none">
+        <div style="background:#111;color:#fff;padding:1.1rem 1.5rem;margin-bottom:1.25rem;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+          <div>
+            <div style="font-size:.9rem;font-weight:800;letter-spacing:.03em">Microsoft 365 — Complete Staff Reference Card</div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.15rem">Excel · PowerPoint · Teams · Outlook · Shortcuts — GSAL Digital Skills &amp; Literacy</div>
+          </div>
+          <div style="font-size:.68rem;color:rgba(255,255,255,.4);text-align:right;line-height:1.6">Tip: File → Print → Save as PDF<br>in your browser for best results</div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#217346;color:#217346">&#9632; Excel — Formulas for School Use</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=SUM(B2:B30)</strong> total &nbsp;·&nbsp; <strong>=AVERAGE</strong> mean &nbsp;·&nbsp; <strong>=MEDIAN</strong> middle value (outlier-proof) &nbsp;·&nbsp; <strong>=STDEV</strong> spread of results</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#217346"></div><div class="pm-row-text"><strong>=MIN / =MAX</strong> lowest/highest &nbsp;·&nbsp; <strong>=RANK(B2,B$2:B$30,0)</strong> rank in class &nbsp;·&nbsp; <strong>=COUNT / COUNTA / COUNTBLANK</strong></div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=COUNTIF(B:B,"Pass")</strong> conditional count &nbsp;·&nbsp; <strong>=COUNTIFS(A:A,"Yr10",B:B,"&gt;=70")</strong> multiple conditions</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#1D7044"></div><div class="pm-row-text"><strong>=SUMIF(A:A,"Yr10",C:C)</strong> conditional total &nbsp;·&nbsp; <strong>=AVERAGEIF(A:A,"Yr10",C:C)</strong> conditional average</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#155724"></div><div class="pm-row-text"><strong>=IFS(B2&gt;=80,"A",B2&gt;=65,"B",TRUE,"C")</strong> grade banding &nbsp;·&nbsp; <strong>=IFERROR(formula,"—")</strong> suppress errors</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0D5928"></div><div class="pm-row-text"><strong>=XLOOKUP(A2,Sheet2!A:A,Sheet2!B:B,"Not found")</strong> lookup across sheets (modern, works left &amp; right)</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>Ctrl + T</strong> Table &nbsp;·&nbsp; <strong>Alt + =</strong> AutoSum &nbsp;·&nbsp; <strong>Ctrl + E</strong> Flash Fill &nbsp;·&nbsp; Lock ranges with <strong>$</strong> when copying formulas down</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#C43E1C;color:#C43E1C">&#9632; PowerPoint — Key Features</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Slide Master</strong> (View → Slide Master) — edit fonts, colours, and logo once; all slides update.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#C43E1C"></div><div class="pm-row-text"><strong>Morph</strong> — duplicate slide, move objects, Transitions → Morph. Smooth animation automatically.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>Rehearse with Coach</strong> — AI feedback on pacing, filler words, reading from slides. Full written coaching report.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#9B2D12"></div><div class="pm-row-text"><strong>Record narration</strong> — Slide Show → Record. Export as MP4 via File → Export → Create a Video.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#888"></div><div class="pm-row-text"><strong>F5</strong> slideshow &nbsp;·&nbsp; <strong>Alt+F5</strong> Presenter View &nbsp;·&nbsp; <strong>B</strong> black screen &nbsp;·&nbsp; <strong>Review → Check Accessibility</strong></div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#464EB8;color:#464EB8">&#9632; Teams &amp; Outlook</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Files in Teams</strong> — stored in SharePoint. Version-controlled, simultaneously editable by the whole team.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#464EB8"></div><div class="pm-row-text"><strong>Record meetings</strong> — three dots → Start recording. Saves to OneDrive. Start transcription for Copilot summaries.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>BCC parents</strong> in group emails — never CC (exposes all addresses; GDPR risk). Always double-check recipients.</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#0078D4"></div><div class="pm-row-text"><strong>Focused Inbox</strong> (View → Focused Inbox) &nbsp;·&nbsp; <strong>Rules</strong> — auto-file emails &nbsp;·&nbsp; <strong>Quick Steps</strong> — one-click actions.</div></div>
+          </div>
+        </div>
+        <div class="pm-section">
+          <div class="pm-section-title" style="border-color:#5B5EA6;color:#5B5EA6">&#9632; Essential Shortcuts</div>
+          <div class="pm-2col">
+            <div class="pm-row"><div class="pm-dot" style="background:#5B5EA6"></div><div class="pm-row-text"><strong>Ctrl+Z/Y</strong> Undo/Redo &nbsp;·&nbsp; <strong>Ctrl+F/H</strong> Find/Replace &nbsp;·&nbsp; <strong>Ctrl+K</strong> Link &nbsp;·&nbsp; <strong>Ctrl+P</strong> Print &nbsp;·&nbsp; <strong>Ctrl+A</strong> Select all</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#5B5EA6"></div><div class="pm-row-text"><strong>Ctrl+T</strong> Table (Excel) &nbsp;·&nbsp; <strong>Alt+=</strong> AutoSum &nbsp;·&nbsp; <strong>Ctrl+E</strong> Flash Fill &nbsp;·&nbsp; <strong>Ctrl+`</strong> Show formulas &nbsp;·&nbsp; <strong>F2</strong> Edit cell</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#5B5EA6"></div><div class="pm-row-text"><strong>F5</strong> Slideshow &nbsp;·&nbsp; <strong>Alt+F5</strong> Presenter View &nbsp;·&nbsp; <strong>B</strong> Black screen &nbsp;·&nbsp; <strong>Ctrl+D</strong> Duplicate slide</div></div>
+            <div class="pm-row"><div class="pm-dot" style="background:#5B5EA6"></div><div class="pm-row-text"><strong>Win+Shift+S</strong> Screenshot &nbsp;·&nbsp; <strong>Win+L</strong> Lock screen &nbsp;·&nbsp; <strong>Win+D</strong> Desktop &nbsp;·&nbsp; <strong>Win+V</strong> Clipboard history</div></div>
+          </div>
+        </div>
+        <div class="pm-footer-note">Microsoft 365 Complete Reference · GSAL Digital Skills &amp; Literacy · For personal and classroom use</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
