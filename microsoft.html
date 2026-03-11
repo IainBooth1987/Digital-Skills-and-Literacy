@@ -271,7 +271,48 @@ footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
     <div class="sk"><div class="sn">10</div><span class="bdg bp">Power</span><div class="st">Pinning tabs to channels</div><div class="sb">Pin apps and shared files as tabs — keeps key resources one click away for everyone in the channel.</div><ul class="steps"><li class="step">Click the + icon at the top of any channel</li><li class="step">Add OneNote, Planner, Forms, a website, or a shared document</li><li class="step">Pin your department planning document for instant access</li><li class="step">Drag tabs to reorder them</li></ul></div>
     <div class="sk"><div class="sn">11</div><span class="bdg bp">Power</span><div class="st">Saving &amp; searching</div><div class="sb">Bookmark messages you need and use the powerful search bar to find anything across all your Teams conversations.</div><ul class="steps"><li class="step">Hover a message → click the bookmark icon to save it</li><li class="step">Saved messages: profile picture → Saved</li><li class="step">Ctrl + F to search within Teams</li><li class="step">Filter search results by person, date, or file type</li></ul></div>
   </div></div>
-</div></div>
+</div>
+<!-- TEAMS SIMULATOR -->
+<div style="background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;margin-top:1.5rem">
+  <div style="padding:1rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark);display:flex;align-items:center;gap:.75rem">
+    <div style="width:28px;height:28px;background:#464EB8;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0">T</div>
+    <span style="font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff">Interactive Simulator — Microsoft Teams</span>
+    <span style="font-family:var(--fm);font-size:.65rem;color:var(--muted);margin-left:auto">Click actions to explore Teams features</span>
+  </div>
+  <div style="padding:1.25rem 1.75rem">
+    <!-- Mock Teams UI -->
+    <div style="display:grid;grid-template-columns:56px 220px 1fr;height:340px;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;background:#1a1a2e">
+      <!-- Left rail -->
+      <div style="background:#1b1b2e;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;padding:.75rem 0;gap:.5rem">
+        <div class="trail-icon act" id="tr-chat" onclick="tSim('chat')" title="Chat" style="width:36px;height:36px;border-radius:8px;background:#464EB8;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem">💬</div>
+        <div class="trail-icon" id="tr-teams" onclick="tSim('teams')" title="Teams" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem">👥</div>
+        <div class="trail-icon" id="tr-cal" onclick="tSim('cal')" title="Calendar" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem">📅</div>
+        <div class="trail-icon" id="tr-files" onclick="tSim('files')" title="Files" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem">📁</div>
+      </div>
+      <!-- Sidebar -->
+      <div style="background:#1e1e30;border-right:1px solid rgba(255,255,255,.07);overflow-y:auto">
+        <div id="tsim-sidebar"></div>
+      </div>
+      <!-- Main content -->
+      <div style="display:flex;flex-direction:column;overflow:hidden">
+        <div id="tsim-main" style="flex:1;overflow-y:auto;padding:1rem"></div>
+        <div id="tsim-compose" style="display:none;border-top:1px solid rgba(255,255,255,.07);padding:.65rem 1rem;background:rgba(255,255,255,.02)">
+          <div style="display:flex;gap:.5rem;align-items:center">
+            <div style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:.4rem .75rem;font-size:.75rem;color:rgba(255,255,255,.35);font-family:var(--fm)">Type a message...</div>
+            <div style="width:28px;height:28px;background:#464EB8;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer" onclick="tSendMsg()">➤</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Explanation -->
+    <div id="tsim-explain" style="margin-top:.85rem;padding:1rem 1.25rem;background:rgba(70,78,184,.1);border:1px solid rgba(70,78,184,.3);border-radius:10px;min-height:52px">
+      <div style="font-family:var(--fh);font-size:.72rem;font-weight:700;color:#93C5FD;margin-bottom:.25rem" id="tsim-exp-t">Select a section from the left rail</div>
+      <div style="font-size:.79rem;color:rgba(255,255,255,.45);line-height:1.6" id="tsim-exp-b">Click Chat, Teams, Calendar, or Files to explore key features of Microsoft Teams.</div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 <!-- OUTLOOK -->
 <div class="pn" id="p-outlook">
@@ -289,7 +330,56 @@ footer p{font-size:.77rem;color:rgba(255,255,255,.2)}
     <div class="sk"><div class="sn">7</div><span class="bdg bc">Core</span><div class="st">Colour categories</div><div class="sb">Tag emails and calendar events by colour for instant visual scanning — create categories that match your role.</div><ul class="steps"><li class="step">Right-click any email or event → Categorise</li><li class="step">Create named categories: "Urgent", "Year 10", "Finance", "Pastoral"</li><li class="step">Filter inbox or calendar by category via the search bar</li></ul></div>
     <div class="sk"><div class="sn">8</div><span class="bdg bp">Power</span><div class="st">Flags &amp; follow-up</div><div class="sb">Flagging an email adds it to your Tasks list — a built-in to-do system that lives alongside your inbox.</div><ul class="steps"><li class="step">Click the flag icon on any email to add it to Tasks</li><li class="step">Right-click the flag to set a specific due date or reminder</li><li class="step">View all flagged emails in the Tasks pane or Microsoft To Do app</li></ul></div>
   </div></div>
-</div></div>
+</div>
+<!-- OUTLOOK SIMULATOR -->
+<div style="background:var(--ink-2);border:1px solid var(--border-dark);border-radius:16px;overflow:hidden;margin-top:1.5rem">
+  <div style="padding:1rem 1.75rem;background:var(--ink-3);border-bottom:1px solid var(--border-dark);display:flex;align-items:center;gap:.75rem">
+    <div style="width:28px;height:28px;background:#0078D4;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0">O</div>
+    <span style="font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff">Interactive Simulator — Microsoft Outlook</span>
+    <span style="font-family:var(--fm);font-size:.65rem;color:var(--muted);margin-left:auto">Click features to explore</span>
+  </div>
+  <div style="padding:1.25rem 1.75rem">
+    <!-- Outlook mock -->
+    <div style="display:grid;grid-template-columns:180px 1fr;height:340px;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;background:#1a1a2e">
+      <!-- Folder pane -->
+      <div style="background:#1b1b2e;border-right:1px solid rgba(255,255,255,.07);padding:.75rem 0">
+        <div style="padding:.25rem .85rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:.3rem">Folders</div>
+        <div class="ofolder act" id="of-inbox" onclick="oSim('inbox')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;background:rgba(0,120,212,.15);border-left:3px solid #0078D4">
+          <span style="font-size:.8rem">📥</span><span style="font-family:var(--fm);font-size:.75rem;color:#fff">Inbox</span>
+          <span style="margin-left:auto;background:#0078D4;color:#fff;border-radius:10px;padding:.05rem .4rem;font-size:.6rem;font-weight:700">12</span>
+        </div>
+        <div class="ofolder" id="of-focused" onclick="oSim('focused')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;border-left:3px solid transparent">
+          <span style="font-size:.8rem">⭐</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.55)">Focused</span>
+        </div>
+        <div class="ofolder" id="of-rules" onclick="oSim('rules')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;border-left:3px solid transparent">
+          <span style="font-size:.8rem">⚙️</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.55)">Rules</span>
+        </div>
+        <div class="ofolder" id="of-delay" onclick="oSim('delay')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;border-left:3px solid transparent">
+          <span style="font-size:.8rem">⏱️</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.55)">Delay Send</span>
+        </div>
+        <div class="ofolder" id="of-bcc" onclick="oSim('bcc')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;border-left:3px solid transparent">
+          <span style="font-size:.8rem">👥</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.55)">BCC Groups</span>
+        </div>
+        <div class="ofolder" id="of-recall" onclick="oSim('recall')" style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem;cursor:pointer;border-left:3px solid transparent">
+          <span style="font-size:.8rem">↩️</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.55)">Recall</span>
+        </div>
+        <div style="padding:.25rem .85rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin:.6rem 0 .3rem">Sent</div>
+        <div style="padding:.45rem .85rem;display:flex;align-items:center;gap:.5rem">
+          <span style="font-size:.8rem">📤</span><span style="font-family:var(--fm);font-size:.75rem;color:rgba(255,255,255,.35)">Sent Items</span>
+        </div>
+      </div>
+      <!-- Main pane -->
+      <div style="overflow-y:auto;padding:1rem" id="osim-main"></div>
+    </div>
+    <!-- Explanation -->
+    <div id="osim-explain" style="margin-top:.85rem;padding:1rem 1.25rem;background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.3);border-radius:10px;min-height:52px">
+      <div style="font-family:var(--fh);font-size:.72rem;font-weight:700;color:#60A5FA;margin-bottom:.25rem" id="osim-exp-t">Select a feature from the folder pane</div>
+      <div style="font-size:.79rem;color:rgba(255,255,255,.45);line-height:1.6" id="osim-exp-b">Click Focused, Rules, Delay Send, BCC Groups, or Recall to explore key Outlook productivity features.</div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 <!-- WORD -->
 <div class="pn" id="p-word">
@@ -654,6 +744,8 @@ TIP: Format as Table (Ctrl+T) before adding formulas — they auto-expand.
   </div>
 </div></div>
 
+
+
 </div>
 <footer>
   <p>Digital Skills &amp; Literacy — Staff Resource</p>
@@ -669,6 +761,227 @@ function sw(id){
 </script>
 
 <script id="xl-js">
+
+// ── TEAMS SIMULATOR ──
+const tSimData = {
+  chat: {
+    sidebar: `<div style="padding:.65rem .85rem;border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Recent Chats</div>
+      <div onclick="tChatMsg('sarah')" style="padding:.45rem .6rem;border-radius:7px;cursor:pointer;background:rgba(255,255,255,.06);margin-bottom:.3rem;display:flex;gap:.5rem;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:#217346;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff;font-weight:700;flex-shrink:0">SJ</div><div><div style="font-family:var(--fh);font-size:.72rem;color:#fff;font-weight:600">Sarah Jones</div><div style="font-size:.65rem;color:rgba(255,255,255,.35);margin-top:.05rem">Can you send the slides?</div></div><div style="margin-left:auto;font-size:.6rem;color:rgba(255,255,255,.25)">9:42</div></div>
+      <div onclick="tChatMsg('dept')" style="padding:.45rem .6rem;border-radius:7px;cursor:pointer;margin-bottom:.3rem;display:flex;gap:.5rem;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:#464EB8;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff;font-weight:700;flex-shrink:0">DH</div><div><div style="font-family:var(--fh);font-size:.72rem;color:rgba(255,255,255,.7);font-weight:600">Dept Head</div><div style="font-size:.65rem;color:rgba(255,255,255,.35);margin-top:.05rem">Meeting at 2pm confirmed</div></div><div style="margin-left:auto;font-size:.6rem;color:rgba(255,255,255,.25)">Tue</div></div>
+    </div>`,
+    main: `<div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.75rem">Chat with Sarah Jones</div>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <div style="display:flex;gap:.5rem;align-items:flex-start"><div style="width:24px;height:24px;border-radius:50%;background:#217346;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">SJ</div><div style="background:rgba(255,255,255,.06);border-radius:0 8px 8px 8px;padding:.5rem .75rem;max-width:70%"><div style="font-size:.75rem;color:rgba(255,255,255,.8)">Can you send the Year 10 lesson slides before Thursday?</div><div style="font-size:.6rem;color:rgba(255,255,255,.25);margin-top:.25rem">9:42 AM</div></div></div>
+        <div style="display:flex;gap:.5rem;align-items:flex-start;flex-direction:row-reverse"><div style="width:24px;height:24px;border-radius:50%;background:#464EB8;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">Me</div><div style="background:#464EB8;border-radius:8px 0 8px 8px;padding:.5rem .75rem;max-width:70%"><div style="font-size:.75rem;color:#fff">Of course — I'll share them from the Teams channel Files tab so we're all working on the same version</div><div style="font-size:.6rem;color:rgba(255,255,255,.6);margin-top:.25rem">9:44 AM ✓✓</div></div></div>
+      </div>`,
+    compose: true,
+    exp_t: 'Chat — direct messaging',
+    exp_b: 'Chat is for one-to-one or small group conversations. Files shared in chat are stored in OneDrive. For team-wide resources, use the Files tab in a channel instead — that saves to SharePoint and is accessible to the whole team.'
+  },
+  teams: {
+    sidebar: `<div style="padding:.65rem .85rem"><div style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Your Teams</div>
+      <div onclick="tChannel('english')" style="padding:.4rem .6rem;border-radius:7px;background:rgba(255,255,255,.06);margin-bottom:.25rem;cursor:pointer"><div style="font-family:var(--fh);font-size:.73rem;color:#fff;font-weight:600">English Dept</div></div>
+      <div onclick="tChannel('yr10')" style="padding:.4rem .6rem;border-radius:7px;margin-bottom:.25rem;cursor:pointer"><div style="font-family:var(--fh);font-size:.73rem;color:rgba(255,255,255,.55)">Year 10 Team</div></div>
+      <div onclick="tChannel('cpd')" style="padding:.4rem .6rem;border-radius:7px;cursor:pointer"><div style="font-family:var(--fh);font-size:.73rem;color:rgba(255,255,255,.55)">CPD &amp; Training</div></div>
+    </div>`,
+    main: `<div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">English Dept — General</div>
+      <div style="display:flex;gap:.4rem;margin-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.5rem">
+        <div onclick="tTab('posts')" id="ttab-posts" style="font-family:var(--fh);font-size:.68rem;font-weight:700;color:#464EB8;border-bottom:2px solid #464EB8;padding:.2rem .5rem;cursor:pointer;margin-bottom:-1px">Posts</div>
+        <div onclick="tTab('files')" id="ttab-files" style="font-family:var(--fh);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.2rem .5rem;cursor:pointer">Files</div>
+        <div onclick="tTab('notes')" id="ttab-notes" style="font-family:var(--fh);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);padding:.2rem .5rem;cursor:pointer">Notes</div>
+      </div>
+      <div id="tchannel-content"><div style="display:flex;flex-direction:column;gap:.4rem">
+        <div style="display:flex;gap:.5rem"><div style="width:24px;height:24px;border-radius:50%;background:#C43E1C;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">TW</div><div><div style="font-family:var(--fh);font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:.2rem">Tom Walsh · 10:15 AM</div><div style="font-size:.75rem;color:rgba(255,255,255,.75)">SOW for next half term uploaded to Files tab — please review before Thursday.</div></div></div>
+        <div style="display:flex;gap:.5rem"><div style="width:24px;height:24px;border-radius:50%;background:#217346;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">AK</div><div><div style="font-family:var(--fh);font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:.2rem">Amy Khan · 11:02 AM</div><div style="font-size:.75rem;color:rgba(255,255,255,.75)">Thanks — left comments directly in the document <span style="background:rgba(70,78,184,.3);border-radius:4px;padding:.05rem .3rem;font-size:.68rem">@TomWalsh</span></div></div></div>
+      </div></div>`,
+    compose: true,
+    exp_t: 'Teams — channels and Posts tab',
+    exp_b: 'Channels organise team conversations by topic. The Posts tab is for team discussion. Click Files above to see how documents are stored in SharePoint — version-controlled and simultaneously editable. @mention a colleague to send them a notification.'
+  },
+  cal: {
+    sidebar: `<div style="padding:.65rem .85rem"><div style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">This Week</div>
+      <div style="display:flex;flex-direction:column;gap:.3rem">
+        <div style="background:rgba(70,78,184,.2);border-left:3px solid #464EB8;border-radius:4px;padding:.4rem .6rem;cursor:pointer"><div style="font-family:var(--fh);font-size:.7rem;color:#fff;font-weight:600">Dept Meeting</div><div style="font-size:.62rem;color:rgba(255,255,255,.4)">Tue · 2:00–2:45 PM</div></div>
+        <div style="background:rgba(13,148,136,.15);border-left:3px solid var(--teal);border-radius:4px;padding:.4rem .6rem;cursor:pointer"><div style="font-family:var(--fh);font-size:.7rem;color:#fff;font-weight:600">Year 10 Parents Evening</div><div style="font-size:.62rem;color:rgba(255,255,255,.4)">Thu · 4:00–7:00 PM</div></div>
+        <div style="background:rgba(217,119,6,.12);border-left:3px solid var(--amber);border-radius:4px;padding:.4rem .6rem;cursor:pointer"><div style="font-family:var(--fh);font-size:.7rem;color:#fff;font-weight:600">CPD: AI in Education</div><div style="font-size:.62rem;color:rgba(255,255,255,.4)">Fri · 1:00–3:00 PM</div></div>
+      </div></div>`,
+    main: `<div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.75rem">New Meeting</div>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.65rem .9rem"><div style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:.2rem">Title</div><div style="font-size:.8rem;color:#fff">Year 10 Revision Planning</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.65rem .9rem"><div style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:.2rem">Date &amp; time</div><div style="font-size:.75rem;color:#fff">Thursday · 3:30 PM</div></div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.65rem .9rem"><div style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:.2rem">Duration</div><div style="font-size:.75rem;color:#fff">45 minutes</div></div>
+        </div>
+        <div style="background:rgba(70,78,184,.1);border:1px solid rgba(70,78,184,.25);border-radius:8px;padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:#464EB8;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;flex-shrink:0">✓</div><div style="font-size:.75rem;color:rgba(255,255,255,.7)">Teams link added automatically to all calendar invites</div></div>
+      </div>`,
+    compose: false,
+    exp_t: 'Calendar — scheduling meetings',
+    exp_b: 'Create a meeting from Calendar → New meeting. A Teams joining link is added automatically to every attendee\u2019s calendar invite — no need to copy and paste links. You can also schedule directly from an Outlook calendar invite by choosing Teams as the meeting location.'
+  },
+  files: {
+    sidebar: `<div style="padding:.65rem .85rem"><div style="font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Recent Files</div>
+      <div style="display:flex;flex-direction:column;gap:.25rem">
+        <div style="padding:.4rem .5rem;border-radius:6px;background:rgba(255,255,255,.06);display:flex;gap:.4rem;align-items:center;cursor:pointer"><span style="font-size:.75rem">📄</span><span style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.7)">SOW_HalfTerm3.docx</span></div>
+        <div style="padding:.4rem .5rem;border-radius:6px;display:flex;gap:.4rem;align-items:center;cursor:pointer"><span style="font-size:.75rem">📊</span><span style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.5)">MarkBook_Yr10.xlsx</span></div>
+        <div style="padding:.4rem .5rem;border-radius:6px;display:flex;gap:.4rem;align-items:center;cursor:pointer"><span style="font-size:.75rem">📑</span><span style="font-family:var(--fm);font-size:.68rem;color:rgba(255,255,255,.5)">Exam_Prep_Slides.pptx</span></div>
+      </div></div>`,
+    main: `<div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">English Dept — Files</div>
+      <div style="display:flex;gap:.4rem;margin-bottom:.65rem">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.3rem .7rem;font-family:var(--fh);font-size:.62rem;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer">+ Upload</div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.3rem .7rem;font-family:var(--fh);font-size:.62rem;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer">+ New</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.2rem">
+        <div style="display:grid;grid-template-columns:1fr 100px 80px;gap:.5rem;padding:.3rem .5rem;font-family:var(--fh);font-size:.6rem;color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.06)"><span>Name</span><span>Modified</span><span>By</span></div>
+        <div style="display:grid;grid-template-columns:1fr 100px 80px;gap:.5rem;padding:.4rem .5rem;border-radius:6px;background:rgba(255,255,255,.04);cursor:pointer;align-items:center"><div style="display:flex;gap:.4rem;align-items:center"><span style="font-size:.75rem">📄</span><span style="font-family:var(--fm);font-size:.72rem;color:#fff">SOW_HalfTerm3.docx</span></div><span style="font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.4)">Today 10:15</span><span style="font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.4)">T. Walsh</span></div>
+        <div style="display:grid;grid-template-columns:1fr 100px 80px;gap:.5rem;padding:.4rem .5rem;border-radius:6px;cursor:pointer;align-items:center"><div style="display:flex;gap:.4rem;align-items:center"><span style="font-size:.75rem">📊</span><span style="font-family:var(--fm);font-size:.72rem;color:rgba(255,255,255,.7)">MarkBook_Yr10.xlsx</span></div><span style="font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.4)">Yesterday</span><span style="font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.4)">A. Khan</span></div>
+        <div style="background:rgba(70,78,184,.1);border:1px solid rgba(70,78,184,.2);border-radius:6px;padding:.5rem .75rem;margin-top:.3rem;display:flex;gap:.4rem;align-items:flex-start"><span style="font-size:.75rem;flex-shrink:0">ℹ️</span><span style="font-size:.7rem;color:rgba(255,255,255,.5)">Files here are stored in <strong style="color:rgba(255,255,255,.75)">SharePoint</strong> — version history is automatic, and multiple people can edit simultaneously.</span></div>
+      </div>`,
+    compose: false,
+    exp_t: 'Files — SharePoint storage',
+    exp_b: 'Files shared in a Teams channel are stored in SharePoint — not on anyone\u2019s local drive. This means version history is automatic (right-click → Version history), multiple people can edit the same file at the same time, and nothing is lost if someone leaves the team.'
+  }
+};
+function tSim(section) {
+  document.querySelectorAll('.trail-icon').forEach(i => {
+    i.style.background = 'rgba(255,255,255,.06)';
+  });
+  const icon = document.getElementById('tr-' + section);
+  if (icon) icon.style.background = '#464EB8';
+  const d = tSimData[section];
+  if (!d) return;
+  const sidebar = document.getElementById('tsim-sidebar');
+  const main = document.getElementById('tsim-main');
+  const compose = document.getElementById('tsim-compose');
+  if (sidebar) sidebar.innerHTML = d.sidebar;
+  if (main) main.innerHTML = d.main;
+  if (compose) compose.style.display = d.compose ? 'block' : 'none';
+  document.getElementById('tsim-exp-t').textContent = d.exp_t;
+  document.getElementById('tsim-exp-b').textContent = d.exp_b;
+}
+function tChatMsg(who) {}
+function tChannel(ch) {}
+function tTab(tab) {
+  ['posts','files','notes'].forEach(t => {
+    const el = document.getElementById('ttab-'+t);
+    if (el) { el.style.color = t===tab ? '#464EB8' : 'rgba(255,255,255,.4)'; el.style.borderBottom = t===tab ? '2px solid #464EB8' : 'none'; }
+  });
+  const c = document.getElementById('tchannel-content');
+  if (!c) return;
+  if (tab==='files') c.innerHTML = '<div style="font-family:var(--fh);font-size:.7rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:.5rem">Channel Files (stored in SharePoint)</div><div style="display:flex;flex-direction:column;gap:.25rem"><div style="display:flex;gap:.4rem;align-items:center;padding:.4rem .5rem;background:rgba(255,255,255,.04);border-radius:6px;cursor:pointer"><span style="font-size:.75rem">📄</span><span style="font-family:var(--fm);font-size:.72rem;color:#fff">SOW_HalfTerm3.docx</span><span style="margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35)">2 editing now</span></div><div style="display:flex;gap:.4rem;align-items:center;padding:.4rem .5rem;border-radius:6px;cursor:pointer"><span style="font-size:.75rem">📊</span><span style="font-family:var(--fm);font-size:.72rem;color:rgba(255,255,255,.7)">MarkBook_Yr10.xlsx</span></div></div><div style="background:rgba(70,78,184,.1);border:1px solid rgba(70,78,184,.2);border-radius:6px;padding:.5rem .75rem;margin-top:.5rem;font-size:.7rem;color:rgba(255,255,255,.5)">These files live in <strong style="color:rgba(255,255,255,.75)">SharePoint</strong>. Right-click any file → Version history to see and restore previous versions.</div>';
+  else if (tab==='notes') c.innerHTML = '<div style="font-size:.75rem;color:rgba(255,255,255,.5)">Meeting notes, agendas and shared notebooks appear here. Notes are stored in OneNote and accessible to all channel members.</div>';
+  else c.innerHTML = '<div style="display:flex;flex-direction:column;gap:.4rem"><div style="display:flex;gap:.5rem"><div style="width:24px;height:24px;border-radius:50%;background:#C43E1C;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">TW</div><div><div style="font-family:var(--fh);font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:.2rem">Tom Walsh · 10:15 AM</div><div style="font-size:.75rem;color:rgba(255,255,255,.75)">SOW for next half term uploaded to Files tab — please review before Thursday.</div></div></div></div>';
+}
+function tSendMsg() {
+  const main = document.getElementById('tsim-main');
+  if (main) { const msg = document.createElement('div'); msg.style.cssText='display:flex;gap:.5rem;align-items:flex-start;flex-direction:row-reverse;margin-top:.5rem'; msg.innerHTML='<div style="width:24px;height:24px;border-radius:50%;background:#464EB8;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700;flex-shrink:0">Me</div><div style="background:#464EB8;border-radius:8px 0 8px 8px;padding:.5rem .75rem;max-width:70%"><div style="font-size:.75rem;color:#fff">Message sent!</div><div style="font-size:.6rem;color:rgba(255,255,255,.6);margin-top:.25rem">Now ✓✓</div></div>'; main.appendChild(msg); main.scrollTop = main.scrollHeight; }
+}
+
+// ── OUTLOOK SIMULATOR ──
+const oSimData = {
+  inbox: {
+    content: `<div style="display:flex;flex-direction:column;gap:.35rem">
+      <div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem">Inbox — 12 unread</div>
+      <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:.6rem .85rem;cursor:pointer;border-left:3px solid #0078D4"><div style="display:flex;justify-content:space-between"><span style="font-family:var(--fh);font-size:.73rem;color:#fff;font-weight:700">SLT Updates</span><span style="font-family:var(--fm);font-size:.62rem;color:rgba(255,255,255,.35)">9:05 AM</span></div><div style="font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.15rem">Staff briefing — Friday agenda attached</div></div>
+      <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:.6rem .85rem;cursor:pointer"><div style="display:flex;justify-content:space-between"><span style="font-family:var(--fh);font-size:.73rem;color:rgba(255,255,255,.7)">Parent — A. Osei</span><span style="font-family:var(--fm);font-size:.62rem;color:rgba(255,255,255,.35)">Yesterday</span></div><div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.15rem">RE: Progress report query</div></div>
+      <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:.6rem .85rem;cursor:pointer"><div style="display:flex;justify-content:space-between"><span style="font-family:var(--fh);font-size:.73rem;color:rgba(255,255,255,.7)">Exam Board Newsletter</span><span style="font-family:var(--fm);font-size:.62rem;color:rgba(255,255,255,.35)">Mon</span></div><div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.15rem">March 2026 update — specification changes</div></div>
+    </div>`,
+    exp_t: 'Inbox — your email hub',
+    exp_b: 'Your inbox shows all received mail. Use Focused Inbox (View → Focused Inbox) to automatically separate important emails from newsletters and notifications — Teams does the same filtering for you in chat.'
+  },
+  focused: {
+    content: `<div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem">Focused Inbox — how it works</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.75rem">
+        <div style="background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.25);border-radius:8px;padding:.75rem"><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:#60A5FA;margin-bottom:.4rem">Focused tab</div><div style="font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5">Emails Outlook judges as important: direct messages, action items, known contacts</div></div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.75rem"><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:.4rem">Other tab</div><div style="font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.5">Newsletters, notifications, low-priority mail — still accessible, not deleted</div></div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem .85rem"><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:.3rem">To enable: View → Focused Inbox</div><div style="font-size:.72rem;color:rgba(255,255,255,.4)">Train it by right-clicking any email → Move to Focused / Move to Other. Outlook learns your preferences over time.</div></div>
+    </div>`,
+    exp_t: 'Focused Inbox — automatic prioritisation',
+    exp_b: 'Focused Inbox splits your email into two tabs: Focused (important) and Other (newsletters, notifications). Enable it under View → Focused Inbox. Right-click any email to move it and train the filter — Outlook learns your preferences over time.'
+  },
+  rules: {
+    content: `<div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem">Create a Rule — example</div>
+      <div style="display:flex;flex-direction:column;gap:.4rem">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:.6rem .85rem"><div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:.2rem">CONDITION — when email arrives from:</div><div style="font-size:.75rem;color:#fff">newsletter@examboard.co.uk</div></div>
+        <div style="color:rgba(255,255,255,.2);text-align:center;font-size:.75rem">▼</div>
+        <div style="background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.2);border-radius:8px;padding:.6rem .85rem"><div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:#60A5FA;margin-bottom:.2rem">ACTION — then:</div><div style="font-size:.75rem;color:rgba(255,255,255,.8)">Move to folder: Exam Board Updates</div></div>
+        <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.6rem .85rem"><div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:.2rem">Also:</div><div style="font-size:.75rem;color:rgba(255,255,255,.7)">Mark as read · Stop processing more rules</div></div>
+        <div style="background:rgba(255,255,255,.04);border-radius:6px;padding:.5rem .75rem"><div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:.1rem">To create: Home → Rules → Create Rule</div></div>
+      </div>
+    </div>`,
+    exp_t: 'Rules — automate your inbox',
+    exp_b: 'Rules automatically file, flag, or forward emails matching your conditions. Example: all emails from a parent portal auto-file to a "Parents" folder and are marked read. Set up rules via Home → Rules → Create Rule. Saves significant time managing high-volume inboxes.'
+  },
+  delay: {
+    content: `<div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem">Schedule a message — example</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden">
+        <div style="background:rgba(255,255,255,.04);padding:.5rem .85rem;border-bottom:1px solid rgba(255,255,255,.07);display:flex;gap:.75rem">
+          <span style="font-size:.72rem;color:rgba(255,255,255,.5)">To:</span><span style="font-size:.72rem;color:#fff">parent-list@gsal.org.uk</span>
+        </div>
+        <div style="padding:.5rem .85rem;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-size:.72rem;color:rgba(255,255,255,.5)">Subject: </span><span style="font-size:.72rem;color:#fff">Year 10 Parents Evening — Thursday Reminder</span></div>
+        <div style="padding:.65rem .85rem;font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5">Dear Parents and Carers,<br><br>This is a reminder that Year 10 Parents Evening takes place this Thursday...</div>
+      </div>
+      <div style="margin-top:.6rem;background:rgba(0,120,212,.1);border:1px solid rgba(0,120,212,.25);border-radius:8px;padding:.65rem .85rem;display:flex;gap:.5rem;align-items:center">
+        <span style="font-size:.9rem">⏱️</span>
+        <div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:#60A5FA">Scheduled: Wednesday 7:00 AM</div><div style="font-size:.7rem;color:rgba(255,255,255,.45);margin-top:.1rem">Options → Delay Delivery → Do not deliver before</div></div>
+      </div>
+    </div>`,
+    exp_t: 'Delay Delivery — send at the right time',
+    exp_b: 'Draft your email at any time, then schedule it to send at a specific date and time using Options → Delay Delivery. Useful for sending parent communications at appropriate times, not late at night. The email sits in your Outbox until the scheduled time — Outlook must remain open (or use OWA).'
+  },
+  bcc: {
+    content: `<div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem">BCC vs CC — why it matters</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.65rem">
+        <div style="background:rgba(225,29,72,.1);border:1px solid rgba(225,29,72,.3);border-left:3px solid var(--rose);border-radius:8px;padding:.75rem"><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:#FDA4AF;margin-bottom:.3rem">CC — avoid for groups</div><div style="font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5">Every recipient can see every other recipient's email address. This is a UK GDPR breach if recipients don't know each other.</div></div>
+        <div style="background:rgba(13,148,136,.1);border:1px solid rgba(13,148,136,.3);border-left:3px solid var(--teal);border-radius:8px;padding:.75rem"><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;color:#5EEAD4;margin-bottom:.3rem">BCC — use for groups</div><div style="font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5">Recipients cannot see each other's addresses. Each person sees only their own address. Always use BCC for parent group emails.</div></div>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.6rem .85rem"><div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:rgba(255,255,255,.4);margin-bottom:.2rem">To show BCC field in Outlook</div><div style="font-size:.72rem;color:rgba(255,255,255,.6)">New Email → Options → BCC (or View → BCC in older versions)</div></div>
+    </div>`,
+    exp_t: 'BCC — essential for parent group emails',
+    exp_b: 'Using CC instead of BCC when emailing a group of parents exposes every parent\u2019s email address to every other recipient — this is a UK GDPR breach and one of the most commonly reported data incidents in schools. Always BCC for any group email where recipients do not know each other.'
+  },
+  recall: {
+    content: `<div><div style="font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.6rem">Recall a message — step by step</div>
+      <div style="display:flex;flex-direction:column;gap:.4rem">
+        <div style="display:flex;gap:.6rem;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;background:#0078D4;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.65rem;font-weight:800;color:#fff;flex-shrink:0">1</div><div style="font-size:.75rem;color:rgba(255,255,255,.7);padding-top:.1rem">Go to <strong style="color:#fff">Sent Items</strong> and open the email you want to recall</div></div>
+        <div style="display:flex;gap:.6rem;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;background:#0078D4;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.65rem;font-weight:800;color:#fff;flex-shrink:0">2</div><div style="font-size:.75rem;color:rgba(255,255,255,.7);padding-top:.1rem">Click <strong style="color:#fff">Message → Actions → Recall This Message</strong></div></div>
+        <div style="display:flex;gap:.6rem;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;background:#0078D4;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.65rem;font-weight:800;color:#fff;flex-shrink:0">3</div><div style="font-size:.75rem;color:rgba(255,255,255,.7);padding-top:.1rem">Choose: <strong style="color:#fff">Delete unread copies</strong> or <strong style="color:#fff">Replace with a new message</strong></div></div>
+        <div style="background:rgba(217,119,6,.1);border:1px solid rgba(217,119,6,.3);border-left:3px solid var(--amber);border-radius:8px;padding:.65rem .85rem;margin-top:.2rem">
+          <div style="font-family:var(--fh);font-size:.63rem;font-weight:700;color:#FCD34D;margin-bottom:.25rem">Important limitations</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5">Recall only works if the recipient <strong style="color:rgba(255,255,255,.8)">has not yet opened</strong> the email, and only within the same Microsoft 365 organisation. External recipients (Gmail, personal email) cannot be recalled. You receive a notification confirming whether recall succeeded per recipient.</div>
+        </div>
+      </div>
+    </div>`,
+    exp_t: 'Recall — retrieving a sent email',
+    exp_b: 'Recall works only if the recipient hasn\u2019t opened the email yet, and only within the same Microsoft 365 organisation. For external recipients, recall will not work. As soon as you realise a mistake, act quickly — go to Sent Items, open the email, and use Message → Actions → Recall This Message.'
+  }
+};
+function oSim(section) {
+  document.querySelectorAll('.ofolder').forEach(f => {
+    f.style.background = 'transparent';
+    f.style.borderLeft = '3px solid transparent';
+    const span = f.querySelector('span:last-child');
+    if (span) span.style.color = 'rgba(255,255,255,.55)';
+  });
+  const folder = document.getElementById('of-' + section);
+  if (folder) {
+    folder.style.background = 'rgba(0,120,212,.15)';
+    folder.style.borderLeft = '3px solid #0078D4';
+    const span = folder.querySelector('span:last-child');
+    if (span) span.style.color = '#fff';
+  }
+  const d = oSimData[section];
+  if (!d) return;
+  document.getElementById('osim-main').innerHTML = d.content;
+  document.getElementById('osim-exp-t').textContent = d.exp_t;
+  document.getElementById('osim-exp-b').textContent = d.exp_b;
+}
+// Init simulators on load
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('tsim-sidebar')) tSim('chat');
+  if (document.getElementById('osim-main')) oSim('inbox');
+});
+
 // ── EXCEL SIMULATOR ──
 const xlData=[
   {name:"Amara Osei",year:"Yr10",t1:72,t2:68},
@@ -852,62 +1165,6 @@ function resetCoach(){
 // init on load
 document.addEventListener('DOMContentLoaded',buildXL);
 </script>
-
-
-<!-- SHORTCUTS CHEAT SHEET -->
-<div class="cheat-strip" style="--cheat-color:#5B5EA6;margin-top:1.25rem">
-  <div class="cheat-header">
-    <div class="cheat-title">Keyboard Shortcut Cheat Sheet</div>
-    <button class="cheat-copy-btn" onclick="copyCheat(this,'cs-shortcuts')">&#9889; Copy Cheat Sheet</button>
-  </div>
-  <div class="cheat-body">
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + Z / Y</strong> — Undo / Redo</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + C / X / V</strong> — Copy / Cut / Paste</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + F / H</strong> — Find / Find & Replace</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + B / I / U</strong> — Bold / Italic / Underline</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + K</strong> — Insert hyperlink</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Ctrl + P</strong> — Print</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Ctrl + T</strong> — Format as Table (Excel)</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Alt + =</strong> — AutoSum selected range (Excel)</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">X</div><div class="cheat-item-text"><strong>Ctrl + E</strong> — Flash Fill (Excel)</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">P</div><div class="cheat-item-text"><strong>F5</strong> — Start slideshow from beginning (PowerPoint)</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">P</div><div class="cheat-item-text"><strong>Alt + F5</strong> — Presenter View (PowerPoint)</div></div>
-    <div class="cheat-item"><div class="cheat-bullet">W</div><div class="cheat-item-text"><strong>Win + Shift + S</strong> — Snip & screenshot (Windows)</div></div>
-  </div>
-  <textarea id="cs-shortcuts" style="position:absolute;opacity:0;pointer-events:none;height:1px">KEYBOARD SHORTCUT CHEAT SHEET — Microsoft 365 & Windows
-=========================================================
-UNIVERSAL (Word, Excel, PowerPoint, Outlook)
-Ctrl + Z / Y        Undo / Redo
-Ctrl + C / X / V    Copy / Cut / Paste
-Ctrl + F / H        Find / Find & Replace
-Ctrl + B / I / U    Bold / Italic / Underline
-Ctrl + K            Insert hyperlink
-Ctrl + P            Print
-Ctrl + S            Save
-Ctrl + A            Select all
-Ctrl + Home / End   Go to start / end of document
-
-EXCEL
-Ctrl + T            Format as Table
-Alt + =             AutoSum selected range
-Ctrl + E            Flash Fill
-Ctrl + Shift + L    Toggle filters on/off
-F2                  Edit active cell
-
-POWERPOINT
-F5                  Start slideshow from beginning
-Shift + F5          Start from current slide
-Alt + F5            Presenter View (one screen)
-B                   Black screen during presentation
-W                   White screen during presentation
-
-WINDOWS
-Win + D             Show desktop
-Win + L             Lock screen
-Win + Shift + S     Snip screenshot
-Alt + Tab           Switch between windows
-</textarea>
-</div>
 
 
 <button class="print-card-btn" onclick="openPrintModal('pm-microsoft')">
